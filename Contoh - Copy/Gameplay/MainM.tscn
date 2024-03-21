@@ -1,0 +1,148 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Press_Start_2P/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/UI/MainM.gd" type="Script" id=2]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/stage 1 sketsa.png-9114d1000828e8368a3efd7e3f1d364c.stex"
+
+[node name="MainM" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -988.0
+margin_top = -564.0
+margin_right = 931.0
+margin_bottom = 508.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -164.5
+margin_top = -50.5
+margin_right = 164.5
+margin_bottom = 50.5
+rect_pivot_offset = Vector2( -1186, -400.5 )
+
+[node name="PlayB" type="Button" parent="NinePatchRect/VBoxContainer"]
+margin_right = 329.0
+margin_bottom = 101.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -89.5
+margin_top = -21.0
+margin_right = 90.5
+margin_bottom = 24.0
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "PLAY"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -162.5
+margin_top = 85.0
+margin_right = 166.5
+margin_bottom = 186.0
+rect_pivot_offset = Vector2( -1186, -400.5 )
+
+[node name="OptionB" type="Button" parent="NinePatchRect/VBoxContainer2"]
+margin_right = 329.0
+margin_bottom = 101.0
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer2/OptionB"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -130.5
+margin_top = -21.5
+margin_right = 139.5
+margin_bottom = 23.5
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "OPTION"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -162.5
+margin_top = 212.0
+margin_right = 166.5
+margin_bottom = 313.0
+rect_pivot_offset = Vector2( -1186, -400.5 )
+
+[node name="ExitB" type="Button" parent="NinePatchRect/VBoxContainer3"]
+margin_right = 329.0
+margin_bottom = 101.0
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -84.5
+margin_top = 241.0
+margin_right = 95.5
+margin_bottom = 286.0
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "EXIT"
+
+[node name="Label4" type="Label" parent="NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -469.5
+margin_top = -213.0
+margin_right = 530.5
+margin_bottom = -113.0
+theme = SubResource( 1 )
+custom_colors/font_color = Color( 0.960784, 0.435294, 0.85098, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "SUGAR RUSH"
+
+[node name="moonground" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 962.25, 543.75 )
+scale = Vector2( 5.98594, 4.1582 )
+texture = SubResource( 4 )
+
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/PlayB" to="." method="_on_PlayB_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/PlayB" to="." method="_on_PlayB_pressed2"]
+[connection signal="toggled" from="NinePatchRect/VBoxContainer/PlayB" to="." method="_on_PlayB_toggled"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer3/ExitB" to="." method="_on_ExitB_pressed"]

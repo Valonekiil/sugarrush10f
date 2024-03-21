@@ -21,7 +21,6 @@ func _on_Play_Button_pressed():
 	
 	startGame()
 
-
 func startGame():
 	
 	spawnPlayer(false)
