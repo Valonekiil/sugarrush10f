@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Actor/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Asset/1-1 Downtown.png" type="Texture" id=2]
@@ -8,20 +8,17 @@
 [ext_resource path="res://Asset/1-2-akupengenturu.png" type="Texture" id=6]
 [ext_resource path="res://Asset/1-1 Downnton Sze.png" type="Texture" id=7]
 
-[sub_resource type="StreamTexture" id=3]
-load_path = "res://.import/1-2-akupengenturu.png-78cd76917739b1316d198851956020af.stex"
-
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 320, 60.25, 0, 60.25, 0, 0.25, 320, 0.25 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 320, 64, 1.25, 64, 1.25, 3.25, 320, 3.25 )
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 1278.25, 0, 1280, 241.125, 914.374, 243.875, 908.374, 234.875, 908.374, 55.875, 872.374, 89.875, 835.374, 72.875, 800.374, 116.875, 779.374, 104.875, 650.25, 98.25, 578.25, 87.25, 579.25, 87.25, 548.25, 94.25, 529.25, 81.25, 539.25, 68.25, 503.25, 54.25, 490.25, 72.25, 436.25, 79.25, 387.25, 129.25, 371.25, 123.25, 373.25, 234.25, 368.25, 242.25, 0, 241.25, 0, 0, 0, 0 )
+[sub_resource type="ConcavePolygonShape2D" id=12]
+segments = PoolVector2Array( 0, 1021.4, 0.440002, 1019.96, 0.440002, 1019.96, 0, 779.48, 0, 779.48, 361.88, 779.48, 361.88, 779.48, 372.25, 783.75, 372.25, 783.75, 372.25, 841.75, 372.25, 841.75, 481.25, 834.75, 481.25, 834.75, 527.992, 825, 527.992, 825, 564.992, 818, 564.992, 818, 597.992, 814, 597.992, 814, 691.992, 815, 691.992, 815, 728.992, 819, 728.992, 819, 766.992, 826, 766.992, 826, 787.992, 819, 787.992, 819, 820.992, 844, 820.992, 844, 843.992, 825, 843.992, 825, 865.992, 815, 865.992, 815, 902.992, 831, 902.992, 831, 902.992, 788, 902.992, 788, 917.992, 775, 917.992, 775, 1150.25, 779, 1150.25, 779, 1129.25, 734, 1129.25, 734, 1130.25, 696, 1130.25, 696, 1175.25, 670, 1175.25, 670, 1215.25, 660, 1215.25, 660, 1249.25, 681, 1249.25, 681, 1238.25, 729, 1238.25, 729, 1248.25, 732, 1248.25, 732, 1237.25, 794, 1237.25, 794, 1280, 780, 1280, 780, 1280, 1024, 1280, 1024, 0, 1021.4 )
 
-[sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( 0, 1021.4, 0.440002, 1019.96, 0, 779.48, 361.88, 779.48, 372.25, 783.75, 372.25, 841.75, 481.25, 834.75, 527.992, 825, 564.992, 818, 597.992, 814, 691.992, 815, 728.992, 819, 766.992, 826, 787.992, 819, 820.992, 844, 843.992, 825, 865.992, 815, 902.992, 831, 902.992, 788, 917.992, 775, 1150.25, 779, 1129.25, 734, 1130.25, 696, 1175.25, 670, 1215.25, 660, 1249.25, 681, 1238.25, 729, 1248.25, 732, 1237.25, 794, 1280, 780, 1280, 1024 )
+[sub_resource type="ConcavePolygonShape2D" id=13]
+segments = PoolVector2Array( 1280, 0, 1279.95, 243.809, 1279.95, 243.809, 903.711, 237.837, 903.711, 237.837, 903.711, 94.5094, 903.711, 94.5094, 882.809, 91.5234, 882.809, 91.5234, 841.005, 67.6356, 841.005, 67.6356, 817.118, 112.425, 817.118, 112.425, 790.244, 118.397, 790.244, 118.397, 739.482, 94.5094, 739.482, 94.5094, 545.393, 100.481, 545.393, 100.481, 512.547, 82.5654, 512.547, 82.5654, 452.828, 82.5654, 452.828, 82.5654, 422.968, 130.341, 422.968, 130.341, 393.108, 127.355, 393.108, 127.355, 372.206, 124.369, 372.206, 124.369, 366.234, 243.809, 366.234, 243.809, 1.94397, 237.837, 1.94397, 237.837, 0, 0, 0, 0, 1280, 0 )
 
 [sub_resource type="ConcavePolygonShape2D" id=9]
 segments = PoolVector2Array( 1280, 1024, 1.64526, 1024, 1.64526, 1024, 1.64526, 779.196, 1.64526, 779.196, 1280, 779.196, 1280, 779.196, 1280, 1024 )
@@ -29,8 +26,8 @@ segments = PoolVector2Array( 1280, 1024, 1.64526, 1024, 1.64526, 1024, 1.64526, 
 [sub_resource type="ConcavePolygonShape2D" id=10]
 segments = PoolVector2Array( 1.64526, 234.552, 44.6434, 234.552, 44.6434, 234.552, 44.6434, 786.362, 44.6434, 786.362, 1.64526, 786.362, 1.64526, 786.362, 1.64526, 234.552 )
 
-[sub_resource type="ConvexPolygonShape2D" id=11]
-points = PoolVector2Array( 1280, 238.135, 0, 238.135, 0, 0, 1280, 0 )
+[sub_resource type="ConcavePolygonShape2D" id=14]
+segments = PoolVector2Array( 1280, 238.135, 0, 238.135, 0, 238.135, 0, 0, 0, 0, 1280, 0, 1280, 0, 1280, 238.135 )
 
 [sub_resource type="TileSet" id=6]
 1/name = "1-1 Downtown.png 1"
@@ -99,20 +96,20 @@ points = PoolVector2Array( 1280, 238.135, 0, 238.135, 0, 0, 1280, 0 )
 4/navigation_offset = Vector2( 0, 0 )
 4/shape_offset = Vector2( 0, 0 )
 4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape = SubResource( 7 )
+4/shape = SubResource( 12 )
 4/shape_one_way = false
 4/shape_one_way_margin = 1.0
 4/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 12 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 8 ),
+"shape": SubResource( 13 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 4/z_index = 0
@@ -145,7 +142,7 @@ points = PoolVector2Array( 1280, 238.135, 0, 238.135, 0, 0, 1280, 0 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 11 ),
+"shape": SubResource( 14 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
@@ -154,24 +151,11 @@ points = PoolVector2Array( 1280, 238.135, 0, 238.135, 0, 0, 1280, 0 )
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 312, 243 )
+speed = 200
 
-[node name="Enemy R" parent="." instance=ExtResource( 5 )]
-position = Vector2( 447, 198 )
-
-[node name="Envi" type="Sprite" parent="."]
-visible = false
-show_behind_parent = true
-light_mask = 0
-position = Vector2( 1535, 301 )
-scale = Vector2( 0.797656, 0.586914 )
-texture = SubResource( 3 )
-
-[node name="Envi 2" type="Sprite" parent="."]
-visible = false
-show_behind_parent = true
-position = Vector2( 514, 300 )
-scale = Vector2( 3.19753, 2.34206 )
-texture = ExtResource( 2 )
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1397, 234 )
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 3 )

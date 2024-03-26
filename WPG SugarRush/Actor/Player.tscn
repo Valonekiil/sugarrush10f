@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Script/Player.gd" type="Script" id=1]
+[ext_resource path="res://Actor/Player.gd" type="Script" id=1]
 [ext_resource path="res://Actor/Health.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=4]
 
@@ -33,3 +33,10 @@ position = Vector2( 68, 46 )
 
 [node name="GunDirection" type="Position2D" parent="."]
 position = Vector2( 76, 46 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 32, 49 )
+current = true
+zoom = Vector2( 0.8, 1 )
+smoothing_enabled = true
+smoothing_speed = 8.0

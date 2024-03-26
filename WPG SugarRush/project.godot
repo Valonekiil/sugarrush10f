@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Script/Player.gd"
+"path": "res://Actor/Player.gd"
 } ]
 _global_script_class_icons={
 "AI": "",
