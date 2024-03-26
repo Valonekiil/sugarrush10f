@@ -10,7 +10,7 @@ onready var end_of_gun = $EndOfGun
 onready var gun_direction = $GunDirection
 onready var health_stat = $Health
 
-func _physics_process(delta: float):
+func _process(delta: float):
 	var movement_direction := Vector2.ZERO
 
 	if Input.is_action_pressed("up"):

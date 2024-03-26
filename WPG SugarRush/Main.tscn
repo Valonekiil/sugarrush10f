@@ -151,11 +151,17 @@ segments = PoolVector2Array( 1280, 238.135, 0, 238.135, 0, 238.135, 0, 0, 0, 0, 
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 312, 243 )
+position = Vector2( 295, 243 )
 speed = 200
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1397, 234 )
+position = Vector2( 1582, 190 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2078, 191 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1842, 508 )
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -165,3 +171,20 @@ show_behind_parent = true
 tile_set = SubResource( 6 )
 format = 1
 tile_data = PoolIntArray( -65537, 5, 0, -131053, 4, 0 )
+
+[node name="PatrolPoint" type="YSort" parent="."]
+
+[node name="patrol_points" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
+position = Vector2( 1233, 614 )
+
+[node name="patrol_points2" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
+position = Vector2( 1269, 142 )
+
+[node name="patrol_points3" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
+position = Vector2( 1866, 144 )
+
+[node name="patrol_points4" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
+position = Vector2( 1877, 641 )
+
+[node name="patrol_points5" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
+position = Vector2( 2180, 383 )

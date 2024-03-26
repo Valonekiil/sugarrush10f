@@ -37,6 +37,5 @@ position = Vector2( 76, 46 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 32, 49 )
 current = true
-zoom = Vector2( 0.8, 1 )
 smoothing_enabled = true
 smoothing_speed = 8.0
