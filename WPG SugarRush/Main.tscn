@@ -1,0 +1,187 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Actor/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Asset/1-1 Downtown.png" type="Texture" id=2]
+[ext_resource path="res://Script/BulletManager.gd" type="Script" id=3]
+[ext_resource path="res://Script/Main.gd" type="Script" id=4]
+[ext_resource path="res://Actor/EnemyJelly.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Asset/1-2-akupengenturu.png" type="Texture" id=6]
+[ext_resource path="res://Asset/1-1 Downnton Sze.png" type="Texture" id=7]
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 320, 60.25, 0, 60.25, 0, 0.25, 320, 0.25 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 320, 64, 1.25, 64, 1.25, 3.25, 320, 3.25 )
+
+[sub_resource type="ConcavePolygonShape2D" id=12]
+segments = PoolVector2Array( 0, 1021.4, 0.440002, 1019.96, 0.440002, 1019.96, 0, 779.48, 0, 779.48, 361.88, 779.48, 361.88, 779.48, 372.25, 783.75, 372.25, 783.75, 372.25, 841.75, 372.25, 841.75, 481.25, 834.75, 481.25, 834.75, 527.992, 825, 527.992, 825, 564.992, 818, 564.992, 818, 597.992, 814, 597.992, 814, 691.992, 815, 691.992, 815, 728.992, 819, 728.992, 819, 766.992, 826, 766.992, 826, 787.992, 819, 787.992, 819, 820.992, 844, 820.992, 844, 843.992, 825, 843.992, 825, 865.992, 815, 865.992, 815, 902.992, 831, 902.992, 831, 902.992, 788, 902.992, 788, 917.992, 775, 917.992, 775, 1150.25, 779, 1150.25, 779, 1129.25, 734, 1129.25, 734, 1130.25, 696, 1130.25, 696, 1175.25, 670, 1175.25, 670, 1215.25, 660, 1215.25, 660, 1249.25, 681, 1249.25, 681, 1238.25, 729, 1238.25, 729, 1248.25, 732, 1248.25, 732, 1237.25, 794, 1237.25, 794, 1280, 780, 1280, 780, 1280, 1024, 1280, 1024, 0, 1021.4 )
+
+[sub_resource type="ConcavePolygonShape2D" id=13]
+segments = PoolVector2Array( 1280, 0, 1279.95, 243.809, 1279.95, 243.809, 903.711, 237.837, 903.711, 237.837, 903.711, 94.5094, 903.711, 94.5094, 882.809, 91.5234, 882.809, 91.5234, 841.005, 67.6356, 841.005, 67.6356, 817.118, 112.425, 817.118, 112.425, 790.244, 118.397, 790.244, 118.397, 739.482, 94.5094, 739.482, 94.5094, 545.393, 100.481, 545.393, 100.481, 512.547, 82.5654, 512.547, 82.5654, 452.828, 82.5654, 452.828, 82.5654, 422.968, 130.341, 422.968, 130.341, 393.108, 127.355, 393.108, 127.355, 372.206, 124.369, 372.206, 124.369, 366.234, 243.809, 366.234, 243.809, 1.94397, 237.837, 1.94397, 237.837, 0, 0, 0, 0, 1280, 0 )
+
+[sub_resource type="ConcavePolygonShape2D" id=9]
+segments = PoolVector2Array( 1280, 1024, 1.64526, 1024, 1.64526, 1024, 1.64526, 779.196, 1.64526, 779.196, 1280, 779.196, 1280, 779.196, 1280, 1024 )
+
+[sub_resource type="ConcavePolygonShape2D" id=10]
+segments = PoolVector2Array( 1.64526, 234.552, 44.6434, 234.552, 44.6434, 234.552, 44.6434, 786.362, 44.6434, 786.362, 1.64526, 786.362, 1.64526, 786.362, 1.64526, 234.552 )
+
+[sub_resource type="ConcavePolygonShape2D" id=14]
+segments = PoolVector2Array( 1280, 238.135, 0, 238.135, 0, 238.135, 0, 0, 0, 0, 1280, 0, 1280, 0, 1280, 238.135 )
+
+[sub_resource type="TileSet" id=6]
+1/name = "1-1 Downtown.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 64, 320, 128 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "1-1 Downtown.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 320, 64 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 4 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "1-1 Downtown.png 3"
+3/texture = ExtResource( 2 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 192, 320, 64 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 5 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "1-2-akupengenturu.png 4"
+4/texture = ExtResource( 6 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 1280, 1024 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape = SubResource( 12 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+4/z_index = 0
+5/name = "1-1 Downnton Sze.png 5"
+5/texture = ExtResource( 7 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 1280, 1024 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape = SubResource( 9 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+5/z_index = 0
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 295, 243 )
+speed = 200
+
+[node name="BulletManager" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+show_behind_parent = true
+tile_set = SubResource( 6 )
+format = 1
+tile_data = PoolIntArray( -65537, 5, 0, -131053, 4, 0 )
+
+[node name="EnemyJelly" parent="." instance=ExtResource( 5 )]
+position = Vector2( 602, 273 )
+
+[node name="PatrolPoint" type="YSort" parent="."]
+position = Vector2( -2, 4 )
+
+[node name="patrol_points" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
+position = Vector2( 1233, 614 )
+
+[node name="patrol_points2" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
+position = Vector2( 1269, 142 )
+
+[node name="patrol_points3" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
+position = Vector2( 1866, 144 )
+
+[node name="patrol_points4" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
+position = Vector2( 1877, 641 )
+
+[node name="patrol_points5" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
+position = Vector2( 2180, 383 )
+
+[connection signal="player_fired_bullet" from="Player" to="BulletManager" method="_on_Player_player_fired_bullet"]

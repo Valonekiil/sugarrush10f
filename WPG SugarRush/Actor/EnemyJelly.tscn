@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Actor/Health.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Actor/EnemyJelly.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/Range Jelly.png-b2b1e079eeba11192f358e3168023387.stex"
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 473.77
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1.78396, 20.5205 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 1.27806, 19.3134 )
+
+[node name="EnemyJelly" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+texture = SubResource( 1 )
+
+[node name="DetectionZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
+shape = SubResource( 2 )
+
+[node name="HitBox" type="Area2D" parent="."]
+rotation = -3.14159
+scale = Vector2( 18.7784, 1.65688 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( -0.07988, -3.62125 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.81899e-12, 8 )
+rotation = -3.14159
+scale = Vector2( 18.7784, 1.65688 )
+shape = SubResource( 4 )
+
+[node name="EndOfGun" type="Position2D" parent="."]
+position = Vector2( 1, -42 )
+
+[node name="GunDirection" type="Position2D" parent="."]
+position = Vector2( 1, -53 )
+
+[node name="Health" parent="." instance=ExtResource( 1 )]
+position = Vector2( 58, 28 )
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_DetectionZone_body_entered"]
+[connection signal="body_exited" from="DetectionZone" to="." method="_on_DetectionZone_body_exited"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]

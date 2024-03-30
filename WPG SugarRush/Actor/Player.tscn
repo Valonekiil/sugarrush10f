@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Actor/Player.gd" type="Script" id=1]
+[ext_resource path="res://Actor/Health.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Bullet.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/Josh Putih.png-bb53e5d7a57a5ee6b1ac51e37a70ed4f.stex"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1.27806, 24.1417 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 132, 194 )
+script = ExtResource( 1 )
+Bullet = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 36, 46 )
+scale = Vector2( 3, 3 )
+texture = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 36, 46 )
+rotation = -3.14159
+scale = Vector2( 18.7784, 1.65688 )
+shape = SubResource( 1 )
+
+[node name="Health" parent="." groups=["Player"] instance=ExtResource( 2 )]
+
+[node name="EndOfGun" type="Position2D" parent="."]
+position = Vector2( 68, 46 )
+
+[node name="GunDirection" type="Position2D" parent="."]
+position = Vector2( 76, 46 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 32, 49 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 8.0
