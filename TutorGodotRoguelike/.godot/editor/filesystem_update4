@@ -1,0 +1,15 @@
+res://default_env.tres
+res://Game.tscn
+res://Rooms/TileSet.tres
+res://Characters/Enemies/Enemy.tscn
+res://Characters/Enemies/Goblin/Goblin.tscn
+res://Rooms/Room.tscn
+res://Characters/Player/Player.tscn
+res://Weapons/Weapon.tscn
+res://Characters/Enemies/Goblin/ThrowableKnife.tscn
+res://Weapons/Sword.tscn
+res://Weapons/Crossbow.tscn
+res://Weapons/BattleAxe.tscn
+res://Weapons/WarHammer.tscn
+res://Rooms/Room0.tscn
+res://Rooms/Room1.tscn
