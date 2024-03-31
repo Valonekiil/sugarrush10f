@@ -10,3 +10,4 @@ func _ready():
 	player.connect("player_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	
 	enemy.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
+	

@@ -1,12 +1,16 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Actor/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Asset/1-1 Downtown.png" type="Texture" id=2]
 [ext_resource path="res://Script/BulletManager.gd" type="Script" id=3]
 [ext_resource path="res://Script/Main.gd" type="Script" id=4]
 [ext_resource path="res://Actor/EnemyJelly.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Asset/1-2-akupengenturu.png" type="Texture" id=6]
-[ext_resource path="res://Asset/1-1 Downnton Sze.png" type="Texture" id=7]
+[ext_resource path="res://Asset/Envi/1-2-akupengenturu.png" type="Texture" id=6]
+[ext_resource path="res://Asset/Envi/1-1 Downnton Sze.png" type="Texture" id=7]
+[ext_resource path="res://Actor/Enemy R.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/Hengpon.gd" type="Script" id=10]
+[ext_resource path="res://UI/HPx4.png" type="Texture" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 320, 60.25, 0, 60.25, 0, 0.25, 320, 0.25 )
@@ -164,7 +168,7 @@ format = 1
 tile_data = PoolIntArray( -65537, 5, 0, -131053, 4, 0 )
 
 [node name="EnemyJelly" parent="." instance=ExtResource( 5 )]
-position = Vector2( 602, 273 )
+position = Vector2( 1180, 231 )
 
 [node name="PatrolPoint" type="YSort" parent="."]
 position = Vector2( -2, 4 )
@@ -183,5 +187,30 @@ position = Vector2( 1877, 641 )
 
 [node name="patrol_points5" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
 position = Vector2( 2180, 383 )
+
+[node name="Enemy R" parent="." instance=ExtResource( 8 )]
+position = Vector2( 958, 511 )
+
+[node name="UI" parent="." instance=ExtResource( 9 )]
+pause_mode = 2
+
+[node name="Hengpon" type="Control" parent="UI"]
+visible = false
+margin_right = 129.0
+margin_bottom = 168.0
+script = ExtResource( 10 )
+
+[node name="Klitih" type="TextureRect" parent="UI/Hengpon"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -63.0
+margin_top = -108.0
+margin_right = 63.0
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 2
 
 [connection signal="player_fired_bullet" from="Player" to="BulletManager" method="_on_Player_player_fired_bullet"]

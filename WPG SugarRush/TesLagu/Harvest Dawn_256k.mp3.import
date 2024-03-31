@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Harvest Dawn_256k.mp3-89e8783e268536bec3a6fa10ee5b92b7.mp3str"
+
+[deps]
+
+source_file="res://TesLagu/Harvest Dawn_256k.mp3"
+dest_files=[ "res://.import/Harvest Dawn_256k.mp3-89e8783e268536bec3a6fa10ee5b92b7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

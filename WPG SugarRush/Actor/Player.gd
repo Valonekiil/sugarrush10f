@@ -2,6 +2,8 @@ extends KinematicBody2D
 class_name Player
 
 signal player_fired_bullet(bullet, position, direction)
+signal life_changed(Player_HP)
+signal dead
 
 export (PackedScene) var Bullet
 export (int) var speed = 150
@@ -9,6 +11,13 @@ export (int) var speed = 150
 onready var end_of_gun = $EndOfGun
 onready var gun_direction = $GunDirection
 onready var health_stat = $Health
+
+var max_hp: int = 3
+var hp: int = max_hp
+func _ready()-> void:
+	connect("life_changed",get_parent().get_node("UI/Life"),"on_player_life_changed")
+	emit_signal("life_changed",max_hp)
+	connect("dead",get_parent().get_node("UI/Life"),"_on_Player_Dead")
 
 func _process(delta: float):
 	var movement_direction := Vector2.ZERO
@@ -39,6 +48,11 @@ func shoot():
 	
 	
 func handle_hit():
-	health_stat.health -= 20
-	print("player hit, health: ", health_stat.health)
-	
+	#health_stat.health -= 20
+	#print("player hit, health: ", health_stat.health)
+	hp -= 1
+	emit_signal("life_changed",hp)
+	if hp <= 0:
+		self.hide()
+		speed = 0 
+		emit_signal("dead")
