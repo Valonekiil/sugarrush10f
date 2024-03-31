@@ -1,5 +1,9 @@
 extends KinematicBody2D
 
+signal enemy_fired_bullet(bullet, position, direction)
+
+onready var end_of_gun = $EndOfGun
+onready var gun_direction = $GunDirection
 onready var health_stat = $Health
 onready var hit_box = $HitBox
 onready var collision_shape = $CollisionShape2D
@@ -12,7 +16,7 @@ var patrol_points = []
 var current_point_index = -1
 var avoid_timer = 0.0
 var avoid_direction = Vector2.ZERO
-var fire_rate = 1.0  # Tingkat tembakan dalam detik
+var fire_rate = 0.5 # Tingkat tembakan dalam detik
 var can_fire = true
 
 
@@ -39,12 +43,9 @@ func handle_hit():
 
 func handle_shooting(delta):
 	if can_fire:
-		var bullet = bullet_scene.instance()
-		bullet.global_position = global_position
-		bullet.set_direction(player.global_position - global_position)
-		var root = get_tree().root
-		root.add_child(bullet)
-		print("Added bullet to the scene")
+		var bullet_instance = bullet_scene.instance()
+		var direction = (player.global_position - end_of_gun.global_position).normalized()
+		emit_signal("enemy_fired_bullet", bullet_instance, end_of_gun.global_position, direction)
 		can_fire = false
 		yield(get_tree().create_timer(1.0 / fire_rate), "timeout")
 		can_fire = true

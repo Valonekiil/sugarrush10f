@@ -255,7 +255,6 @@ custom_fonts/font = ExtResource( 7 )
 text = "Enviroment Artist"
 
 [node name="OptionM" parent="." instance=ExtResource( 5 )]
-visible = false
 margin_left = -399.0
 margin_top = -98.0
 margin_right = 401.0

@@ -7,13 +7,13 @@
 load_path = "res://.import/Range Jelly.png-b2b1e079eeba11192f358e3168023387.stex"
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 473.77
+radius = 371.436
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 1.78396, 20.5205 )
+extents = Vector2( 2.10348, 23.5382 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 1.27806, 19.3134 )
+extents = Vector2( 1.27806, 23.2364 )
 
 [node name="EnemyJelly" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -28,24 +28,27 @@ texture = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 rotation = -3.14159
 scale = Vector2( 18.7784, 1.65688 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2( -0.07988, -3.62125 )
+position = Vector2( -0.0798792, -0.603536 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.81899e-12, 8 )
+visible = false
+position = Vector2( 1.64787e-05, 1.49999 )
 rotation = -3.14159
 scale = Vector2( 18.7784, 1.65688 )
 shape = SubResource( 4 )
 
 [node name="EndOfGun" type="Position2D" parent="."]
-position = Vector2( 1, -42 )
+position = Vector2( 7, -9 )
 
 [node name="GunDirection" type="Position2D" parent="."]
-position = Vector2( 1, -53 )
+position = Vector2( 7, -4 )
 
 [node name="Health" parent="." instance=ExtResource( 1 )]
 position = Vector2( 58, 28 )
