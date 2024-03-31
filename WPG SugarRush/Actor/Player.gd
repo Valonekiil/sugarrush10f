@@ -7,10 +7,14 @@ signal dead
 
 export (PackedScene) var Bullet
 export (int) var speed = 150
+export (float) var shoot_cooldown = 0.5
 
 onready var end_of_gun = $EndOfGun
 onready var gun_direction = $GunDirection
 onready var health_stat = $Health
+onready var shoot_timer = $ShootCD
+
+var can_shoot = true
 
 var max_hp: int = 3
 var hp: int = max_hp
@@ -36,16 +40,19 @@ func _process(delta: float):
 
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_released("shoot"):
+	if event.is_action_released("shoot") and can_shoot:
 		shoot()
-	
 			
 func shoot():
-	var bullet_instance = Bullet.instance()
-	var mouse_position = get_global_mouse_position()
-	var direction = (mouse_position - end_of_gun.global_position).normalized()
-	emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position, direction)
-	
+	if can_shoot:
+		var bullet_instance = Bullet.instance()
+		var mouse_position = get_global_mouse_position()
+		var direction = (mouse_position - end_of_gun.global_position).normalized()
+		emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position, direction)
+		can_shoot = false  # Set can_shoot menjadi false setelah menembak
+		shoot_timer.start(shoot_cooldown)  # Mulai Timer cooldown
+
+
 func on_Player_Heal(heal: int):
 	print("Signal Received")
 	if hp < 3:
@@ -61,3 +68,9 @@ func handle_hit():
 		self.hide()
 		speed = 0 
 		emit_signal("dead")
+
+
+func _on_ShootCD_timeout():
+	can_shoot = true 
+	print("Cooldown selesai")
+	

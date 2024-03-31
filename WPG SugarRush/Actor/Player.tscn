@@ -39,3 +39,7 @@ position = Vector2( 32, 49 )
 current = true
 smoothing_enabled = true
 smoothing_speed = 8.0
+
+[node name="ShootCD" type="Timer" parent="."]
+
+[connection signal="timeout" from="ShootCD" to="." method="_on_ShootCD_timeout"]
