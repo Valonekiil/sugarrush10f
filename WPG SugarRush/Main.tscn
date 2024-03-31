@@ -270,7 +270,7 @@ segments = PoolVector2Array( 0, 1024, 0, 648.829, 0, 648.829, 196.779, 658.512, 
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 4428, 314 )
+position = Vector2( 276, 218 )
 speed = 200
 
 [node name="BulletManager" type="Node2D" parent="."]

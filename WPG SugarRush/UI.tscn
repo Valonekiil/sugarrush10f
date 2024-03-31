@@ -135,7 +135,7 @@ margin_top = -16.5
 margin_right = 48.5
 margin_bottom = 18.5
 custom_fonts/font = SubResource( 1 )
-text = "Pause"
+text = "Resume"
 
 [node name="POptionB" type="Button" parent="PausedM"]
 anchor_left = 0.5
@@ -162,14 +162,14 @@ custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
 [node name="OptionM" parent="." instance=ExtResource( 5 )]
-visible = false
 
 [node name="FPSLabel" parent="." instance=ExtResource( 6 )]
-visible = false
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -42.0
-margin_right = 0.0
+margin_left = -74.0
+margin_top = 27.0
+margin_right = -32.0
+margin_bottom = 41.0
 
 [connection signal="pressed" from="PauseB" to="." method="_on_PauseB_pressed"]
 [connection signal="pressed" from="Life/DiedM/ContinueB" to="." method="_on_ContinueB_pressed"]

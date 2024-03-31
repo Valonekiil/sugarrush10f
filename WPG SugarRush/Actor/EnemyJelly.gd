@@ -9,7 +9,7 @@ onready var hit_box = $HitBox
 onready var collision_shape = $CollisionShape2D
 onready var bullet_scene = preload("res://BulletJ.tscn")
 
-var speed = 50
+var speed = 10
 var motion = Vector2.ZERO
 var player = null
 var patrol_points = []
@@ -44,7 +44,7 @@ func handle_hit():
 func handle_shooting(delta):
 	if can_fire:
 		var bullet_instance = bullet_scene.instance()
-		var direction = (player.global_position - end_of_gun.global_position).normalized()
+		var direction = (player.get_global_transform().origin - end_of_gun.get_global_transform().origin).normalized()
 		emit_signal("enemy_fired_bullet", bullet_instance, end_of_gun.global_position, direction)
 		can_fire = false
 		yield(get_tree().create_timer(1.0 / fire_rate), "timeout")
