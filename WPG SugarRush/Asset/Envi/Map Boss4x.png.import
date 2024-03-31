@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1-2-akupengenturu.png-78cd76917739b1316d198851956020af.stex"
+path="res://.import/Map Boss4x.png-d77e2776775471089105e434e9cba442.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/1-2-akupengenturu.png"
-dest_files=[ "res://.import/1-2-akupengenturu.png-78cd76917739b1316d198851956020af.stex" ]
+source_file="res://Asset/Envi/Map Boss4x.png"
+dest_files=[ "res://.import/Map Boss4x.png-d77e2776775471089105e434e9cba442.stex" ]
 
 [params]
 

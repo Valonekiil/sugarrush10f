@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1-1 Downnton Sze.png-a35ba35245edd671ac500d80e487664f.stex"
+path="res://.import/Atas sambung kanan.png-62e18b16e09c7a52c352b488e79a935d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/1-1 Downnton Sze.png"
-dest_files=[ "res://.import/1-1 Downnton Sze.png-a35ba35245edd671ac500d80e487664f.stex" ]
+source_file="res://Asset/Envi/Atas sambung kanan.png"
+dest_files=[ "res://.import/Atas sambung kanan.png-62e18b16e09c7a52c352b488e79a935d.stex" ]
 
 [params]
 

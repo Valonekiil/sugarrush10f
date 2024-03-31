@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Actor/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Asset/1-1 Downtown.png" type="Texture" id=2]
+[ext_resource path="res://Asset/Envi/1-2 tanpa prop scale.png" type="Texture" id=2]
 [ext_resource path="res://Script/BulletManager.gd" type="Script" id=3]
 [ext_resource path="res://Script/Main.gd" type="Script" id=4]
 [ext_resource path="res://Actor/EnemyJelly.tscn" type="PackedScene" id=5]
@@ -9,14 +9,17 @@
 [ext_resource path="res://Asset/Envi/1-1 Downnton Sze.png" type="Texture" id=7]
 [ext_resource path="res://Actor/Enemy R.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=9]
-[ext_resource path="res://UI/Hengpon.gd" type="Script" id=10]
-[ext_resource path="res://UI/HPx4.png" type="Texture" id=11]
+[ext_resource path="res://Asset/Envi/1-2 tanpa prop scale - Copy.png" type="Texture" id=10]
+[ext_resource path="res://Asset/Envi/Atas sambung kanan.png" type="Texture" id=11]
+[ext_resource path="res://Asset/Item/Kobis.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Asset/Envi/1-3 scale.png" type="Texture" id=13]
+[ext_resource path="res://Asset/Envi/Sambung kiri.png" type="Texture" id=14]
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 320, 60.25, 0, 60.25, 0, 0.25, 320, 0.25 )
+[sub_resource type="ConcavePolygonShape2D" id=15]
+segments = PoolVector2Array( 372.953, 244.555, 0, 244.555, 0, 244.555, 0, 0, 0, 0, 372.953, 0, 372.953, 0, 372.953, 244.555 )
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 320, 64, 1.25, 64, 1.25, 3.25, 320, 3.25 )
+[sub_resource type="ConvexPolygonShape2D" id=16]
+points = PoolVector2Array( 0, 778.688, 38.3, 778.85, 38.816, 749.312, 35.36, 735.488, 40.7, 716.45, 36.0417, 682.396, 65.2083, 662.396, 86.0417, 669.896, 134.3, 682.85, 154.7, 702.05, 146.875, 733.229, 130.208, 754.896, 126.042, 777.396, 364.375, 777.396, 373.542, 789.896, 373.542, 833.542, 406.042, 815.208, 435.208, 825.208, 452.708, 845.208, 491.419, 822.333, 513.086, 825.667, 612.252, 812.333, 691.829, 814, 790.996, 831.5, 896, 845.51, 896, 1024, 0, 1024 )
 
 [sub_resource type="ConcavePolygonShape2D" id=12]
 segments = PoolVector2Array( 0, 1021.4, 0.440002, 1019.96, 0.440002, 1019.96, 0, 779.48, 0, 779.48, 361.88, 779.48, 361.88, 779.48, 372.25, 783.75, 372.25, 783.75, 372.25, 841.75, 372.25, 841.75, 481.25, 834.75, 481.25, 834.75, 527.992, 825, 527.992, 825, 564.992, 818, 564.992, 818, 597.992, 814, 597.992, 814, 691.992, 815, 691.992, 815, 728.992, 819, 728.992, 819, 766.992, 826, 766.992, 826, 787.992, 819, 787.992, 819, 820.992, 844, 820.992, 844, 843.992, 825, 843.992, 825, 865.992, 815, 865.992, 815, 902.992, 831, 902.992, 831, 902.992, 788, 902.992, 788, 917.992, 775, 917.992, 775, 1150.25, 779, 1150.25, 779, 1129.25, 734, 1129.25, 734, 1130.25, 696, 1130.25, 696, 1175.25, 670, 1175.25, 670, 1215.25, 660, 1215.25, 660, 1249.25, 681, 1249.25, 681, 1238.25, 729, 1238.25, 729, 1248.25, 732, 1248.25, 732, 1237.25, 794, 1237.25, 794, 1280, 780, 1280, 780, 1280, 1024, 1280, 1024, 0, 1021.4 )
@@ -33,63 +36,34 @@ segments = PoolVector2Array( 1.64526, 234.552, 44.6434, 234.552, 44.6434, 234.55
 [sub_resource type="ConcavePolygonShape2D" id=14]
 segments = PoolVector2Array( 1280, 238.135, 0, 238.135, 0, 238.135, 0, 0, 0, 0, 1280, 0, 1280, 0, 1280, 238.135 )
 
+[sub_resource type="ConcavePolygonShape2D" id=17]
+segments = PoolVector2Array( 366.981, 238.583, 0, 238.583, 0, 238.583, 0, 0, 0, 0, 366.981, 0, 366.981, 0, 366.981, 238.583 )
+
+[sub_resource type="ConcavePolygonShape2D" id=18]
+segments = PoolVector2Array( 1280, 241.569, 907.444, 241.569, 907.444, 241.569, 907.444, 0, 907.444, 0, 1280, 0, 1280, 0, 1280, 241.569 )
+
+[sub_resource type="ConcavePolygonShape2D" id=19]
+segments = PoolVector2Array( 2.69043, 1023.7, 2.69043, 778.854, 2.69043, 778.854, 366.981, 784.826, 366.981, 784.826, 369.967, 847.531, 369.967, 847.531, 477.462, 841.559, 477.462, 841.559, 623.775, 814.686, 623.775, 814.686, 755.159, 826.629, 755.159, 826.629, 779.046, 820.657, 779.046, 820.657, 817.864, 835.587, 817.864, 835.587, 871.612, 811.699, 871.612, 811.699, 895.5, 823.643, 895.5, 823.643, 901.472, 787.812, 901.472, 787.812, 916.402, 778.854, 916.402, 778.854, 1143.34, 779.047, 1143.34, 779.047, 1139.29, 750.493, 1139.29, 750.493, 1124.78, 727.683, 1124.78, 727.683, 1133.07, 690.359, 1133.07, 690.359, 1176.62, 671.696, 1176.62, 671.696, 1189.06, 669.622, 1189.06, 669.622, 1213.94, 659.255, 1213.94, 659.255, 1240.9, 675.843, 1240.9, 675.843, 1249.19, 692.432, 1249.19, 692.432, 1238.83, 727.683, 1238.83, 727.683, 1249.19, 731.831, 1249.19, 731.831, 1245.05, 779.523, 1245.05, 779.523, 1280, 781.597, 1280, 781.597, 1280, 1024, 1280, 1024, 2.69043, 1023.7 )
+
+[sub_resource type="ConcavePolygonShape2D" id=20]
+segments = PoolVector2Array( 0, 1024, 2.69043, 0, 2.69043, 0, 1277.71, 0, 1277.71, 0, 1280, 246.447, 1280, 246.447, 468.504, 232.611, 468.504, 232.611, 366.981, 340.107, 366.981, 340.107, 369.967, 1024, 369.967, 1024, 0, 1024 )
+
+[sub_resource type="ConcavePolygonShape2D" id=21]
+segments = PoolVector2Array( 1280, 1024, 916.402, 1024, 916.402, 1024, 907.444, 781.84, 907.444, 781.84, 1280, 787.812, 1280, 787.812, 1280, 1024 )
+
+[sub_resource type="ConcavePolygonShape2D" id=22]
+segments = PoolVector2Array( 0, 0, 1277.71, 0, 1277.71, 0, 1280, 1024, 1280, 1024, 916.402, 1024, 916.402, 1024, 913.416, 352.051, 913.416, 352.051, 802.934, 238.583, 802.934, 238.583, 0, 235.405, 0, 235.405, 0, 0 )
+
+[sub_resource type="ConcavePolygonShape2D" id=23]
+segments = PoolVector2Array( 0, 784.826, 366.981, 784.826, 366.981, 784.826, 366.981, 1024, 366.981, 1024, 0, 1024, 0, 1024, 0, 784.826 )
+
+[sub_resource type="ConcavePolygonShape2D" id=24]
+segments = PoolVector2Array( 1216, 0, 1214.08, 245.571, 1214.08, 245.571, 1068.92, 248.624, 1068.92, 248.624, 955.024, 141.891, 955.024, 141.891, 816.093, 75.536, 816.093, 75.536, 706.192, 63.0944, 706.192, 63.0944, 581.776, 83.8304, 581.776, 83.8304, 463.581, 135.67, 463.581, 135.67, 368.195, 218.614, 368.195, 218.614, 289.399, 343.03, 289.399, 343.03, 148.394, 367.914, 148.394, 367.914, 17.7568, 372.061, 17.7568, 372.061, 17.7568, 0, 17.7568, 0, 1216, 0 )
+
+[sub_resource type="ConcavePolygonShape2D" id=25]
+segments = PoolVector2Array( 0, 1024, 0, 648.829, 0, 648.829, 196.779, 658.512, 196.779, 658.512, 196.779, 676.428, 196.779, 676.428, 291.325, 677.859, 291.325, 677.859, 343.165, 767.024, 343.165, 767.024, 411.593, 849.968, 411.593, 849.968, 506.979, 910.102, 506.979, 910.102, 629.321, 955.722, 629.321, 955.722, 764.106, 955.722, 764.106, 955.722, 849.123, 930.839, 849.123, 930.839, 938.288, 887.293, 938.288, 887.293, 1002.57, 839.6, 1002.57, 839.6, 1058.56, 773.245, 1058.56, 773.245, 1216, 775.318, 1216, 775.318, 1216, 240.33, 1216, 240.33, 1216, 1024, 1216, 1024, 0, 1024 )
+
 [sub_resource type="TileSet" id=6]
-1/name = "1-1 Downtown.png 1"
-1/texture = ExtResource( 2 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 64, 320, 128 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "1-1 Downtown.png 2"
-2/texture = ExtResource( 2 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 0, 320, 64 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 4 )
-2/shape_one_way = false
-2/shape_one_way_margin = 1.0
-2/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 4 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-2/z_index = 0
-3/name = "1-1 Downtown.png 3"
-3/texture = ExtResource( 2 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 0, 192, 320, 64 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape = SubResource( 5 )
-3/shape_one_way = false
-3/shape_one_way_margin = 1.0
-3/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 5 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-3/z_index = 0
 4/name = "1-2-akupengenturu.png 4"
 4/texture = ExtResource( 6 )
 4/tex_offset = Vector2( 0, 0 )
@@ -150,12 +124,153 @@ segments = PoolVector2Array( 1280, 238.135, 0, 238.135, 0, 238.135, 0, 0, 0, 0, 
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
+6/name = "1-2 tanpa prop scale.png 6"
+6/texture = ExtResource( 2 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 0, 1280, 1024 )
+6/tile_mode = 0
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape = SubResource( 17 )
+6/shape_one_way = false
+6/shape_one_way_margin = 1.0
+6/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 17 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 18 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 19 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+6/z_index = 0
+7/name = "Atas sambung kanan.png 7"
+7/texture = ExtResource( 11 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 0, 1280, 1024 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape = SubResource( 20 )
+7/shape_one_way = false
+7/shape_one_way_margin = 1.0
+7/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 20 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 21 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+7/z_index = 0
+8/name = "Sambung kiri.png 8"
+8/texture = ExtResource( 14 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 0, 0, 1280, 1024 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape = SubResource( 22 )
+8/shape_one_way = false
+8/shape_one_way_margin = 1.0
+8/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 22 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 23 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+8/z_index = 0
+9/name = "1-3 scale.png 9"
+9/texture = ExtResource( 13 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 64, 0, 1216, 1024 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape = SubResource( 24 )
+9/shape_one_way = false
+9/shape_one_way_margin = 1.0
+9/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 24 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 25 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+9/z_index = 0
+10/name = "1-2 tanpa prop scale - Copy.png 10"
+10/texture = ExtResource( 10 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 0, 0, 896, 1024 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape = SubResource( 15 )
+10/shape_one_way = false
+10/shape_one_way_margin = 1.0
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 16 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+10/z_index = 0
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 295, 243 )
+position = Vector2( 4428, 314 )
 speed = 200
 
 [node name="BulletManager" type="Node2D" parent="."]
@@ -163,9 +278,10 @@ script = ExtResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
+position = Vector2( 0, -1 )
 tile_set = SubResource( 6 )
 format = 1
-tile_data = PoolIntArray( -65537, 5, 0, -131053, 4, 0 )
+tile_data = PoolIntArray( -1179629, 7, 0, -1179609, 4, 0, -1179589, 8, 0, -65537, 5, 0, -131053, 6, 0, -131033, 4, 0, -131013, 10, 0, -130999, 9, 0 )
 
 [node name="EnemyJelly" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1180, 231 )
@@ -191,26 +307,11 @@ position = Vector2( 2180, 383 )
 [node name="Enemy R" parent="." instance=ExtResource( 8 )]
 position = Vector2( 958, 511 )
 
+[node name="Kobis" parent="." instance=ExtResource( 12 )]
+position = Vector2( 208, 405 )
+scale = Vector2( 0.25, 0.25 )
+
 [node name="UI" parent="." instance=ExtResource( 9 )]
 pause_mode = 2
-
-[node name="Hengpon" type="Control" parent="UI"]
-visible = false
-margin_right = 129.0
-margin_bottom = 168.0
-script = ExtResource( 10 )
-
-[node name="Klitih" type="TextureRect" parent="UI/Hengpon"]
-visible = false
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -63.0
-margin_top = -108.0
-margin_right = 63.0
-texture = ExtResource( 11 )
-expand = true
-stretch_mode = 2
 
 [connection signal="player_fired_bullet" from="Player" to="BulletManager" method="_on_Player_player_fired_bullet"]

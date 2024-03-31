@@ -46,7 +46,12 @@ func shoot():
 	var direction = (mouse_position - end_of_gun.global_position).normalized()
 	emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position, direction)
 	
-	
+func on_Player_Heal(heal: int):
+	print("Signal Received")
+	if hp < 3:
+		hp += heal
+		emit_signal("life_changed",hp)
+
 func handle_hit():
 	#health_stat.health -= 20
 	#print("player hit, health: ", health_stat.health)

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1-1 Downtown.png-0c49fbcc231f4a95d94d830cb4d7e4be.stex"
+path="res://.import/Sambung kiri.png-d6a7a66b7ab98b4a72f09ca8f63731f5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/1-1 Downtown.png"
-dest_files=[ "res://.import/1-1 Downtown.png-0c49fbcc231f4a95d94d830cb4d7e4be.stex" ]
+source_file="res://Asset/Envi/Sambung kiri.png"
+dest_files=[ "res://.import/Sambung kiri.png-d6a7a66b7ab98b4a72f09ca8f63731f5.stex" ]
 
 [params]
 
