@@ -17,3 +17,7 @@ func _on_OptionB_pressed():
 
 func _on_CreditB_pressed():
 	CreditM.popup()
+
+
+func _on_TextureButton_pressed():
+	Option_Menu.popup()

@@ -5,7 +5,7 @@
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StreamTexture" id=2]
-load_path = "res://.import/Josh Putih.png-bb53e5d7a57a5ee6b1ac51e37a70ed4f.stex"
+load_path = "res://.import/Josh Glow Up2.png-6ffc6a10bb035c5a3c9ce7debda7f12d.stex"
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1.27806, 23.84 )

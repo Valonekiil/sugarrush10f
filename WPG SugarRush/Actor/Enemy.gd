@@ -51,6 +51,9 @@ func _ready():
 func _on_HitBox_body_entered(body):
 	if body is Player:
 		body.handle_hit()
+	if body.is_in_group("Enemy"):
+		avoid_timer = 1.0  # Durasi penghindaran tabrakan (dalam detik)
+		avoid_direction = body.position.direction_to(position).rotated(randf() * PI - PI / 2)
 
 func patrol():
 	if patrol_points:
@@ -69,7 +72,4 @@ func choose_random_point():
 	if patrol_points:
 		current_point_index = randi() % patrol_points.size()
 
-func _on_body_entered(body):
-	if body.is_in_group("Enemy"):
-		avoid_timer = 1.0  # Durasi penghindaran tabrakan (dalam detik)
-		avoid_direction = body.position.direction_to(position).rotated(randf() * PI - PI / 2)
+

@@ -25,5 +25,3 @@ func _on_FPSButton_toggled(button_pressed):
 
 
 
-func _on_CloseB_pressed():
-	hide()

@@ -6,7 +6,7 @@ signal life_changed(Player_HP)
 signal dead
 
 export (PackedScene) var Bullet
-export (int) var speed = 150
+export (int) var speed = 200
 export (float) var shoot_cooldown = 0.5
 
 onready var end_of_gun = $EndOfGun
@@ -16,7 +16,7 @@ onready var shoot_timer = $ShootCD
 
 var can_shoot = true
 
-var max_hp: int = 3
+var max_hp: int = 5
 var hp: int = max_hp
 func _ready()-> void:
 	connect("life_changed",get_parent().get_node("UI/Life"),"on_player_life_changed")
@@ -55,7 +55,7 @@ func shoot():
 
 func on_Player_Heal(heal: int):
 	print("Signal Received")
-	if hp < 3:
+	if hp < max_hp:
 		hp += heal
 		emit_signal("life_changed",hp)
 
@@ -72,5 +72,4 @@ func handle_hit():
 
 func _on_ShootCD_timeout():
 	can_shoot = true 
-	print("Cooldown selesai")
 	

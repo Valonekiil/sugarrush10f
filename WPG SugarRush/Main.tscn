@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Actor/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Asset/Envi/1-2 tanpa prop scale.png" type="Texture" id=2]
@@ -7,13 +7,19 @@
 [ext_resource path="res://Actor/EnemyJelly.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Asset/Envi/1-2-akupengenturu.png" type="Texture" id=6]
 [ext_resource path="res://Asset/Envi/1-1 Downnton Sze.png" type="Texture" id=7]
-[ext_resource path="res://Actor/Enemy R.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Actor/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Asset/Envi/1-2 tanpa prop scale - Copy.png" type="Texture" id=10]
 [ext_resource path="res://Asset/Envi/Atas sambung kanan.png" type="Texture" id=11]
 [ext_resource path="res://Asset/Item/Kobis.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Asset/Envi/1-3 scale.png" type="Texture" id=13]
 [ext_resource path="res://Asset/Envi/Sambung kiri.png" type="Texture" id=14]
+[ext_resource path="res://Actor/enemy area bunder/Enemy 0.gd" type="Script" id=15]
+[ext_resource path="res://Actor/enemy area bunder/EnemyJelly 0.gd" type="Script" id=16]
+[ext_resource path="res://Actor/enemy area bawah tengah/EnemyJelly down.gd" type="Script" id=17]
+[ext_resource path="res://Actor/enemy area atas/Enemy up.gd" type="Script" id=18]
+[ext_resource path="res://Actor/enemy area bawah tengah/Enemy down.gd" type="Script" id=19]
+[ext_resource path="res://Actor/enemy area atas/EnemyJelly up.gd" type="Script" id=20]
 
 [sub_resource type="ConcavePolygonShape2D" id=15]
 segments = PoolVector2Array( 372.953, 244.555, 0, 244.555, 0, 244.555, 0, 0, 0, 0, 372.953, 0, 372.953, 0, 372.953, 244.555 )
@@ -271,7 +277,6 @@ script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 276, 218 )
-speed = 200
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -283,35 +288,200 @@ tile_set = SubResource( 6 )
 format = 1
 tile_data = PoolIntArray( -1179629, 7, 0, -1179609, 4, 0, -1179589, 8, 0, -65537, 5, 0, -131053, 6, 0, -131033, 4, 0, -131013, 10, 0, -130999, 9, 0 )
 
-[node name="EnemyJelly" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1180, 231 )
-
-[node name="PatrolPoint" type="YSort" parent="."]
-position = Vector2( -2, 4 )
-
-[node name="patrol_points" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
-position = Vector2( 1233, 614 )
-
-[node name="patrol_points2" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
-position = Vector2( 1269, 142 )
-
-[node name="patrol_points3" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
-position = Vector2( 1866, 144 )
-
-[node name="patrol_points4" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
-position = Vector2( 1877, 641 )
-
-[node name="patrol_points5" type="Position2D" parent="PatrolPoint" groups=["patrol_points"]]
-position = Vector2( 2180, 383 )
-
-[node name="Enemy R" parent="." instance=ExtResource( 8 )]
-position = Vector2( 958, 511 )
-
-[node name="Kobis" parent="." instance=ExtResource( 12 )]
-position = Vector2( 208, 405 )
-scale = Vector2( 0.25, 0.25 )
-
 [node name="UI" parent="." instance=ExtResource( 9 )]
 pause_mode = 2
+
+[node name="PatrolPoint 1" type="Node2D" parent="."]
+
+[node name="patrol_points" type="Position2D" parent="PatrolPoint 1" groups=["patrol_points"]]
+position = Vector2( 1520, 613 )
+
+[node name="patrol_points2" type="Position2D" parent="PatrolPoint 1" groups=["patrol_points"]]
+position = Vector2( 1545, 149 )
+
+[node name="patrol_points3" type="Position2D" parent="PatrolPoint 1" groups=["patrol_points"]]
+position = Vector2( 2155, 154 )
+
+[node name="patrol_points4" type="Position2D" parent="PatrolPoint 1" groups=["patrol_points"]]
+position = Vector2( 2155, 609 )
+
+[node name="patrol_points5" type="Position2D" parent="PatrolPoint 1" groups=["patrol_points"]]
+position = Vector2( 2433, 383 )
+
+[node name="EnemyJelly" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2090, 369 )
+
+[node name="Enemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1874, 627 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1271, 164 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1867, 170 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1229, 592 )
+
+[node name="PatrolPoint Up" type="Node2D" parent="."]
+position = Vector2( 104, -61 )
+
+[node name="PatrolUp" type="Position2D" parent="PatrolPoint Up" groups=["PatrolUp"]]
+position = Vector2( 1561, -392 )
+
+[node name="PatrolUp2" type="Position2D" parent="PatrolPoint Up" groups=["PatrolUp"]]
+position = Vector2( 3596, -460 )
+
+[node name="PatrolUp3" type="Position2D" parent="PatrolPoint Up" groups=["PatrolUp"]]
+position = Vector2( 3673, -801 )
+
+[node name="PatrolUp4" type="Position2D" parent="PatrolPoint Up" groups=["PatrolUp"]]
+position = Vector2( 2705, -801 )
+
+[node name="PatrolUp5" type="Position2D" parent="PatrolPoint Up" groups=["PatrolUp"]]
+position = Vector2( 2683, -340 )
+
+[node name="PatrolUp6" type="Position2D" parent="PatrolPoint Up" groups=["PatrolUp"]]
+position = Vector2( 1692, -796 )
+
+[node name="EnemyJelly2up" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3425, -848 )
+script = ExtResource( 20 )
+
+[node name="EnemyJelly3up" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3415, -464 )
+script = ExtResource( 20 )
+
+[node name="Enemyup" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3124, -478 )
+script = ExtResource( 18 )
+
+[node name="Enemyup1" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2722, -848 )
+script = ExtResource( 18 )
+
+[node name="Enemyup2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2735, -506 )
+script = ExtResource( 18 )
+
+[node name="Enemyup3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3125, -886 )
+script = ExtResource( 18 )
+
+[node name="PatrolPoint Down" type="Node2D" parent="."]
+visible = false
+position = Vector2( -30, -10 )
+
+[node name="Patroldown" type="Position2D" parent="PatrolPoint Down" groups=["PatrolDown"]]
+position = Vector2( 4187, 163 )
+
+[node name="Patroldown2" type="Position2D" parent="PatrolPoint Down" groups=["PatrolDown"]]
+position = Vector2( 4197, 535 )
+
+[node name="Patroldown3" type="Position2D" parent="PatrolPoint Down" groups=["PatrolDown"]]
+position = Vector2( 3320, 626 )
+
+[node name="Patroldown4" type="Position2D" parent="PatrolPoint Down" groups=["PatrolDown"]]
+position = Vector2( 3505, 174 )
+
+[node name="Patroldown5" type="Position2D" parent="PatrolPoint Down" groups=["PatrolDown"]]
+position = Vector2( 4678, 177 )
+
+[node name="Enemydown" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3439, 187 )
+script = ExtResource( 19 )
+
+[node name="Enemydown2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3446, 487 )
+script = ExtResource( 19 )
+
+[node name="Enemydown3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3804, 359 )
+script = ExtResource( 19 )
+
+[node name="EnemyJellydown" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4401, 184 )
+script = ExtResource( 17 )
+
+[node name="EnemyJellydown2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4397, 532 )
+script = ExtResource( 17 )
+
+[node name="PatrolPoint Bunder" type="Node2D" parent="."]
+visible = false
+position = Vector2( -29, 12 )
+
+[node name="patrol0" type="Position2D" parent="PatrolPoint Bunder" groups=["patrolO"]]
+position = Vector2( 5698, 115 )
+
+[node name="patrol6" type="Position2D" parent="PatrolPoint Bunder" groups=["patrolO"]]
+position = Vector2( 5407, 374 )
+
+[node name="patrol1" type="Position2D" parent="PatrolPoint Bunder" groups=["patrolO"]]
+position = Vector2( 5069, 606 )
+
+[node name="patrol2" type="Position2D" parent="PatrolPoint Bunder" groups=["patrolO"]]
+position = Vector2( 5417, 800 )
+
+[node name="patrol3" type="Position2D" parent="PatrolPoint Bunder" groups=["patrolO"]]
+position = Vector2( 5725, 646 )
+
+[node name="patrol4" type="Position2D" parent="PatrolPoint Bunder" groups=["patrolO"]]
+position = Vector2( 5048, 183 )
+
+[node name="patrol5" type="Position2D" parent="PatrolPoint Bunder" groups=["patrolO"]]
+position = Vector2( 5416, -11 )
+
+[node name="EnemyO" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4999, 506 )
+script = ExtResource( 15 )
+
+[node name="EnemyO2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4788, 380 )
+script = ExtResource( 15 )
+
+[node name="EnemyO3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5244, 125 )
+script = ExtResource( 15 )
+
+[node name="EnemyO4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5295, 659 )
+script = ExtResource( 15 )
+
+[node name="EnemyO5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5250, 408 )
+script = ExtResource( 15 )
+
+[node name="EnemyO6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4988, 252 )
+script = ExtResource( 15 )
+
+[node name="EnemyJellyO" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5565, 87 )
+script = ExtResource( 16 )
+
+[node name="EnemyJellyO2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5581, 419 )
+script = ExtResource( 16 )
+
+[node name="EnemyJellyO3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5588, 619 )
+script = ExtResource( 16 )
+
+[node name="EnemyJellyO4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5590, 237 )
+script = ExtResource( 16 )
+
+[node name="Kobis1" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1144, 309 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Kobis2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1545, 368 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Kobis3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 192, 425 )
+scale = Vector2( 0.25, 0.25 )
 
 [connection signal="player_fired_bullet" from="Player" to="BulletManager" method="_on_Player_player_fired_bullet"]

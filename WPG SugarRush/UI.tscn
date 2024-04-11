@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Script/UI.gd" type="Script" id=2]
@@ -18,6 +18,9 @@ script/source = "extends TextureRect
 
 [sub_resource type="DynamicFont" id=2]
 size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 1 )
 
 [node name="UI" type="CanvasLayer"]
@@ -74,12 +77,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -105.0
+margin_left = -137.0
 margin_top = -172.0
-margin_right = 105.0
+margin_right = 143.0
 margin_bottom = -137.0
 custom_fonts/font = SubResource( 2 )
-text = "MODAR"
+text = "YOU DIED"
 align = 1
 
 [node name="ContinueB" type="Button" parent="Life/DiedM"]
@@ -91,7 +94,7 @@ margin_left = -71.0
 margin_top = -85.0
 margin_right = 71.0
 margin_bottom = -50.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Continue"
 
 [node name="MainMB" type="Button" parent="Life/DiedM"]
@@ -107,6 +110,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
 [node name="PausedM" type="ColorRect" parent="."]
+visible = false
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -131,13 +135,14 @@ anchor_top = 0.4
 anchor_right = 0.5
 anchor_bottom = 0.4
 margin_left = -48.5
-margin_top = -16.5
-margin_right = 48.5
-margin_bottom = 18.5
+margin_top = -15.5
+margin_right = 53.5
+margin_bottom = 19.5
 custom_fonts/font = SubResource( 1 )
 text = "Resume"
 
 [node name="POptionB" type="Button" parent="PausedM"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -155,9 +160,9 @@ anchor_top = 0.6
 anchor_right = 0.5
 anchor_bottom = 0.6
 margin_left = -48.5
-margin_top = -16.5
+margin_top = -86.5
 margin_right = 53.5
-margin_bottom = 18.5
+margin_bottom = -51.5
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
