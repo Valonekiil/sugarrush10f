@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Actor/Player.gd" type="Script" id=1]
 [ext_resource path="res://Actor/Health.tscn" type="PackedScene" id=2]
+[ext_resource path="res://TesLagu/pew_pew-dknight556-1379997159.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StreamTexture" id=2]
@@ -41,5 +42,10 @@ smoothing_enabled = true
 smoothing_speed = 8.0
 
 [node name="ShootCD" type="Timer" parent="."]
+
+[node name="Shot_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 4.0
+bus = "SFX"
 
 [connection signal="timeout" from="ShootCD" to="." method="_on_ShootCD_timeout"]

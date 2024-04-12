@@ -292,6 +292,8 @@ tile_data = PoolIntArray( -1179629, 7, 0, -1179609, 4, 0, -1179589, 8, 0, -65537
 pause_mode = 2
 
 [node name="PatrolPoint 1" type="Node2D" parent="."]
+visible = false
+position = Vector2( 0, 2 )
 
 [node name="patrol_points" type="Position2D" parent="PatrolPoint 1" groups=["patrol_points"]]
 position = Vector2( 1520, 613 )
@@ -309,13 +311,13 @@ position = Vector2( 2155, 609 )
 position = Vector2( 2433, 383 )
 
 [node name="EnemyJelly" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2090, 369 )
+position = Vector2( 2160, 344 )
 
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1874, 627 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1271, 164 )
+position = Vector2( 1246, 183 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1867, 170 )
@@ -345,11 +347,11 @@ position = Vector2( 2683, -340 )
 position = Vector2( 1692, -796 )
 
 [node name="EnemyJelly2up" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3425, -848 )
+position = Vector2( 3398, -823 )
 script = ExtResource( 20 )
 
 [node name="EnemyJelly3up" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3415, -464 )
+position = Vector2( 3417, -562 )
 script = ExtResource( 20 )
 
 [node name="Enemyup" parent="." instance=ExtResource( 8 )]

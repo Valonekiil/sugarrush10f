@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Actor/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Actor/Health.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/HP_Bar_Theme.tres" type="Theme" id=3]
 
 [sub_resource type="StreamTexture" id=5]
 load_path = "res://.import/Mele Cupcake.png-e1c324bcf59f8040be039f29a3332344.stex"
@@ -46,6 +47,15 @@ shape = SubResource( 1 )
 [node name="GunDirection" type="Position2D" parent="."]
 
 [node name="Health" parent="." instance=ExtResource( 2 )]
+
+[node name="HPBar" type="ProgressBar" parent="."]
+margin_left = -43.0
+margin_top = -45.0
+margin_right = 47.0
+margin_bottom = -31.0
+theme = ExtResource( 3 )
+value = 50.0
+percent_visible = false
 
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_DetectionZone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="." method="_on_DetectionZone_body_exited"]

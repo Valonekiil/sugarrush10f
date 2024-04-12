@@ -29,10 +29,10 @@ script = ExtResource( 2 )
 [node name="PauseB" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -1008.0
-margin_top = 12.0
-margin_right = -911.0
-margin_bottom = 47.0
+margin_left = -107.0
+margin_top = 11.0
+margin_right = -10.0
+margin_bottom = 46.0
 custom_fonts/font = SubResource( 1 )
 text = "Pause"
 
@@ -42,9 +42,9 @@ anchor_top = 0.117
 anchor_right = 0.035
 anchor_bottom = 0.117
 margin_left = 413.16
-margin_top = 175.8
+margin_top = 124.8
 margin_right = 539.16
-margin_bottom = 283.8
+margin_bottom = 232.8
 script = ExtResource( 4 )
 
 [node name="HP" type="TextureRect" parent="Life"]
@@ -142,7 +142,6 @@ custom_fonts/font = SubResource( 1 )
 text = "Resume"
 
 [node name="POptionB" type="Button" parent="PausedM"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -160,15 +159,16 @@ anchor_top = 0.6
 anchor_right = 0.5
 anchor_bottom = 0.6
 margin_left = -48.5
-margin_top = -86.5
+margin_top = -15.5
 margin_right = 53.5
-margin_bottom = -51.5
+margin_bottom = 19.5
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
 [node name="OptionM" parent="." instance=ExtResource( 5 )]
 
 [node name="FPSLabel" parent="." instance=ExtResource( 6 )]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -74.0

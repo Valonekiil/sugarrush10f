@@ -42,7 +42,20 @@ func _process(delta: float):
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("shoot") and can_shoot:
 		shoot()
+		$Shot_sfx.play()
 			
+	if event.is_action_released("skill"):
+		skill(Vector2(0,0))
+		skill(Vector2(-12,25))
+		skill(Vector2(12,-25))
+
+func skill(off: Vector2):
+	if can_shoot:
+		var bullet_instance = Bullet.instance()
+		var mouse_position = get_global_mouse_position()
+		var direction = (mouse_position - end_of_gun.global_position + off).normalized()
+		emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position,direction)
+
 func shoot():
 	if can_shoot:
 		var bullet_instance = Bullet.instance()

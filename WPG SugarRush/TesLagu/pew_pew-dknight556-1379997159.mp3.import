@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pew_pew-dknight556-1379997159.mp3-fdd93fef59fe239271f9fef838ec7b4c.mp3str"
+
+[deps]
+
+source_file="res://TesLagu/pew_pew-dknight556-1379997159.mp3"
+dest_files=[ "res://.import/pew_pew-dknight556-1379997159.mp3-fdd93fef59fe239271f9fef838ec7b4c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

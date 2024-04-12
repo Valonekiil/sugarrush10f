@@ -38,8 +38,8 @@ position = Vector2( 512, 300 )
 texture = ExtResource( 1 )
 
 [node name="PeEnGe" type="Sprite" parent="NinePatchRect"]
-position = Vector2( 279, 16 )
-scale = Vector2( 0.357031, 0.233398 )
+position = Vector2( 284, 34 )
+scale = Vector2( 0.353125, 0.214844 )
 texture = ExtResource( 8 )
 centered = false
 
@@ -47,9 +47,9 @@ centered = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 379.0
-margin_top = 291.0
+margin_top = 294.0
 margin_right = 635.0
-margin_bottom = -53.0
+margin_bottom = -50.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 2 )
 
@@ -70,9 +70,9 @@ valign = 1
 
 [node name="OptionB" type="TextureButton" parent="NinePatchRect"]
 margin_left = 380.0
-margin_top = 350.0
+margin_top = 356.0
 margin_right = 1660.0
-margin_bottom = 606.0
+margin_bottom = 612.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 2 )
 
@@ -93,9 +93,9 @@ valign = 1
 
 [node name="CreditB" type="TextureButton" parent="NinePatchRect"]
 margin_left = 382.0
-margin_top = 411.0
+margin_top = 417.0
 margin_right = 1662.0
-margin_bottom = 667.0
+margin_bottom = 673.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 2 )
 
@@ -116,9 +116,9 @@ valign = 1
 
 [node name="ExitB" type="TextureButton" parent="NinePatchRect"]
 margin_left = 380.0
-margin_top = 472.0
+margin_top = 478.0
 margin_right = 1660.0
-margin_bottom = 728.0
+margin_bottom = 734.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 2 )
 
@@ -138,6 +138,7 @@ align = 1
 valign = 1
 
 [node name="CreditM" type="Popup" parent="."]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -169,20 +170,37 @@ align = 1
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -160.0
-margin_top = 67.0
-margin_right = 160.0
+margin_top = 64.0
+margin_right = 208.0
 margin_bottom = 87.0
 custom_fonts/font = SubResource( 3 )
 text = "Made by TEAM 10F"
 align = 1
 
+[node name="Label3" type="Label" parent="CreditM"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -449.0
+margin_top = 99.0
+margin_right = 431.0
+margin_bottom = 122.0
+custom_fonts/font = SubResource( 3 )
+text = "Bu Fony Revindasari Sebagai Dosen Pembimbing"
+align = 1
+
+[node name="kosong" type="Label" parent="CreditM"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Ter"
+
 [node name="GridContainer" type="GridContainer" parent="CreditM"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 12.0
-margin_top = 106.0
-margin_right = -18.0
-margin_bottom = -63.0
+margin_left = 11.0
+margin_top = 139.0
+margin_right = -19.0
+margin_bottom = -30.0
 columns = 3
 
 [node name="Label" type="Label" parent="CreditM/GridContainer"]
@@ -308,6 +326,7 @@ custom_fonts/font = ExtResource( 7 )
 text = "Enviroment Artist"
 
 [node name="OptionM" parent="." instance=ExtResource( 5 )]
+visible = false
 margin_left = -399.0
 margin_top = -98.0
 margin_right = 401.0

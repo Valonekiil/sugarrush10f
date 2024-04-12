@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/y2mate_HrgsElu.mp3-61431edbe3cc9b1c3f90d86dc49efccd.mp3str"
+
+[deps]
+
+source_file="res://TesLagu/y2mate_HrgsElu.mp3"
+dest_files=[ "res://.import/y2mate_HrgsElu.mp3-61431edbe3cc9b1c3f90d86dc49efccd.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -9,6 +9,7 @@ onready var hit_box = $HitBox
 onready var collision_shape = $CollisionShape2D
 onready var bullet_scene = preload("res://BulletJ.tscn")
 onready var bulletManager = $BulletManager
+onready var HP = $HPBar
 
 var speed = 50
 var motion = Vector2.ZERO
@@ -41,6 +42,8 @@ func handle_hit():
 	if health_stat.health <= 0:
 		queue_free()
 	print("enemy hit, health: ", health_stat.health)
+	HP.show()
+	set_HP(health_stat.health)
 
 func handle_shooting(delta):
 	if can_fire:
@@ -67,7 +70,10 @@ func _ready():
 	choose_random_point()
 	collision_shape.connect("body_entered", self, "_on_body_entered")
 	var _err = connect("enemy_fired_bullet", bulletManager, "_on_enemy_fired_bullet")
+	HP.hide()
  
+func set_HP(health):
+	HP.value = health_stat.health 
 
 func _on_HitBox_body_entered(body):
 	if body is Player:
