@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/BG wpg.png" type="Texture" id=1]
 [ext_resource path="res://UI/button scale.png" type="Texture" id=2]
@@ -6,21 +6,12 @@
 [ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://UI/OptionM.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/FPSLabel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Asset/Font/SettingLabel.tres" type="DynamicFont" id=7]
+[ext_resource path="res://CreditM.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/logo#1.png" type="Texture" id=8]
-[ext_resource path="res://UI/option.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=4]
 size = 150
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 40
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 20
 font_data = ExtResource( 4 )
 
 [node name="MainM" type="Control"]
@@ -137,196 +128,9 @@ text = "Exit"
 align = 1
 valign = 1
 
-[node name="CreditM" type="Popup" parent="."]
-visible = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -450.0
-margin_top = -96.0
-margin_right = 450.0
-margin_bottom = 254.0
-
-[node name="Sprite" type="Sprite" parent="CreditM"]
-position = Vector2( 445, 163.5 )
-scale = Vector2( 0.757813, 0.397461 )
-texture = ExtResource( 9 )
-
-[node name="Label" type="Label" parent="CreditM"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = -162.0
-margin_right = 200.0
-margin_bottom = -122.0
-custom_fonts/font = SubResource( 2 )
-text = "SUGAR RUSH"
-align = 1
-
-[node name="Label2" type="Label" parent="CreditM"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -160.0
-margin_top = 64.0
-margin_right = 208.0
-margin_bottom = 87.0
-custom_fonts/font = SubResource( 3 )
-text = "Made by TEAM 10F"
-align = 1
-
-[node name="Label3" type="Label" parent="CreditM"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -449.0
-margin_top = 99.0
-margin_right = 431.0
-margin_bottom = 122.0
-custom_fonts/font = SubResource( 3 )
-text = "Bu Fony Revindasari Sebagai Dosen Pembimbing"
-align = 1
-
-[node name="kosong" type="Label" parent="CreditM"]
-visible = false
-margin_right = 40.0
-margin_bottom = 14.0
-text = "Ter"
-
-[node name="GridContainer" type="GridContainer" parent="CreditM"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 11.0
-margin_top = 139.0
-margin_right = -19.0
-margin_bottom = -30.0
-columns = 3
-
-[node name="Label" type="Label" parent="CreditM/GridContainer"]
-margin_right = 342.0
-margin_bottom = 33.0
-custom_fonts/font = ExtResource( 7 )
-text = "Hiroya Herdinanto"
-
-[node name="Label2" type="Label" parent="CreditM/GridContainer"]
-margin_left = 354.0
-margin_right = 552.0
-margin_bottom = 33.0
-size_flags_horizontal = 6
-custom_fonts/font = ExtResource( 7 )
-text = "52223600022"
-
-[node name="Label3" type="Label" parent="CreditM/GridContainer"]
-margin_left = 600.0
-margin_right = 834.0
-margin_bottom = 33.0
-size_flags_horizontal = 6
-custom_fonts/font = ExtResource( 7 )
-text = "Game Designer"
-
-[node name="Label4" type="Label" parent="CreditM/GridContainer"]
-margin_top = 37.0
-margin_right = 342.0
-margin_bottom = 70.0
-custom_fonts/font = ExtResource( 7 )
-text = "Yoga Sandy"
-
-[node name="Label5" type="Label" parent="CreditM/GridContainer"]
-margin_left = 354.0
-margin_top = 37.0
-margin_right = 552.0
-margin_bottom = 70.0
-size_flags_horizontal = 6
-custom_fonts/font = ExtResource( 7 )
-text = "52223600023"
-
-[node name="Label6" type="Label" parent="CreditM/GridContainer"]
-margin_left = 627.0
-margin_top = 37.0
-margin_right = 807.0
-margin_bottom = 70.0
-size_flags_horizontal = 6
-custom_fonts/font = ExtResource( 7 )
-text = "Programmer"
-
-[node name="Label7" type="Label" parent="CreditM/GridContainer"]
-margin_top = 74.0
-margin_right = 342.0
-margin_bottom = 107.0
-custom_fonts/font = ExtResource( 7 )
-text = "Ardy Teguh Yulanda"
-
-[node name="Label8" type="Label" parent="CreditM/GridContainer"]
-margin_left = 354.0
-margin_top = 74.0
-margin_right = 552.0
-margin_bottom = 107.0
-size_flags_horizontal = 6
-custom_fonts/font = ExtResource( 7 )
-text = "52223600021"
-
-[node name="Label9" type="Label" parent="CreditM/GridContainer"]
-margin_left = 618.0
-margin_top = 74.0
-margin_right = 816.0
-margin_bottom = 107.0
-size_flags_horizontal = 6
-custom_fonts/font = ExtResource( 7 )
-text = "UI Designer"
-
-[node name="Label10" type="Label" parent="CreditM/GridContainer"]
-margin_top = 111.0
-margin_right = 342.0
-margin_bottom = 144.0
-custom_fonts/font = ExtResource( 7 )
-text = "Samudero Dirgantoro"
-
-[node name="Label11" type="Label" parent="CreditM/GridContainer"]
-margin_left = 354.0
-margin_top = 111.0
-margin_right = 552.0
-margin_bottom = 144.0
-size_flags_horizontal = 6
-custom_fonts/font = ExtResource( 7 )
-text = "52223600016"
-
-[node name="Label12" type="Label" parent="CreditM/GridContainer"]
-margin_left = 564.0
-margin_top = 111.0
-margin_right = 870.0
-margin_bottom = 144.0
-size_flags_horizontal = 6
-custom_fonts/font = ExtResource( 7 )
-text = "Characther Artist"
-
-[node name="Label13" type="Label" parent="CreditM/GridContainer"]
-margin_top = 148.0
-margin_right = 342.0
-margin_bottom = 181.0
-custom_fonts/font = ExtResource( 7 )
-text = "Bintang Bimantara"
-
-[node name="Label14" type="Label" parent="CreditM/GridContainer"]
-margin_left = 354.0
-margin_top = 148.0
-margin_right = 552.0
-margin_bottom = 181.0
-size_flags_horizontal = 6
-custom_fonts/font = ExtResource( 7 )
-text = "52223600025"
-
-[node name="Label15" type="Label" parent="CreditM/GridContainer"]
-margin_left = 564.0
-margin_top = 148.0
-margin_right = 870.0
-margin_bottom = 181.0
-size_flags_horizontal = 6
-custom_fonts/font = ExtResource( 7 )
-text = "Enviroment Artist"
+[node name="CreditM" parent="." instance=ExtResource( 7 )]
 
 [node name="OptionM" parent="." instance=ExtResource( 5 )]
-visible = false
 margin_left = -399.0
 margin_top = -98.0
 margin_right = 401.0

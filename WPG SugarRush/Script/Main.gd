@@ -1,5 +1,8 @@
 extends Node2D
 
+
+var jumlah_musuh = 0
+
 onready var bullet_manager = $BulletManager
 onready var player = $Player
 onready var enemy = $EnemyJelly
@@ -29,3 +32,8 @@ func _ready():
 	enemyO1.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemyO2.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemyO3.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
+	
+	var enemy_nodes = get_tree().get_nodes_in_group("Enemy")
+	
+	for enemy in enemy_nodes:
+		jumlah_musuh += 1 

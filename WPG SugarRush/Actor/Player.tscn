@@ -1,12 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Actor/Player.gd" type="Script" id=1]
 [ext_resource path="res://Actor/Health.tscn" type="PackedScene" id=2]
 [ext_resource path="res://TesLagu/pew_pew-dknight556-1379997159.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=4]
-
-[sub_resource type="StreamTexture" id=2]
-load_path = "res://.import/Josh Glow Up2.png-6ffc6a10bb035c5a3c9ce7debda7f12d.stex"
+[ext_resource path="res://Actor/Player.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://Asset/Actor/S Handgun  Arm.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1.27806, 23.84 )
@@ -16,24 +15,33 @@ position = Vector2( 132, 194 )
 script = ExtResource( 1 )
 Bullet = ExtResource( 4 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 36, 46 )
 scale = Vector2( 3, 3 )
-texture = SubResource( 2 )
+frames = ExtResource( 5 )
+animation = "Idle"
+frame = 1
+
+[node name="GunNode" type="Sprite" parent="Sprite"]
+position = Vector2( -2.33333, 6 )
+scale = Vector2( 0.907552, 0.760417 )
+texture = ExtResource( 8 )
+offset = Vector2( 7, 0 )
+
+[node name="EndOfGun" type="Position2D" parent="Sprite/GunNode"]
+position = Vector2( 16.4103, -1.03226 )
+
+[node name="GunDirection" type="Position2D" parent="Sprite/GunNode"]
+position = Vector2( 23.7949, -1.03226 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 31, 46.4999 )
+visible = false
+position = Vector2( 36, 55 )
 rotation = -3.14159
 scale = Vector2( 18.7784, 1.65688 )
 shape = SubResource( 1 )
 
 [node name="Health" parent="." groups=["Player"] instance=ExtResource( 2 )]
-
-[node name="EndOfGun" type="Position2D" parent="."]
-position = Vector2( 68, 46 )
-
-[node name="GunDirection" type="Position2D" parent="."]
-position = Vector2( 76, 46 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 32, 49 )
@@ -48,4 +56,5 @@ stream = ExtResource( 3 )
 volume_db = 4.0
 bus = "SFX"
 
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 [connection signal="timeout" from="ShootCD" to="." method="_on_ShootCD_timeout"]

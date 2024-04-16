@@ -9,6 +9,7 @@ onready var hit_box = $HitBox
 onready var collision_shape = $CollisionShape2D
 onready var bullet_scene = preload("res://BulletJ.tscn")
 onready var HP = $HPBar
+onready var main_node = $"/root/Main" 
 
 var speed = 50
 var motion = Vector2.ZERO
@@ -39,10 +40,10 @@ func _physics_process(delta):
 func handle_hit():
 	health_stat.health -= 20
 	if health_stat.health <= 0:
+		main_node.jumlah_musuh -= 1
 		queue_free()
 	HP.show()
 	set_HP(health_stat.health)
-	print("enemy hit, health: ", health_stat.health)
 
 func handle_shooting(delta):
 	if can_fire:
@@ -55,14 +56,13 @@ func handle_shooting(delta):
 
 func _on_DetectionZone_body_entered(body):
 	if body is Player:
-		print("Player entered")
 		player = body
 
 func _on_DetectionZone_body_exited(body):
-	if body == player:
-		print("Player exited")
+	if body == Player:
 		player = null
 
+	
 func _ready():
 	hit_box.connect("body_entered", self, "_on_HitBox_body_entered")
 	get_patrol_points()
