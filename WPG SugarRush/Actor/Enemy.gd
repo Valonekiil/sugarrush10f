@@ -4,7 +4,9 @@ onready var health_stat = $Health
 onready var hit_box = $HitBox
 onready var collision_shape = $CollisionShape2D
 onready var HP = $HPBar
-onready var main_node = $"/root/Main" 
+onready var main_node = $"/root/Main"
+
+signal progress
 
 var speed = 100
 var motion = Vector2.ZERO
@@ -30,8 +32,9 @@ func _physics_process(delta):
 
 func handle_hit():
 	health_stat.health -= 20
-	if health_stat.health <= 0:
+	if health_stat.health == 0:
 		main_node.jumlah_musuh -= 1
+		emit_signal("progress")
 		queue_free()
 	HP.show()
 	set_HP(health_stat.health)
@@ -54,6 +57,7 @@ func _ready():
 	choose_random_point()
 	collision_shape.connect("body_entered", self, "_on_body_entered")
 	HP.hide()
+	connect("progress",get_parent().get_node("UI/Progres"),"_enemy_killed")
 
 func _on_HitBox_body_entered(body):
 	if body is Player:

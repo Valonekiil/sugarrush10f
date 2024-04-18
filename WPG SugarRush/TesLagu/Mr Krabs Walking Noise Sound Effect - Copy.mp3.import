@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mr Krabs Walking Noise Sound Effect - Copy.mp3-7d7a1606c5a13950f624e7d653d993f4.mp3str"
+
+[deps]
+
+source_file="res://TesLagu/Mr Krabs Walking Noise Sound Effect - Copy.mp3"
+dest_files=[ "res://.import/Mr Krabs Walking Noise Sound Effect - Copy.mp3-7d7a1606c5a13950f624e7d653d993f4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

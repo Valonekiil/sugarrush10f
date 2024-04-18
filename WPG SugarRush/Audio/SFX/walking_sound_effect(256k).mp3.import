@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/walking_sound_effect(256k).mp3-41d3d258c1bbe2b76909caaf1f6fb652.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/walking_sound_effect(256k).mp3"
+dest_files=[ "res://.import/walking_sound_effect(256k).mp3-41d3d258c1bbe2b76909caaf1f6fb652.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

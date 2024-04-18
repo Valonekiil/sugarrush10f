@@ -21,6 +21,7 @@ var avoid_direction = Vector2.ZERO
 var fire_rate = 0.5 # Tingkat tembakan dalam detik
 var can_fire = true
 
+signal progress
 
 func _physics_process(delta):
 	motion = Vector2.ZERO
@@ -41,6 +42,7 @@ func handle_hit():
 	health_stat.health -= 20
 	if health_stat.health <= 0:
 		main_node.jumlah_musuh -= 1
+		emit_signal("progress")
 		queue_free()
 	HP.show()
 	set_HP(health_stat.health)
@@ -69,6 +71,7 @@ func _ready():
 	choose_random_point()
 	collision_shape.connect("body_entered", self, "_on_body_entered")
 	HP.hide()
+	connect("progress",get_parent().get_node("UI/Progres"),"_enemy_killed")
  
 func set_HP(health):
 	HP.value = health_stat.health 

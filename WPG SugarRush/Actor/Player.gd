@@ -4,10 +4,13 @@ class_name Player
 signal player_fired_bullet(bullet, position, direction)
 signal life_changed(Player_HP)
 signal dead
+signal set_bullet(bullet_now)
+signal set_max(max_bullet)
+signal rilot(yesnt)
 
 export (PackedScene) var Bullet
 export (int) var speed = 200
-export (float) var shoot_cooldown = 0.5
+export (float) var shoot_cooldown = 3 #0.5
 
 onready var gun_node = $Sprite/GunNode
 onready var end_of_gun = $Sprite/GunNode/EndOfGun
@@ -18,30 +21,41 @@ onready var animated_sprite = $Sprite
 onready var fin : Area2D = get_node("/root/Main/Fin")
 onready var main = $"/root/Main"
 
+
 var can_shoot = true
+var max_ammo:int = 6
+var ammo:int = max_ammo
 
-
-var max_hp: int = 5
-var hp: int = max_hp
+var max_hp = 5
+var hp = max_hp
 var is_dead = false
 
 func _ready()-> void:
 	connect("life_changed",get_parent().get_node("UI/Life"),"on_player_life_changed")
 	emit_signal("life_changed",max_hp)
 	connect("dead",get_parent().get_node("UI/Life"),"_on_Player_Dead")
+	connect("set_bullet",get_parent().get_node("UI/Stat"),"set_ammo")
+	connect("set_max",get_parent().get_node("UI/Stat"),"set_max_ammo")
+	connect("rilot",get_parent().get_node("UI/Stat"),"is_reload")
 	print(fin)
+	#emit_signal("set_max",max_ammo)
+	emit_signal("rilot","no")
 
 func _process(delta: float):
 	var movement_direction := Vector2.ZERO
 
 	if Input.is_action_pressed("up"):
 		movement_direction.y = -1
+		$Walk_sfx.play()
 	if Input.is_action_pressed("down"):
+		$Walk_sfx.play()
 		movement_direction.y = 1
 	if Input.is_action_pressed("left"):
 		movement_direction.x = -1
+		$Walk_sfx.play()
 		$Sprite.flip_h = true
 	if Input.is_action_pressed("right"):
+		$Walk_sfx.play()
 		movement_direction.x = 1
 		$Sprite.flip_h = false
 
@@ -73,29 +87,46 @@ func _process(delta: float):
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("shoot") and can_shoot:
 		shoot()
-		$Shot_sfx.play()
+		
 			
 	if event.is_action_released("skill"):
 		skill(Vector2(0,0))
-		skill(Vector2(-12,25))
-		skill(Vector2(12,-25))
+		#skill(Vector2(-12,25))
+		#skill(Vector2(12,-25))
+	if event.is_action_released("reload") and ammo == 0 :
+		emit_signal("rilot","yes")
+		can_shoot = false  # Set can_shoot menjadi false setelah menembak
+		shoot_timer.start(shoot_cooldown )  # Mulai Timer cooldown
+		return
+	if event.is_action_released("reload") and ammo < 6:
+		emit_signal("rilot","yes")
+		can_shoot = false  # Set can_shoot menjadi false setelah menembak
+		shoot_timer.start(shoot_cooldown - 2)  # Mulai Timer cooldown
 
 func skill(off: Vector2):
 	if can_shoot:
 		var bullet_instance = Bullet.instance()
 		var mouse_position = get_global_mouse_position()
-		var direction = (mouse_position - end_of_gun.global_position + off).normalized()
-		emit_signal("player_fired_bullet", bullet_instance, end_of_gun.global_position,direction)
+		var direction = (mouse_position - gun_direction.global_position + off).normalized()
+		emit_signal("player_fired_bullet", bullet_instance, gun_direction.global_position,direction)
 
 func shoot():
 	if can_shoot:
+		if ammo == 0:
+			emit_signal("rilot","yes")
+			can_shoot = false  # Set can_shoot menjadi false setelah menembak
+			shoot_timer.start(shoot_cooldown)  # Mulai Timer cooldown
+			return
 		var bullet_instance = Bullet.instance()
 		var mouse_position = get_global_mouse_position()
 		var direction = (mouse_position - gun_direction.global_position).normalized()
 		bullet_instance.set_direction(direction)
 		emit_signal("player_fired_bullet", bullet_instance, gun_direction.global_position, direction)
-		can_shoot = false  # Set can_shoot menjadi false setelah menembak
-		shoot_timer.start(shoot_cooldown)  # Mulai Timer cooldown
+		ammo -=1
+		emit_signal("set_bullet",ammo)
+		print("current ammo:"+ str(ammo))
+		$Shot_sfx.play()
+
 
 
 func on_Player_Heal(heal: int):
@@ -122,10 +153,9 @@ func _on_Sprite_animation_finished():
 	
 func _on_ShootCD_timeout():
 	can_shoot = true 
+	emit_signal("rilot","no")
+	ammo =  max_ammo
+	emit_signal("set_bullet",ammo)
+	shoot_timer.stop()
 
 
-func _on_Fin_area_entered(area):
-	if main.jumlah_musuh == 0:
-		get_tree().change_scene("res://CreditM.tscn")
-	else:
-		print("Musuh Tersisa =", main.jumlah_musuh)

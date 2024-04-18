@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Rough Trail (Rimworld OST) - Copy.mp3-d26d730a7c4482826916746592334d5a.mp3str"
+
+[deps]
+
+source_file="res://TesLagu/Rough Trail (Rimworld OST) - Copy.mp3"
+dest_files=[ "res://.import/Rough Trail (Rimworld OST) - Copy.mp3-d26d730a7c4482826916746592334d5a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

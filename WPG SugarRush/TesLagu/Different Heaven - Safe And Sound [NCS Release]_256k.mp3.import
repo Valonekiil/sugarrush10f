@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Different Heaven - Safe And Sound [NCS Release]_256k.mp3-e8ff46ac339eed351bbcc138c70fcddc.mp3str"
+
+[deps]
+
+source_file="res://TesLagu/Different Heaven - Safe And Sound [NCS Release]_256k.mp3"
+dest_files=[ "res://.import/Different Heaven - Safe And Sound [NCS Release]_256k.mp3-e8ff46ac339eed351bbcc138c70fcddc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

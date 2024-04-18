@@ -17,6 +17,8 @@ onready var enemyO3 = $EnemyJellyO4
 onready var Kobis1 = $Kobis1
 onready var Kobis2 = $Kobis2
 onready var Kobis3 = $Kobis3
+onready var EBar = $UI/Progres/ELbar
+onready var Etx = $UI/Progres/ELlbl
 
 func _ready():
 	player.connect("player_fired_bullet", bullet_manager, "handle_bullet_spawned")
@@ -37,3 +39,19 @@ func _ready():
 	
 	for enemy in enemy_nodes:
 		jumlah_musuh += 1 
+	
+	EBar.max_value = jumlah_musuh
+	EBar.value = 0
+	print(jumlah_musuh)
+	Etx.text = "Sisa musuh: " + str(jumlah_musuh)
+
+
+func _on_Fin_body_entered(body:KinematicBody2D):
+	if body is Player:
+		if jumlah_musuh == 0:
+			print("Done tamat")
+			get_tree().change_scene("res://Ending.tscn")
+		else:
+			print("Musuh Tersisa =", jumlah_musuh)
+	else:
+		print("Not Player in fin")

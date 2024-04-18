@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Cupcake_Stomping_Sound_-_Sound_Effects_(256k).mp3-ef03d6883f1c136a8c3f8fa6583084df.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Cupcake_Stomping_Sound_-_Sound_Effects_(256k).mp3"
+dest_files=[ "res://.import/Cupcake_Stomping_Sound_-_Sound_Effects_(256k).mp3-ef03d6883f1c136a8c3f8fa6583084df.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

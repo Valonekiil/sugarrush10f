@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Script/UI.gd" type="Script" id=2]
@@ -6,10 +6,42 @@
 [ext_resource path="res://UI/HPManager.gd" type="Script" id=4]
 [ext_resource path="res://UI/OptionM.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/FPSLabel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Asset/Font/pixpopenei.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://UI/Progres.gd" type="Script" id=8]
+[ext_resource path="res://Asset/Font/pixpopenei.otf" type="DynamicFontData" id=9]
+[ext_resource path="res://UI/Stat.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 15
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.764706, 0.482353, 0.905882, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Theme" id=8]
+ProgressBar/styles/bg = SubResource( 6 )
+ProgressBar/styles/fg = SubResource( 7 )
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends TextureRect
@@ -36,6 +68,105 @@ margin_bottom = 46.0
 custom_fonts/font = SubResource( 1 )
 text = "Pause"
 
+[node name="Stat" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+script = ExtResource( 10 )
+
+[node name="Bullet_box" type="HBoxContainer" parent="Stat"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -264.0
+margin_top = -51.0
+margin_right = -31.0
+margin_bottom = -11.0
+alignment = 1
+
+[node name="Current_Ammo" type="Label" parent="Stat/Bullet_box"]
+margin_left = 50.0
+margin_top = 2.0
+margin_right = 71.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 9 )
+text = "6"
+
+[node name="plate" type="Label" parent="Stat/Bullet_box"]
+margin_left = 75.0
+margin_top = 2.0
+margin_right = 157.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 9 )
+text = "  /  "
+
+[node name="Max_Ammo" type="Label" parent="Stat/Bullet_box"]
+margin_left = 161.0
+margin_top = 2.0
+margin_right = 182.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 9 )
+text = "6"
+
+[node name="Rilot" type="Label" parent="Stat"]
+visible = false
+margin_left = -199.0
+margin_top = -7.0
+margin_right = -1.0
+margin_bottom = 29.0
+custom_fonts/font = SubResource( 9 )
+text = "RELOADING"
+
+[node name="Progres" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+script = ExtResource( 8 )
+
+[node name="ELlbl" type="Label" parent="Progres"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -156.0
+margin_top = 44.0
+margin_right = -116.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 1
+
+[node name="ELbar" type="ProgressBar" parent="Progres"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -157.0
+margin_top = 10.0
+margin_right = -31.0
+margin_bottom = 24.0
+rect_scale = Vector2( 2.5, 2.5 )
+theme = SubResource( 8 )
+max_value = 26.0
+value = 5.0
+percent_visible = false
+
+[node name="Done" type="Label" parent="Progres"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -177.0
+margin_top = 14.0
+margin_right = 168.0
+margin_bottom = 113.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Semua musuh
+telah terbunuh"
+align = 1
+
 [node name="Life" type="Control" parent="."]
 anchor_left = 0.035
 anchor_top = 0.117
@@ -56,7 +187,7 @@ margin_left = -447.0
 margin_top = -185.0
 margin_right = -321.0
 margin_bottom = -77.0
-rect_scale = Vector2( 0.5, 0.5 )
+rect_scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 2

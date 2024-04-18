@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Pistol_Sound_Effect(256k).mp3-13d8050b07efa208d51bba6a5a5c0145.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Pistol_Sound_Effect(256k).mp3"
+dest_files=[ "res://.import/Pistol_Sound_Effect(256k).mp3-13d8050b07efa208d51bba6a5a5c0145.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
