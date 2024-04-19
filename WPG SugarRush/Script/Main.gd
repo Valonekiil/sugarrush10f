@@ -17,8 +17,10 @@ onready var enemyO3 = $EnemyJellyO4
 onready var Kobis1 = $Kobis1
 onready var Kobis2 = $Kobis2
 onready var Kobis3 = $Kobis3
+onready var PU1 = $Power_Up
 onready var EBar = $UI/Progres/ELbar
-onready var Etx = $UI/Progres/ELlbl
+onready var Etx = $UI/Progres/PGbox/PGLeft
+onready var Emax = $UI/Progres/PGbox/PGMax
 
 func _ready():
 	player.connect("player_fired_bullet", bullet_manager, "handle_bullet_spawned")
@@ -34,16 +36,21 @@ func _ready():
 	enemyO1.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemyO2.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemyO3.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
+	PU1.connect("Powered",player,"on_Player_Powered")
 	
 	var enemy_nodes = get_tree().get_nodes_in_group("Enemy")
 	
 	for enemy in enemy_nodes:
 		jumlah_musuh += 1 
-	
+	var max_musuh:int = jumlah_musuh
 	EBar.max_value = jumlah_musuh
 	EBar.value = 0
 	print(jumlah_musuh)
-	Etx.text = "Sisa musuh: " + str(jumlah_musuh)
+	Etx.text = str(jumlah_musuh)
+	if Emax != null:
+		Emax.text = str(max_musuh)
+	else:
+		print("kontol")
 
 
 func _on_Fin_body_entered(body:KinematicBody2D):

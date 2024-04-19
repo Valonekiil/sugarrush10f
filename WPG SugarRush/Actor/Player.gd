@@ -29,6 +29,8 @@ var ammo:int = max_ammo
 var max_hp = 5
 var hp = max_hp
 var is_dead = false
+var PShots = 3
+var Powered = true
 
 func _ready()-> void:
 	connect("life_changed",get_parent().get_node("UI/Life"),"on_player_life_changed")
@@ -40,6 +42,7 @@ func _ready()-> void:
 	print(fin)
 	#emit_signal("set_max",max_ammo)
 	emit_signal("rilot","no")
+	$PShots.text = str(PShots)
 
 func _process(delta: float):
 	var movement_direction := Vector2.ZERO
@@ -89,10 +92,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		shoot()
 		
 			
-	if event.is_action_released("skill"):
+	if event.is_action_released("skill")and Powered:
 		skill(Vector2(0,0))
-		#skill(Vector2(-12,25))
-		#skill(Vector2(12,-25))
+		skill(Vector2(-12,25))
+		skill(Vector2(12,-25))
+		$Shot_sfx.play(0.30)
+		PShots -= 1
+		$PShots.text = str(PShots)
+		
+		if PShots == 0:
+			$PShots.hide()
+			Powered = false
+
+
 	if event.is_action_released("reload") and ammo == 0 :
 		$Rlot_sfx.play(0.31)
 		emit_signal("rilot","yes")
@@ -105,12 +117,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		can_shoot = false  # Set can_shoot menjadi false setelah menembak
 		shoot_timer.start(shoot_cooldown - 2)  # Mulai Timer cooldown
 
+
 func skill(off: Vector2):
 	if can_shoot:
 		var bullet_instance = Bullet.instance()
 		var mouse_position = get_global_mouse_position()
 		var direction = (mouse_position - gun_direction.global_position + off).normalized()
 		emit_signal("player_fired_bullet", bullet_instance, gun_direction.global_position,direction)
+		
 
 func shoot():
 	if can_shoot:
@@ -155,6 +169,14 @@ func handle_hit():
 func _on_Sprite_animation_finished():
 	pass
 	
+
+func on_Player_Powered(Shots:int):
+	PShots += Shots
+	Powered = true
+	$PShots.show()
+	$PShots.text = str(Shots)
+	
+
 func _on_ShootCD_timeout():
 	can_shoot = true 
 	emit_signal("rilot","no")

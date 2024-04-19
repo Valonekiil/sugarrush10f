@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Script/UI.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://UI/HPManager.gd" type="Script" id=4]
 [ext_resource path="res://UI/OptionM.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/FPSLabel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Asset/Font/pixpopenei.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://UI/Progres.gd" type="Script" id=8]
 [ext_resource path="res://Asset/Font/pixpopenei.otf" type="DynamicFontData" id=9]
 [ext_resource path="res://UI/Stat.gd" type="Script" id=10]
@@ -17,13 +16,9 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 30
-font_data = ExtResource( 9 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 40
-outline_size = 3
+outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 7 )
+font_data = ExtResource( 9 )
 
 [sub_resource type="StyleBoxFlat" id=6]
 border_width_left = 2
@@ -42,6 +37,12 @@ border_color = Color( 0, 0, 0, 1 )
 [sub_resource type="Theme" id=8]
 ProgressBar/styles/bg = SubResource( 6 )
 ProgressBar/styles/fg = SubResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends TextureRect
@@ -93,6 +94,7 @@ margin_left = 50.0
 margin_top = 2.0
 margin_right = 71.0
 margin_bottom = 38.0
+custom_colors/font_color = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "6"
 
@@ -101,6 +103,7 @@ margin_left = 75.0
 margin_top = 2.0
 margin_right = 157.0
 margin_bottom = 38.0
+custom_colors/font_color = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "  /  "
 
@@ -109,6 +112,7 @@ margin_left = 161.0
 margin_top = 2.0
 margin_right = 182.0
 margin_bottom = 38.0
+custom_colors/font_color = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "6"
 
@@ -118,6 +122,7 @@ margin_left = -199.0
 margin_top = -7.0
 margin_right = -1.0
 margin_bottom = 29.0
+custom_colors/font_color = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "RELOADING"
 
@@ -129,24 +134,13 @@ margin_right = 20.0
 margin_bottom = 40.0
 script = ExtResource( 8 )
 
-[node name="ELlbl" type="Label" parent="Progres"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -156.0
-margin_top = 44.0
-margin_right = -116.0
-margin_bottom = 92.0
-custom_fonts/font = SubResource( 5 )
-text = "0"
-align = 1
-
 [node name="ELbar" type="ProgressBar" parent="Progres"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -157.0
-margin_top = 10.0
+margin_top = 11.0
 margin_right = -31.0
-margin_bottom = 24.0
+margin_bottom = 25.0
 rect_scale = Vector2( 2.5, 2.5 )
 theme = SubResource( 8 )
 max_value = 26.0
@@ -165,6 +159,40 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "Semua musuh
 telah terbunuh"
+align = 1
+
+[node name="PGbox" type="HBoxContainer" parent="Progres"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_right = 65.0
+margin_bottom = 20.0
+alignment = 1
+
+[node name="PGLeft" type="Label" parent="Progres/PGbox"]
+margin_left = 30.0
+margin_right = 50.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 1
+
+[node name="ELlbl2" type="Label" parent="Progres/PGbox"]
+margin_left = 54.0
+margin_right = 74.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 5 )
+text = "/"
+align = 1
+
+[node name="PGMax" type="Label" parent="Progres/PGbox"]
+margin_left = 78.0
+margin_right = 98.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
 align = 1
 
 [node name="Life" type="Control" parent="."]
@@ -208,10 +236,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -137.0
-margin_top = -172.0
-margin_right = 143.0
-margin_bottom = -137.0
+margin_left = -140.0
+margin_top = -83.5
+margin_right = 140.0
+margin_bottom = -48.5
 custom_fonts/font = SubResource( 2 )
 text = "YOU DIED"
 align = 1
@@ -222,21 +250,21 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -71.0
-margin_top = -85.0
+margin_top = -14.5
 margin_right = 71.0
-margin_bottom = -50.0
+margin_bottom = 20.5
 custom_fonts/font = SubResource( 4 )
 text = "Continue"
 
 [node name="MainMB" type="Button" parent="Life/DiedM"]
 anchor_left = 0.5
-anchor_top = 0.6
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.6
-margin_left = -66.0
-margin_top = -67.0
-margin_right = 77.0
-margin_bottom = -32.0
+anchor_bottom = 0.5
+margin_left = -71.5
+margin_top = 46.5
+margin_right = 71.5
+margin_bottom = 81.5
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Actor/Player.gd" type="Script" id=1]
 [ext_resource path="res://Actor/Health.tscn" type="PackedScene" id=2]
@@ -8,9 +8,16 @@
 [ext_resource path="res://Audio/SFX/walking_sound_effect(256k).mp3" type="AudioStream" id=6]
 [ext_resource path="res://Audio/SFX/pick_up_gun_Sound_effect(256k).mp3" type="AudioStream" id=7]
 [ext_resource path="res://Asset/Actor/S Handgun  Arm.png" type="Texture" id=8]
+[ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1.27806, 23.84 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 132, 194 )
@@ -18,7 +25,6 @@ script = ExtResource( 1 )
 Bullet = ExtResource( 4 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 36, 46 )
 scale = Vector2( 3, 3 )
 frames = ExtResource( 5 )
 animation = "Idle"
@@ -37,7 +43,7 @@ position = Vector2( 16.4103, -1.03226 )
 position = Vector2( 23.7949, -1.03226 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 36, 55 )
+position = Vector2( 0, 12 )
 rotation = -3.14159
 scale = Vector2( 18.7784, 1.65688 )
 shape = SubResource( 1 )
@@ -45,7 +51,7 @@ shape = SubResource( 1 )
 [node name="Health" parent="." groups=["Player"] instance=ExtResource( 2 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 32, 49 )
+position = Vector2( 3, 13 )
 current = true
 smoothing_enabled = true
 smoothing_speed = 8.0
@@ -68,6 +74,19 @@ one_shot = true
 [node name="Rlot_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
 bus = "SFX"
+
+[node name="PShots" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -13.0
+margin_top = -52.0
+margin_right = 12.0
+margin_bottom = -27.0
+custom_fonts/font = SubResource( 2 )
+text = "5"
+align = 1
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 [connection signal="timeout" from="ShootCD" to="." method="_on_ShootCD_timeout"]

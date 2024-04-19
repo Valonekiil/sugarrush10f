@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Actor/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Asset/Envi/1-2 tanpa prop scale.png" type="Texture" id=2]
@@ -22,12 +22,17 @@
 [ext_resource path="res://Actor/enemy area atas/EnemyJelly up.gd" type="Script" id=20]
 [ext_resource path="res://TesLagu/Rough Trail (Rimworld OST) - Copy.mp3" type="AudioStream" id=21]
 [ext_resource path="res://TesLagu/BGMTes.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Asset/1-2_1sc.png" type="Texture" id=23]
+[ext_resource path="res://Asset/Item/Power_Up.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ConcavePolygonShape2D" id=15]
 segments = PoolVector2Array( 372.953, 244.555, 0, 244.555, 0, 244.555, 0, 0, 0, 0, 372.953, 0, 372.953, 0, 372.953, 244.555 )
 
 [sub_resource type="ConvexPolygonShape2D" id=16]
 points = PoolVector2Array( 0, 778.688, 38.3, 778.85, 38.816, 749.312, 35.36, 735.488, 40.7, 716.45, 36.0417, 682.396, 65.2083, 662.396, 86.0417, 669.896, 134.3, 682.85, 154.7, 702.05, 146.875, 733.229, 130.208, 754.896, 126.042, 777.396, 364.375, 777.396, 373.542, 789.896, 373.542, 833.542, 406.042, 815.208, 435.208, 825.208, 452.708, 845.208, 491.419, 822.333, 513.086, 825.667, 612.252, 812.333, 691.829, 814, 790.996, 831.5, 896, 845.51, 896, 1024, 0, 1024 )
+
+[sub_resource type="ConvexPolygonShape2D" id=27]
+points = PoolVector2Array( 0, 1024, 0, 241.719, 0, 0, 41.0603, 474.625 )
 
 [sub_resource type="ConcavePolygonShape2D" id=12]
 segments = PoolVector2Array( 0, 1021.4, 0.440002, 1019.96, 0.440002, 1019.96, 0, 779.48, 0, 779.48, 361.88, 779.48, 361.88, 779.48, 372.25, 783.75, 372.25, 783.75, 372.25, 841.75, 372.25, 841.75, 481.25, 834.75, 481.25, 834.75, 527.992, 825, 527.992, 825, 564.992, 818, 564.992, 818, 597.992, 814, 597.992, 814, 691.992, 815, 691.992, 815, 728.992, 819, 728.992, 819, 766.992, 826, 766.992, 826, 787.992, 819, 787.992, 819, 820.992, 844, 820.992, 844, 843.992, 825, 843.992, 825, 865.992, 815, 865.992, 815, 902.992, 831, 902.992, 831, 902.992, 788, 902.992, 788, 917.992, 775, 917.992, 775, 1150.25, 779, 1150.25, 779, 1129.25, 734, 1129.25, 734, 1130.25, 696, 1130.25, 696, 1175.25, 670, 1175.25, 670, 1215.25, 660, 1215.25, 660, 1249.25, 681, 1249.25, 681, 1238.25, 729, 1238.25, 729, 1248.25, 732, 1248.25, 732, 1237.25, 794, 1237.25, 794, 1280, 780, 1280, 780, 1280, 1024, 1280, 1024, 0, 1021.4 )
@@ -273,12 +278,34 @@ segments = PoolVector2Array( 0, 1024, 0, 648.829, 0, 648.829, 196.779, 658.512, 
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 10/z_index = 0
+11/name = "1-2_1sc.png 11"
+11/texture = ExtResource( 23 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 0, 0, 1280, 1024 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape = SubResource( 27 )
+11/shape_one_way = false
+11/shape_one_way_margin = 1.0
+11/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 27 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+11/z_index = 0
 
 [sub_resource type="CapsuleShape2D" id=26]
 radius = 43.0
 height = 418.0
 
 [node name="Main" type="Node2D"]
+position = Vector2( -1, 0 )
 script = ExtResource( 4 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
@@ -492,6 +519,9 @@ scale = Vector2( 0.25, 0.25 )
 [node name="Kobis3" parent="." instance=ExtResource( 12 )]
 position = Vector2( 192, 425 )
 scale = Vector2( 0.25, 0.25 )
+
+[node name="Power_Up" parent="." instance=ExtResource( 24 )]
+position = Vector2( 854, 240 )
 
 [node name="BGMTes" parent="." instance=ExtResource( 22 )]
 stream = ExtResource( 21 )
