@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Gel. shot.mp3-52765bd94530e4c4d33fdfa276ac77c1.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Gel. shot.mp3"
+dest_files=[ "res://.import/Gel. shot.mp3-52765bd94530e4c4d33fdfa276ac77c1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

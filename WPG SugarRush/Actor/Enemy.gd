@@ -29,6 +29,13 @@ func _physics_process(delta):
 		motion += avoid_direction * speed
 	
 	motion = move_and_slide(motion)
+	if motion != Vector2.ZERO:
+		if$WTimerC.time_left <= 0:
+			$Walk_sfx.pitch_scale = rand_range(0.8, 1.2)
+			$Walk_sfx.play(4.20)
+			$WTimerC.start(1.85)
+	else:
+		pass
 
 func handle_hit():
 	health_stat.health -= 20

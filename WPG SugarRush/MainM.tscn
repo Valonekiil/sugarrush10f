@@ -7,7 +7,7 @@
 [ext_resource path="res://UI/OptionM.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/FPSLabel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://CreditM.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UI/logo#1.png" type="Texture" id=8]
+[ext_resource path="res://UI/logo improve.png" type="Texture" id=8]
 [ext_resource path="res://TesLagu/BGMTes.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=4]
@@ -39,9 +39,9 @@ centered = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 379.0
-margin_top = 294.0
+margin_top = 298.0
 margin_right = 635.0
-margin_bottom = -50.0
+margin_bottom = -46.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 2 )
 
@@ -62,9 +62,9 @@ valign = 1
 
 [node name="OptionB" type="TextureButton" parent="NinePatchRect"]
 margin_left = 380.0
-margin_top = 356.0
+margin_top = 360.0
 margin_right = 1660.0
-margin_bottom = 612.0
+margin_bottom = 616.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 2 )
 
@@ -84,10 +84,10 @@ align = 1
 valign = 1
 
 [node name="CreditB" type="TextureButton" parent="NinePatchRect"]
-margin_left = 382.0
-margin_top = 417.0
-margin_right = 1662.0
-margin_bottom = 673.0
+margin_left = 381.0
+margin_top = 424.0
+margin_right = 1661.0
+margin_bottom = 680.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 2 )
 
@@ -107,10 +107,10 @@ align = 1
 valign = 1
 
 [node name="ExitB" type="TextureButton" parent="NinePatchRect"]
-margin_left = 380.0
-margin_top = 478.0
-margin_right = 1660.0
-margin_bottom = 734.0
+margin_left = 382.0
+margin_top = 488.0
+margin_right = 1662.0
+margin_bottom = 744.0
 rect_scale = Vector2( 0.2, 0.2 )
 texture_normal = ExtResource( 2 )
 

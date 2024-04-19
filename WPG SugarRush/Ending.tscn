@@ -1,9 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Ending.gd" type="Script" id=2]
 [ext_resource path="res://TesLagu/BGMTes.tscn" type="PackedScene" id=3]
 [ext_resource path="res://TesLagu/Different Heaven - Safe And Sound [NCS Release]_256k.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Asset/Panel.png" type="Texture" id=5]
+[ext_resource path="res://Asset/Font/SettingLabel.tres" type="DynamicFont" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -16,15 +26,198 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-[node name="Button" type="Button" parent="."]
-margin_left = 171.0
-margin_top = 317.0
-margin_right = 734.0
-margin_bottom = 487.0
-custom_fonts/font = SubResource( 1 )
-text = "TAMAT"
-
 [node name="BGMTes" parent="." instance=ExtResource( 3 )]
 stream = ExtResource( 4 )
+volume_db = 1.0
+
+[node name="place" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -623, -51 )
+
+[node name="Sprite" type="Sprite" parent="place"]
+position = Vector2( 514, 226.401 )
+scale = Vector2( 0.5, 0.302863 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="place"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -263.0
+margin_right = 200.0
+margin_bottom = -223.0
+custom_fonts/font = SubResource( 2 )
+text = "SUGAR RUSH"
+align = 1
+
+[node name="Label2" type="Label" parent="place"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -179.0
+margin_top = 110.0
+margin_right = 189.0
+margin_bottom = 133.0
+custom_fonts/font = SubResource( 3 )
+text = "Made by TEAM 10F"
+align = 1
+
+[node name="Label3" type="Label" parent="place"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -443.0
+margin_top = 151.0
+margin_right = 437.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 3 )
+text = "Fony Revindasari Sebagai Dosen Pembimbing"
+align = 1
+
+[node name="kosong" type="Label" parent="place"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Ter"
+
+[node name="GridContainer" type="GridContainer" parent="place"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 75.0
+margin_top = 191.0
+margin_right = -53.0
+margin_bottom = -228.0
+columns = 3
+
+[node name="Label" type="Label" parent="place/GridContainer"]
+margin_right = 342.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 6 )
+text = "Hiroya Herdinanto"
+
+[node name="Label2" type="Label" parent="place/GridContainer"]
+margin_left = 367.0
+margin_right = 565.0
+margin_bottom = 33.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 6 )
+text = "52223600022"
+
+[node name="Label3" type="Label" parent="place/GridContainer"]
+margin_left = 626.0
+margin_right = 860.0
+margin_bottom = 33.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 6 )
+text = "Game Designer"
+
+[node name="Label4" type="Label" parent="place/GridContainer"]
+margin_top = 37.0
+margin_right = 342.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 6 )
+text = "Yoga Sandy"
+
+[node name="Label5" type="Label" parent="place/GridContainer"]
+margin_left = 367.0
+margin_top = 37.0
+margin_right = 565.0
+margin_bottom = 70.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 6 )
+text = "52223600023"
+
+[node name="Label6" type="Label" parent="place/GridContainer"]
+margin_left = 653.0
+margin_top = 37.0
+margin_right = 833.0
+margin_bottom = 70.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 6 )
+text = "Programmer"
+
+[node name="Label7" type="Label" parent="place/GridContainer"]
+margin_top = 74.0
+margin_right = 342.0
+margin_bottom = 107.0
+custom_fonts/font = ExtResource( 6 )
+text = "Ardy Teguh Yulanda"
+
+[node name="Label8" type="Label" parent="place/GridContainer"]
+margin_left = 367.0
+margin_top = 74.0
+margin_right = 565.0
+margin_bottom = 107.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 6 )
+text = "52223600021"
+
+[node name="Label9" type="Label" parent="place/GridContainer"]
+margin_left = 644.0
+margin_top = 74.0
+margin_right = 842.0
+margin_bottom = 107.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 6 )
+text = "UI Designer"
+
+[node name="Label10" type="Label" parent="place/GridContainer"]
+margin_top = 111.0
+margin_right = 342.0
+margin_bottom = 144.0
+custom_fonts/font = ExtResource( 6 )
+text = "Samudero Dirgantoro"
+
+[node name="Label11" type="Label" parent="place/GridContainer"]
+margin_left = 367.0
+margin_top = 111.0
+margin_right = 565.0
+margin_bottom = 144.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 6 )
+text = "52223600016"
+
+[node name="Label12" type="Label" parent="place/GridContainer"]
+margin_left = 590.0
+margin_top = 111.0
+margin_right = 896.0
+margin_bottom = 144.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 6 )
+text = "Characther Artist"
+
+[node name="Label13" type="Label" parent="place/GridContainer"]
+margin_top = 148.0
+margin_right = 342.0
+margin_bottom = 181.0
+custom_fonts/font = ExtResource( 6 )
+text = "Bintang Bimantara"
+
+[node name="Label14" type="Label" parent="place/GridContainer"]
+margin_left = 367.0
+margin_top = 148.0
+margin_right = 565.0
+margin_bottom = 181.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 6 )
+text = "52223600025"
+
+[node name="Label15" type="Label" parent="place/GridContainer"]
+margin_left = 590.0
+margin_top = 148.0
+margin_right = 896.0
+margin_bottom = 181.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 6 )
+text = "Enviroment Artist"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 255.0
+margin_top = 420.0
+margin_right = 818.0
+margin_bottom = 590.0
+custom_fonts/font = SubResource( 1 )
+text = "TAMAT"
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

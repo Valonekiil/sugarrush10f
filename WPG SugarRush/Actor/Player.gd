@@ -46,16 +46,12 @@ func _process(delta: float):
 
 	if Input.is_action_pressed("up"):
 		movement_direction.y = -1
-		$Walk_sfx.play()
 	if Input.is_action_pressed("down"):
-		$Walk_sfx.play()
 		movement_direction.y = 1
 	if Input.is_action_pressed("left"):
 		movement_direction.x = -1
-		$Walk_sfx.play()
 		$Sprite.flip_h = true
 	if Input.is_action_pressed("right"):
-		$Walk_sfx.play()
 		movement_direction.x = 1
 		$Sprite.flip_h = false
 
@@ -65,6 +61,10 @@ func _process(delta: float):
 	# Menangani animasi berjalan
 	if movement_direction != Vector2.ZERO:
 		animated_sprite.play("Walk")
+		if$WTimer.time_left <= 0:
+			$Walk_sfx.pitch_scale = rand_range(0.8, 1.2)
+			$Walk_sfx.play(4.65)
+			$WTimer.start(0.46)
 	else:
 		animated_sprite.stop()
 	
@@ -94,11 +94,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		#skill(Vector2(-12,25))
 		#skill(Vector2(12,-25))
 	if event.is_action_released("reload") and ammo == 0 :
+		$Rlot_sfx.play(0.31)
 		emit_signal("rilot","yes")
 		can_shoot = false  # Set can_shoot menjadi false setelah menembak
 		shoot_timer.start(shoot_cooldown )  # Mulai Timer cooldown
 		return
 	if event.is_action_released("reload") and ammo < 6:
+		$Rlot_sfx.play(1.41)
 		emit_signal("rilot","yes")
 		can_shoot = false  # Set can_shoot menjadi false setelah menembak
 		shoot_timer.start(shoot_cooldown - 2)  # Mulai Timer cooldown
@@ -114,6 +116,7 @@ func shoot():
 	if can_shoot:
 		if ammo == 0:
 			emit_signal("rilot","yes")
+			$Rlot_sfx.play(0.31)
 			can_shoot = false  # Set can_shoot menjadi false setelah menembak
 			shoot_timer.start(shoot_cooldown)  # Mulai Timer cooldown
 			return
@@ -125,7 +128,8 @@ func shoot():
 		ammo -=1
 		emit_signal("set_bullet",ammo)
 		print("current ammo:"+ str(ammo))
-		$Shot_sfx.play()
+		#$Shot_sfx.pitch_scale = rand_range(1.8, 0.4)
+		$Shot_sfx.play(0.30)
 
 
 
