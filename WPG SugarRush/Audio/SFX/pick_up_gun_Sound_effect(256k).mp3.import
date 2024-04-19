@@ -11,5 +11,5 @@ dest_files=[ "res://.import/pick_up_gun_Sound_effect(256k).mp3-f1603ce9db9ae4ac1
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

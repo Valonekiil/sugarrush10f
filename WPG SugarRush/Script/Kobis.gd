@@ -7,4 +7,5 @@ func _on_Kobis_body_entered(body:KinematicBody2D)-> void:
 	if body is Player:
 		emit_signal("Healed",1)
 		collision_shape.set_deferred("disabled", true)
+		
 		queue_free()
