@@ -16,8 +16,6 @@ var motion = Vector2.ZERO
 var player = null
 var patrol_points = []
 var current_point_index = -1
-var avoid_timer = 0.0
-var avoid_direction = Vector2.ZERO
 var fire_rate = 0.5 # Tingkat tembakan dalam detik
 var can_fire = true
 
@@ -32,10 +30,6 @@ func _physics_process(delta):
 	else:
 		patrol()
 	
-	if avoid_timer > 0:
-		avoid_timer -= delta
-		motion += avoid_direction * speed
-	
 	motion = move_and_slide(motion)
 
 func handle_hit():
@@ -48,7 +42,7 @@ func handle_hit():
 	set_HP(health_stat.health)
 
 func handle_shooting(delta):
-	if can_fire:
+	if player.is_in_group("Player") and can_fire:
 		var bullet_instance = bullet_scene.instance()
 		var direction = (player.get_global_transform().origin - end_of_gun.get_global_transform().origin).normalized()
 		emit_signal("enemy_fired_bullet", bullet_instance, end_of_gun.global_position, direction)
@@ -61,18 +55,15 @@ func _on_DetectionZone_body_entered(body):
 		player = body
 
 func _on_DetectionZone_body_exited(body):
-	if body == Player:
+	if body == player:
 		player = null
 
 
 
 func _ready():
-	hit_box.connect("body_entered", self, "_on_HitBox_body_entered")
 	get_patrol_points()
 	choose_random_point()
-	collision_shape.connect("body_entered", self, "_on_body_entered")
 	HP.hide()
-	connect("progress",get_parent().get_node("UI/Progres"),"_enemy_killed")
 	connect("progress",get_parent().get_node("UI/Progres"),"_enemy_killed")
  
 func set_HP(health):
@@ -81,9 +72,6 @@ func set_HP(health):
 func _on_HitBox_body_entered(body):
 	if body is Player:
 		body.handle_hit()
-	if body.is_in_group("Enemy"):
-		avoid_timer = 0.5  # Durasi penghindaran tabrakan (dalam detik)
-		avoid_direction = body.position.direction_to(position).rotated(randf() * PI - PI / 2)
 
 func patrol():
 	if patrol_points:

@@ -13,8 +13,6 @@ var motion = Vector2.ZERO
 var player = null
 var patrol_points = []
 var current_point_index = -1
-var avoid_timer = 0.0
-var avoid_direction = Vector2.ZERO
 
 func _physics_process(delta):
 	motion = Vector2.ZERO
@@ -23,10 +21,6 @@ func _physics_process(delta):
 		motion = position.direction_to(player.position) * speed
 	else:
 		patrol()
-	
-	if avoid_timer > 0:
-		avoid_timer -= delta
-		motion += avoid_direction * speed
 	
 	motion = move_and_slide(motion)
 	if motion != Vector2.ZERO:
@@ -59,19 +53,14 @@ func _on_DetectionZone_body_exited(body):
 
 
 func _ready():
-	hit_box.connect("body_entered", self, "_on_HitBox_body_entered")
 	get_patrol_points()
 	choose_random_point()
-	collision_shape.connect("body_entered", self, "_on_body_entered")
 	HP.hide()
 	connect("progress",get_parent().get_node("UI/Progres"),"_enemy_killed")
 
 func _on_HitBox_body_entered(body):
 	if body is Player:
 		body.handle_hit()
-	if body.is_in_group("Enemy"):
-		avoid_timer = 1.0  # Durasi penghindaran tabrakan (dalam detik)
-		avoid_direction = body.position.direction_to(position).rotated(randf() * PI - PI / 2)
 
 func patrol():
 	if patrol_points:

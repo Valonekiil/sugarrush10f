@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Actor/Player.gd" type="Script" id=1]
 [ext_resource path="res://Actor/Health.tscn" type="PackedScene" id=2]
@@ -13,6 +13,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1.27806, 23.84 )
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 2.71589, 26.8576 )
+
 [sub_resource type="DynamicFont" id=2]
 size = 25
 outline_size = 1
@@ -21,6 +24,8 @@ font_data = ExtResource( 9 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 132, 194 )
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 1 )
 Bullet = ExtResource( 4 )
 
@@ -50,13 +55,19 @@ shape = SubResource( 1 )
 
 [node name="Health" parent="." groups=["Player"] instance=ExtResource( 2 )]
 
+[node name="PlayerArea" type="Area2D" parent="."]
+rotation = -3.14159
+scale = Vector2( 18.7784, 1.65688 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+position = Vector2( -0.585783, -17.5028 )
+shape = SubResource( 3 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 3, 13 )
 current = true
 smoothing_enabled = true
 smoothing_speed = 8.0
-
-[node name="ShootCD" type="Timer" parent="."]
 
 [node name="Shot_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
@@ -67,9 +78,6 @@ bus = "SFX"
 stream = ExtResource( 6 )
 volume_db = -5.0
 bus = "SFX"
-
-[node name="WTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="Rlot_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
@@ -88,5 +96,17 @@ custom_fonts/font = SubResource( 2 )
 text = "5"
 align = 1
 
+[node name="WTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShootCD" type="Timer" parent="."]
+
+[node name="DashCD" type="Timer" parent="."]
+
+[node name="IframeCD" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
+[connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
+[connection signal="area_exited" from="PlayerArea" to="." method="_on_PlayerArea_area_exited"]
 [connection signal="timeout" from="ShootCD" to="." method="_on_ShootCD_timeout"]
+[connection signal="timeout" from="IframeCD" to="." method="_on_IframeCD_timeout"]
