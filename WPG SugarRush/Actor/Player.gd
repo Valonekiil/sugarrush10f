@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Player
 
+const ENEMY_COLLISION_MASK_BIT = 2
+
 signal player_fired_bullet(bullet, position, direction)
 signal life_changed(Player_HP)
 signal dead
@@ -23,7 +25,6 @@ onready var gun_direction = $Sprite/GunNode/GunDirection
 onready var health_stat = $Health
 onready var shoot_timer = $ShootCD
 onready var animated_sprite = $Sprite
-onready var fin : Area2D = get_node("/root/Main/Fin")
 onready var main = $"/root/Main"
 
 
@@ -39,6 +40,8 @@ var is_dead = false
 var is_invincible = false
 var original_collision_layer
 var original_collision_mask
+var PShots = 3
+var Powered = true
 
 func _ready()-> void:
 	connect("life_changed",get_parent().get_node("UI/Life"),"on_player_life_changed")
@@ -52,6 +55,7 @@ func _ready()-> void:
 	original_collision_layer = collision_layer
 	original_collision_mask = collision_mask
 	emit_signal("rilot","no")
+	$PShots.text = str(PShots)
 
 func _process(delta: float):
 	var movement_direction := Vector2.ZERO
@@ -147,8 +151,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("shoot") and can_shoot:
 		shoot()
 		
-	if event.is_action_released("skill"):
+	if event.is_action_released("skill")and Powered:
 		skill(Vector2(0,0))
+		skill(Vector2(-12,25))
+		skill(Vector2(12,-25))
+		$Shot_sfx.play(0.30)
+		PShots -= 1
+		$PShots.text = str(PShots)
+		
+		if PShots == 0:
+			$PShots.hide()
+			Powered = false
 
 	if event.is_action_released("reload") and ammo == 0 :
 		$Rlot_sfx.play(0.31)
@@ -214,6 +227,12 @@ func _on_ShootCD_timeout():
 	ammo =  max_ammo
 	emit_signal("set_bullet",ammo)
 	shoot_timer.stop()
+
+func on_Player_Powered(Shots:int):
+	PShots += Shots
+	Powered = true
+	$PShots.show()
+	$PShots.text = str(Shots)
 
 func _on_PlayerArea_area_entered(area):
 	if area.is_in_group("Enemy") and not is_invincible:

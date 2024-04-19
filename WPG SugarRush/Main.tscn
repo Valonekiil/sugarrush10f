@@ -310,8 +310,6 @@ script = ExtResource( 4 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
 position = Vector2( 392, 252 )
-collision_layer = 2
-collision_mask = 2
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
