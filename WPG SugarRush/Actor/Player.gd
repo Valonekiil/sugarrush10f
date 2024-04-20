@@ -1,8 +1,6 @@
 extends KinematicBody2D
 class_name Player
 
-const ENEMY_COLLISION_MASK_BIT = 2
-
 signal player_fired_bullet(bullet, position, direction)
 signal life_changed(Player_HP)
 signal dead
@@ -14,7 +12,7 @@ signal CDash(dur)
 export (PackedScene) var Bullet
 export (int) var speed = 200
 export (float) var shoot_cooldown = 3 #0.5
-export (int) var dash_speed = 500 # Kecepatan dash
+export (int) var dash_speed = 1000 # Kecepatan dash
 export (float) var dash_duration = 0.2 # Durasi dash dalam detik
 export (float) var dash_cooldown = 30.0
 
@@ -40,7 +38,7 @@ var is_dead = false
 var is_invincible = false
 var original_collision_layer
 var original_collision_mask
-var PShots = 3
+var PShots = 2
 var Powered = true
 var Can_Dash = true
 
@@ -235,8 +233,6 @@ func _on_ShootCD_timeout():
 
 func _on_DashCD_timeout():
 	Can_Dash = true
-	print(is_dashing)
-	print(Can_Dash)
 
 func on_Player_Powered(Shots:int):
 	PShots += Shots

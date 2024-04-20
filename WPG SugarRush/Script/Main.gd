@@ -49,17 +49,9 @@ func _ready():
 	Etx.text = str(jumlah_musuh)
 	if Emax != null:
 		Emax.text = str(max_musuh)
-	else:
-		print("kontol")
-
 
 func _on_Fin_body_entered(body:KinematicBody2D):
 	if body is Player:
-		if jumlah_musuh == 0:
-			print("Done tamat")
+		if jumlah_musuh <= 0:
 			get_tree().change_scene("res://Ending.tscn")
-		else:
-			print("Musuh Tersisa =", jumlah_musuh)
-	else:
-		print("Not Player in fin")
 		

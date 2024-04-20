@@ -9,7 +9,8 @@ onready var hit_box = $HitBox
 onready var collision_shape = $CollisionShape2D
 onready var bullet_scene = preload("res://BulletJ.tscn")
 onready var HP = $HPBar
-onready var main_node = $"/root/Main" 
+onready var main_node = $"/root/Main"
+onready var tilemap = preload("res://TileMap.tscn")
 
 var speed = 50
 var motion = Vector2.ZERO
@@ -30,10 +31,23 @@ func _physics_process(delta):
 	else:
 		patrol()
 	
+	var collision_info = move_and_collide(motion * delta)
+	if collision_info:
+		var collider = collision_info.collider
+		if collider != self and collider.is_in_group("Enemy"):
+			motion = motion.rotated(rand_range(-PI/4, PI/4))
+			choose_random_point()
+	
+	# Atur flip sprite berdasarkan arah gerak
+	if motion.x > 0:
+		$Sprite.flip_h = false
+	elif motion.x < 0:
+		$Sprite.flip_h = true
+	
 	motion = move_and_slide(motion)
 
 func handle_hit():
-	health_stat.health -= 30
+	health_stat.health -= 20
 	if health_stat.health == 0:
 		main_node.jumlah_musuh -= 1
 		emit_signal("progress")

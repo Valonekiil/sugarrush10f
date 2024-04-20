@@ -45,6 +45,8 @@ extents = Vector2( 2.71589, 26.8576 )
 extents = Vector2( 2.58275, 26.7069 )
 
 [node name="EnemyJelly" type="KinematicBody2D" groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
@@ -55,6 +57,8 @@ animation = "Walk"
 playing = true
 
 [node name="DetectionZone" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
 shape = SubResource( 2 )

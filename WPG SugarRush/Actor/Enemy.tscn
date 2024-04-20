@@ -98,7 +98,7 @@ script = ExtResource( 1 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 7 )
 animation = "Walk"
-frame = 10
+frame = 7
 playing = true
 
 [node name="DetectionZone" type="Area2D" parent="."]
