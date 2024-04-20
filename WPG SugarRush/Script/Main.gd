@@ -62,3 +62,4 @@ func _on_Fin_body_entered(body:KinematicBody2D):
 			print("Musuh Tersisa =", jumlah_musuh)
 	else:
 		print("Not Player in fin")
+		

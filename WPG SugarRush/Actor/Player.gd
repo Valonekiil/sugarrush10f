@@ -9,6 +9,7 @@ signal dead
 signal set_bullet(bullet_now)
 signal set_max(max_bullet)
 signal rilot(yesnt)
+signal CDash(dur)
 
 export (PackedScene) var Bullet
 export (int) var speed = 200
@@ -27,7 +28,6 @@ onready var shoot_timer = $ShootCD
 onready var animated_sprite = $Sprite
 onready var main = $"/root/Main"
 
-
 var can_shoot = true
 var max_ammo:int = 6
 var ammo:int = max_ammo
@@ -42,6 +42,7 @@ var original_collision_layer
 var original_collision_mask
 var PShots = 3
 var Powered = true
+var Can_Dash = true
 
 func _ready()-> void:
 	connect("life_changed",get_parent().get_node("UI/Life"),"on_player_life_changed")
@@ -50,6 +51,7 @@ func _ready()-> void:
 	connect("set_bullet",get_parent().get_node("UI/Stat"),"set_ammo")
 	connect("set_max",get_parent().get_node("UI/Stat"),"set_max_ammo")
 	connect("rilot",get_parent().get_node("UI/Stat"),"is_reload")
+	connect("CDash",get_parent().get_node("UI/Stat"),"CD")
 	$PlayerArea.connect("area_entered", self, "_on_player_area_entered")
 	$PlayerArea.connect("area_exited", self, "_on_player_area_exited")
 	original_collision_layer = collision_layer
@@ -105,7 +107,7 @@ func _process(delta: float):
 			handle_hit()
 			break
 
-	if Input.is_action_just_pressed("dash") and not is_dashing:
+	if Input.is_action_just_pressed("dash") and not is_dashing and Can_Dash :
 		dash()
 
 	if is_dashing:
@@ -115,7 +117,10 @@ func _process(delta: float):
 		if dash_timer >= dash_duration:
 			is_dashing = false
 			dash_timer = 0.0
+			Can_Dash = false
 			$DashCD.start(dash_cooldown)
+			emit_signal("CDash",dash_cooldown)
+
 
 	if is_dashing:
 		move_and_slide(dash_vector * dash_speed)
@@ -228,6 +233,11 @@ func _on_ShootCD_timeout():
 	emit_signal("set_bullet",ammo)
 	shoot_timer.stop()
 
+func _on_DashCD_timeout():
+	Can_Dash = true
+	print(is_dashing)
+	print(Can_Dash)
+
 func on_Player_Powered(Shots:int):
 	PShots += Shots
 	Powered = true
@@ -242,3 +252,6 @@ func _on_PlayerArea_area_entered(area):
 func _on_PlayerArea_area_exited(area):
 	if area.is_in_group("Enemy") and not is_invincible:
 		pass
+
+
+

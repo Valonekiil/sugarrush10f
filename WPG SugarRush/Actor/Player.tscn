@@ -102,6 +102,7 @@ one_shot = true
 [node name="ShootCD" type="Timer" parent="."]
 
 [node name="DashCD" type="Timer" parent="."]
+one_shot = true
 
 [node name="IframeCD" type="Timer" parent="."]
 
@@ -109,4 +110,5 @@ one_shot = true
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 [connection signal="area_exited" from="PlayerArea" to="." method="_on_PlayerArea_area_exited"]
 [connection signal="timeout" from="ShootCD" to="." method="_on_ShootCD_timeout"]
+[connection signal="timeout" from="DashCD" to="." method="_on_DashCD_timeout"]
 [connection signal="timeout" from="IframeCD" to="." method="_on_IframeCD_timeout"]

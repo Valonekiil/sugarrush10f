@@ -2,7 +2,19 @@ extends Control
 
 onready var CB = $Bullet_box/Current_Ammo
 onready var Max = $Bullet_box/Max_Ammo
+onready var Icon = $kon
 
+func CD(time:float)-> void:
+	set_process(true)
+	Icon.max_value = time
+	$Timer.start(time)
+
+func _ready():
+	set_process(false)
+
+func _process(delta):
+	Icon.value = $Timer.time_left
+	
 
 
 func set_ammo(Cur_Bullet:int):

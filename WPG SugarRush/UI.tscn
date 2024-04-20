@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Script/UI.gd" type="Script" id=2]
@@ -6,9 +6,11 @@
 [ext_resource path="res://UI/HPManager.gd" type="Script" id=4]
 [ext_resource path="res://UI/OptionM.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/FPSLabel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/ikont-/DashProg.png" type="Texture" id=7]
 [ext_resource path="res://UI/Progres.gd" type="Script" id=8]
 [ext_resource path="res://Asset/Font/pixpopenei.otf" type="DynamicFontData" id=9]
 [ext_resource path="res://UI/Stat.gd" type="Script" id=10]
+[ext_resource path="res://UI/ikont-/DashKon.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 15
@@ -125,6 +127,20 @@ margin_bottom = 29.0
 custom_colors/font_color = Color( 1, 1, 0, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "RELOADING"
+
+[node name="kon" type="TextureProgress" parent="Stat"]
+margin_left = -977.0
+margin_top = -454.0
+margin_right = -832.0
+margin_bottom = -309.0
+rect_scale = Vector2( 0.6, 0.6 )
+texture_under = ExtResource( 11 )
+texture_progress = ExtResource( 7 )
+fill_mode = 3
+tint_progress = Color( 0.211765, 0.188235, 0.188235, 0.737255 )
+
+[node name="Timer" type="Timer" parent="Stat"]
+one_shot = true
 
 [node name="Progres" type="Control" parent="."]
 anchor_left = 0.5
