@@ -49,6 +49,8 @@ func _ready():
 	Etx.text = str(jumlah_musuh)
 	if Emax != null:
 		Emax.text = str(max_musuh)
+	$Tutorial_pop.show()
+	get_tree().paused = !get_tree().paused
 
 func _on_Fin_body_entered(body:KinematicBody2D):
 	if body is Player:

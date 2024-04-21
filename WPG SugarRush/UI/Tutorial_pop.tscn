@@ -1,0 +1,130 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Script/Tutorial_pop.gd" type="Script" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[node name="Tutorial_pop" type="Container"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_right = 3.0
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="UI_tutor" type="TabContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -131.0
+margin_right = 258.0
+margin_bottom = 131.0
+theme = SubResource( 1 )
+tab_align = 0
+tabs_visible = false
+
+[node name="Page 1" type="Tabs" parent="UI_tutor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="UI_tutor/Page 1"]
+margin_left = 56.0
+margin_top = 62.0
+margin_right = 102.0
+margin_bottom = 76.0
+text = "Kont*ol game adalah WASD"
+
+[node name="Next_B" type="Button" parent="UI_tutor/Page 1"]
+margin_left = 446.0
+margin_top = 199.0
+margin_right = 490.0
+margin_bottom = 219.0
+text = "NEXT"
+
+[node name="Page 2" type="Tabs" parent="UI_tutor"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="UI_tutor/Page 2"]
+margin_left = 131.0
+margin_top = 62.0
+margin_right = 177.0
+margin_bottom = 76.0
+text = "klik kiri nembak
+kanan skill"
+
+[node name="Next_B" type="Button" parent="UI_tutor/Page 2"]
+margin_left = 446.0
+margin_top = 199.0
+margin_right = 490.0
+margin_bottom = 219.0
+text = "NEXT"
+
+[node name="Back_B" type="Button" parent="UI_tutor/Page 2"]
+margin_left = 17.0
+margin_top = 202.0
+margin_right = 59.0
+margin_bottom = 222.0
+text = "Back"
+
+[node name="Page 3" type="Tabs" parent="UI_tutor"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="UI_tutor/Page 3"]
+margin_left = 224.0
+margin_top = 64.0
+margin_right = 270.0
+margin_bottom = 78.0
+text = "WES Ngunu tok"
+
+[node name="Back_B" type="Button" parent="UI_tutor/Page 3"]
+margin_left = 17.0
+margin_top = 202.0
+margin_right = 59.0
+margin_bottom = 222.0
+text = "Back"
+
+[node name="Exit_B" type="Button" parent="UI_tutor/Page 3"]
+margin_left = 484.0
+margin_top = 6.0
+margin_right = 504.0
+margin_bottom = 26.0
+text = "X"
+
+[node name="ColorRect" type="ColorRect" parent="UI_tutor"]
+visible = false
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+color = Color( 0, 0, 0, 0.509804 )
+
+[connection signal="pressed" from="UI_tutor/Page 1/Next_B" to="." method="_on_Next_B_pressed"]
+[connection signal="pressed" from="UI_tutor/Page 2/Next_B" to="." method="_on_Next_B_pressed"]
+[connection signal="pressed" from="UI_tutor/Page 2/Back_B" to="." method="_on_Back_B_pressed"]
+[connection signal="pressed" from="UI_tutor/Page 3/Back_B" to="." method="_on_Back_B_pressed"]
+[connection signal="pressed" from="UI_tutor/Page 3/Exit_B" to="." method="_on_Exit_B_pressed"]
