@@ -14,14 +14,14 @@ export (int) var speed = 200
 export (float) var shoot_cooldown = 3 #0.5
 export (int) var dash_speed = 1000 # Kecepatan dash
 export (float) var dash_duration = 0.2 # Durasi dash dalam detik
-export (float) var dash_cooldown = 30.0
+export (float) var dash_cooldown = 5.0
 
 onready var dash_cooldown_timer = $DashCD
 onready var invincibility_timer = $IframeCD
 onready var gun_node = $Sprite/GunNode
+onready var shotgun = $Sprite/Shotgun
 onready var end_of_gun = $Sprite/GunNode/EndOfGun
 onready var gun_direction = $Sprite/GunNode/GunDirection
-onready var health_stat = $Health
 onready var shoot_timer = $ShootCD
 onready var animated_sprite = $Sprite
 onready var main = $"/root/Main"
@@ -41,6 +41,8 @@ var original_collision_mask
 var PShots = 2
 var Powered = true
 var Can_Dash = true
+var is_skill_active = false
+
 
 func _ready()-> void:
 	connect("life_changed",get_parent().get_node("UI/Life"),"on_player_life_changed")
@@ -56,6 +58,7 @@ func _ready()-> void:
 	original_collision_mask = collision_mask
 	emit_signal("rilot","no")
 	$PShots.text = str(PShots)
+	shotgun.visible = false
 
 func _process(delta: float):
 	var movement_direction := Vector2.ZERO
@@ -86,6 +89,17 @@ func _process(delta: float):
 	
 	var mouse_position = get_global_mouse_position()
 	gun_node.look_at(mouse_position)
+	shotgun.look_at(mouse_position)
+	
+	if is_skill_active:
+		shotgun.visible = true
+	else:
+		shotgun.visible = false
+		
+	if is_skill_active:
+		gun_node.visible = false
+	else:
+		gun_node.visible = true
 
 	# Periksa apakah mouse berada di sisi kanan atau kiri sprite player
 	var player_to_mouse_vector = mouse_position - global_position
@@ -94,10 +108,12 @@ func _process(delta: float):
 	if player_to_mouse_vector.x < 0 and player_facing_vector.x > 0:
 		$Sprite.flip_h = true
 		$Sprite/GunNode.flip_v = true
+		$Sprite/Shotgun.flip_v = true
 
 	elif player_to_mouse_vector.x > 0 and player_facing_vector.x > 0:
 		$Sprite.flip_h = false
 		$Sprite/GunNode.flip_v = false
+		$Sprite/Shotgun.flip_v = false 
 		
 	var areas = $PlayerArea.get_overlapping_areas()
 	for area in areas:
@@ -158,7 +174,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		skill(Vector2(0,0))
 		skill(Vector2(-12,25))
 		skill(Vector2(12,-25))
-		$Shot_sfx.play(0.30)
 		PShots -= 1
 		$PShots.text = str(PShots)
 		
@@ -180,10 +195,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func skill(off: Vector2):
 	if can_shoot:
+		is_skill_active = true
 		var bullet_instance = Bullet.instance()
 		var mouse_position = get_global_mouse_position()
 		var direction = (mouse_position - gun_direction.global_position + off).normalized()
 		emit_signal("player_fired_bullet", bullet_instance, gun_direction.global_position,direction)
+		yield(get_tree().create_timer(0.3),"timeout")
+		is_skill_active = false
+		$Shit.play(0.30)
+		
 
 func shoot():
 	if can_shoot:
@@ -198,9 +218,9 @@ func shoot():
 		var direction = (mouse_position - gun_direction.global_position).normalized()
 		bullet_instance.set_direction(direction)
 		emit_signal("player_fired_bullet", bullet_instance, gun_direction.global_position, direction)
+		bullet_instance.add_to_group("bullet")
 		ammo -=1
 		emit_signal("set_bullet",ammo)
-		print("current ammo:"+ str(ammo))
 		#$Shot_sfx.pitch_scale = rand_range(1.8, 0.4)
 		$Shot_sfx.play(0.30)
 
@@ -214,15 +234,15 @@ func handle_hit():
 	if not is_invincible:
 		if not is_dead:
 			hp -= 1
-			emit_signal("life_changed", hp)
 			animated_sprite.play("Hit")
+			emit_signal("life_changed", hp)
 			if hp <= 0:
+				animated_sprite.play("Death")
 				is_dead = true
 				speed = 0
 				yield(get_tree().create_timer(1.0), "timeout")
-				self.hide()
-				animated_sprite.play("Death")
 				emit_signal("dead")
+				self.hide()
 	
 func _on_ShootCD_timeout():
 	can_shoot = true 

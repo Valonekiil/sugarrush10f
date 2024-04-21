@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/DB Shotgun  Arm.png-dc997e38b8e96c03a37b85b5a108ac18.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Asset/Actor/Josh/DB Shotgun  Arm.png"
+dest_files=[ "res://.import/DB Shotgun  Arm.png-dc997e38b8e96c03a37b85b5a108ac18.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

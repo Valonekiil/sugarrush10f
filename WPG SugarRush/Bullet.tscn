@@ -8,7 +8,7 @@ load_path = "res://.import/bullet.png-5571ffeb0cae250c66a1a6cfb00b4937.stex"
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.99998, 3 )
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="Area2D" groups=["bullet"]]
 position = Vector2( 4, 0 )
 collision_layer = 2
 collision_mask = 2

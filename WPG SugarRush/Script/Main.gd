@@ -14,9 +14,7 @@ onready var enemyO = $EnemyJellyO
 onready var enemyO1 = $EnemyJellyO2
 onready var enemyO2 = $EnemyJellyO3
 onready var enemyO3 = $EnemyJellyO4
-onready var Kobis1 = $Kobis1
-onready var Kobis2 = $Kobis2
-onready var Kobis3 = $Kobis3
+onready var Kobis = $Kobis
 onready var PU1 = $Power_Up
 onready var EBar = $UI/Progres/ELbar
 onready var Etx = $UI/Progres/PGbox/PGLeft
@@ -24,9 +22,6 @@ onready var Emax = $UI/Progres/PGbox/PGMax
 
 func _ready():
 	player.connect("player_fired_bullet", bullet_manager, "handle_bullet_spawned")
-	Kobis1.connect("Healed",player,"on_Player_Heal")
-	Kobis2.connect("Healed",player,"on_Player_Heal")
-	Kobis3.connect("Healed",player,"on_Player_Heal")
 	enemy.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemyup.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemyup1.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
@@ -38,10 +33,15 @@ func _ready():
 	enemyO3.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	PU1.connect("Powered",player,"on_Player_Powered")
 	
+	var kobis = load("res://Asset/Item/Kobis.tscn").instance()
+	add_child(kobis)
+	kobis.connect("Healed", player, "on_Player_Heal")
+	
 	var enemy_nodes = get_tree().get_nodes_in_group("Enemy")
 	
 	for enemy in enemy_nodes:
-		jumlah_musuh += 1 
+		jumlah_musuh += 1
+		enemy.connect("spawn_power_up", self, "_on_enemy_spawn_power_up") 
 	var max_musuh:int = jumlah_musuh
 	EBar.max_value = jumlah_musuh
 	EBar.value = 0
@@ -55,3 +55,6 @@ func _on_Fin_body_entered(body:KinematicBody2D):
 		if jumlah_musuh <= 0:
 			get_tree().change_scene("res://Ending.tscn")
 		
+func _on_enemy_spawn_power_up(power_up_instance):
+	# Hubungkan sinyal "Powered" pada power_up_instance ke metode "on_Player_Powered" pada Player
+	power_up_instance.connect("Powered", player, "on_Player_Powered")

@@ -10,6 +10,11 @@ var direction := Vector2.ZERO
 
 func _ready() -> void:
 	kill_timer.start()
+	
+	if is_in_group("bullet"):
+		print("Peluru ini milik player")
+	else:
+		print("Peluru ini bukan milik player")
 
 
 func _physics_process(delta: float):

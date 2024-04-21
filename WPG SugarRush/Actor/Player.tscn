@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Actor/Player.gd" type="Script" id=1]
-[ext_resource path="res://Actor/Health.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Asset/Actor/Josh/DB Shotgun  Arm.png" type="Texture" id=2]
 [ext_resource path="res://Audio/SFX/Pistol_Sound_Effect(256k).mp3" type="AudioStream" id=3]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Actor/Player.tres" type="SpriteFrames" id=5]
@@ -9,12 +9,13 @@
 [ext_resource path="res://Audio/SFX/pick_up_gun_Sound_effect(256k).mp3" type="AudioStream" id=7]
 [ext_resource path="res://Asset/Actor/S Handgun  Arm.png" type="Texture" id=8]
 [ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Audio/SFX/Shitgun.mp3" type="AudioStream" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1.27806, 23.84 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 2.71589, 26.8576 )
+extents = Vector2( 2.71589, 32.1387 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
@@ -32,11 +33,16 @@ Bullet = ExtResource( 4 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 3, 3 )
 frames = ExtResource( 5 )
-animation = "Idle"
-frame = 1
+animation = "Death"
+
+[node name="Shotgun" type="Sprite" parent="Sprite"]
+visible = false
+position = Vector2( 0.333336, 5 )
+texture = ExtResource( 2 )
+offset = Vector2( 7, 0 )
 
 [node name="GunNode" type="Sprite" parent="Sprite"]
-position = Vector2( -2.33333, 6 )
+position = Vector2( -1, 5.66667 )
 scale = Vector2( 0.907552, 0.760417 )
 texture = ExtResource( 8 )
 offset = Vector2( 7, 0 )
@@ -48,19 +54,19 @@ position = Vector2( 16.4103, -1.03226 )
 position = Vector2( 23.7949, -1.03226 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 12 )
 rotation = -3.14159
 scale = Vector2( 18.7784, 1.65688 )
 shape = SubResource( 1 )
 
-[node name="Health" parent="." groups=["Player"] instance=ExtResource( 2 )]
-
 [node name="PlayerArea" type="Area2D" parent="."]
+visible = false
 rotation = -3.14159
 scale = Vector2( 18.7784, 1.65688 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
-position = Vector2( -0.585783, -17.5028 )
+position = Vector2( -0.0532537, -4.97916 )
 shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -77,6 +83,10 @@ bus = "SFX"
 [node name="Walk_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
 volume_db = -5.0
+bus = "SFX"
+
+[node name="Shit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
 bus = "SFX"
 
 [node name="Rlot_sfx" type="AudioStreamPlayer2D" parent="."]

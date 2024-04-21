@@ -7,6 +7,7 @@ onready var HP = $HPBar
 onready var main_node = $"/root/Main" 
 
 signal progress
+signal spawn_power_up(power_up_instance)
 
 var speed = 100
 var motion = Vector2.ZERO
@@ -50,6 +51,14 @@ func handle_hit():
 		main_node.jumlah_musuh -= 1
 		emit_signal("progress")
 		queue_free()
+		var drop_chance = 0.5
+		var random_number = randf()
+		if random_number < drop_chance:
+			print("ran:", random_number)
+			var dropped_item = load("res://Asset/Item/Power_Up.tscn").instance()
+			dropped_item.global_position = global_position
+			get_parent().add_child(dropped_item)
+			emit_signal("spawn_power_up", dropped_item)
 	HP.show()
 	set_HP(health_stat.health)
 

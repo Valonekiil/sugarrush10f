@@ -5,9 +5,9 @@
 [ext_resource path="res://Script/BulletManager.gd" type="Script" id=3]
 [ext_resource path="res://Script/Main.gd" type="Script" id=4]
 [ext_resource path="res://Actor/EnemyJelly.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Barrel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Actor/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Asset/Item/Kobis.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Actor/enemy area bunder/Enemy 0.gd" type="Script" id=15]
 [ext_resource path="res://Actor/enemy area bunder/EnemyJelly 0.gd" type="Script" id=16]
 [ext_resource path="res://Actor/enemy area bawah tengah/EnemyJelly down.gd" type="Script" id=17]
@@ -213,17 +213,14 @@ script = ExtResource( 16 )
 position = Vector2( 5590, 237 )
 script = ExtResource( 16 )
 
-[node name="Kobis1" parent="." instance=ExtResource( 12 )]
-position = Vector2( 3122, 573 )
-scale = Vector2( 0.25, 0.25 )
+[node name="Barrel" parent="." instance=ExtResource( 6 )]
+collision_layer = 15
+collision_mask = 15
 
-[node name="Kobis2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4208, -134 )
-scale = Vector2( 0.25, 0.25 )
-
-[node name="Kobis3" parent="." instance=ExtResource( 12 )]
-position = Vector2( 192, 425 )
-scale = Vector2( 0.25, 0.25 )
+[node name="Barrel2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1, 312 )
+collision_layer = 15
+collision_mask = 15
 
 [node name="Power_Up" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1065, 213 )
