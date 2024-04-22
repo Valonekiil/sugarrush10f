@@ -40,7 +40,7 @@ margin_left = 56.0
 margin_top = 62.0
 margin_right = 102.0
 margin_bottom = 76.0
-text = "Kont*ol game adalah WASD"
+text = "Sugar Rush game adalah WASD"
 
 [node name="Next_B" type="Button" parent="UI_tutor/Page 1"]
 margin_left = 446.0

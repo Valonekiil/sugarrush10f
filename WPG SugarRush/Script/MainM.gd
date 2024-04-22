@@ -6,7 +6,7 @@ onready var CreditM = $CreditM
 
 func _on_PlayB_pressed():
 	if GameSetting.tutor == false:
-		get_tree().change_scene("res://Main.tscn")
+		get_tree().change_scene("res://Tutorial.tscn")
 		
 	else :
 		$Tutor_conf.show()

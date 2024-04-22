@@ -268,6 +268,3 @@ func _on_PlayerArea_area_entered(area):
 func _on_PlayerArea_area_exited(area):
 	if area.is_in_group("Enemy") and not is_invincible:
 		pass
-
-
-
