@@ -1,6 +1,7 @@
 extends Node
 
 signal fps_displayed(value)
+onready var tutor:bool = false
 
 func toogle_fullscreen(value):
 	OS.window_fullscreen = value

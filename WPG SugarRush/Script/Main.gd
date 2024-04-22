@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var jumlah_musuh = 0
 
 onready var bullet_manager = $BulletManager
@@ -49,8 +48,15 @@ func _ready():
 	Etx.text = str(jumlah_musuh)
 	if Emax != null:
 		Emax.text = str(max_musuh)
-	$Tutorial_pop.show()
-	get_tree().paused = !get_tree().paused
+		
+	if GameSetting.tutor == false:
+		print("tutor false")
+		$Tutorial_pop.show()
+		get_tree().paused = !get_tree().paused
+		GameSetting.tutor = true
+		
+	else:
+		pass
 
 func _on_Fin_body_entered(body:KinematicBody2D):
 	if body is Player:

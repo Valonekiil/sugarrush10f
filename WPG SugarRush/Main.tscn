@@ -230,6 +230,7 @@ position = Vector2( 1065, 213 )
 stream = ExtResource( 21 )
 
 [node name="Tutorial_pop" parent="." instance=ExtResource( 7 )]
+visible = false
 margin_left = 401.0
 margin_top = 255.0
 margin_right = 401.0
