@@ -48,15 +48,9 @@ func _ready():
 	Etx.text = str(jumlah_musuh)
 	if Emax != null:
 		Emax.text = str(max_musuh)
-		
-	if GameSetting.tutor == false:
-		print("tutor false")
-		$Tutorial_pop.show()
-		get_tree().paused = !get_tree().paused
-		GameSetting.tutor = true
-		
-	else:
-		pass
+	
+	
+
 		
 func _on_enemy_spawn_power_up(power_up_instance):
 	power_up_instance.connect("Powered", player, "on_Player_Powered")

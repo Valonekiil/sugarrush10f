@@ -48,8 +48,9 @@ func _physics_process(delta):
 func handle_hit():
 	health_stat.health -= 20
 	if health_stat.health == 0:
-		main_node.jumlah_musuh -= 1
-		emit_signal("progress")
+		if main_node.jumlah_musuh != null:
+			main_node.jumlah_musuh -= 1
+			emit_signal("progress")
 		queue_free()
 		var drop_chance = 0.5
 		var random_number = randf()

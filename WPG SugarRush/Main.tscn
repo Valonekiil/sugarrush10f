@@ -30,15 +30,14 @@ script = ExtResource( 4 )
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
 position = Vector2( 392, 252 )
 
+[node name="UI" parent="." instance=ExtResource( 9 )]
+
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
 
 [node name="TileMap" parent="." groups=["TileMap"] instance=ExtResource( 2 )]
 collision_layer = 3
 collision_mask = 3
-
-[node name="UI" parent="." instance=ExtResource( 9 )]
-pause_mode = 2
 
 [node name="Fin" type="Area2D" parent="."]
 
@@ -231,10 +230,6 @@ stream = ExtResource( 21 )
 
 [node name="Tutorial_pop" parent="." instance=ExtResource( 7 )]
 visible = false
-margin_left = 401.0
-margin_top = 255.0
-margin_right = 401.0
-margin_bottom = 255.0
 
 [connection signal="player_fired_bullet" from="Player" to="BulletManager" method="_on_Player_player_fired_bullet"]
 [connection signal="body_entered" from="Fin" to="." method="_on_Fin_body_entered"]

@@ -8,6 +8,7 @@ onready var Option = $OptionM
 func _ready():
 	Paused.hide()
 	$Progres/Done.hide()
+	print("ui p:",get_tree().paused)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -17,7 +18,9 @@ func _process(delta):
 
 
 func _on_PauseB_pressed():
+	print("Value1: ",get_tree().paused)
 	get_tree().paused = !get_tree().paused
+	print("Value2: ",get_tree().paused)
 	PauseB.visible = !get_tree().paused
 	Paused.visible = !PauseB.visible
 
