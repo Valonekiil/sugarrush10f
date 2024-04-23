@@ -1,9 +1,50 @@
-[gd_resource type="SpriteFrames" load_steps=29 format=2]
+[gd_resource type="SpriteFrames" load_steps=40 format=2]
 
 [ext_resource path="res://Asset/Actor/Frame Josh Idle (No garis).png" type="Texture" id=1]
 [ext_resource path="res://Asset/Actor/Frame Josh Walk (No garis).png" type="Texture" id=2]
 [ext_resource path="res://Asset/Actor/Frame Josh Hit (No garis).png" type="Texture" id=3]
 [ext_resource path="res://Asset/Actor/Josh/Frame Josh Dead (No garis).png" type="Texture" id=4]
+[ext_resource path="res://Asset/Actor/Josh/Frame Josh Dash.png" type="Texture" id=5]
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 5 )
+region = Rect2( 102, 0, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 5 )
+region = Rect2( 51, 0, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 5 )
+region = Rect2( 153, 0, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 5 )
+region = Rect2( 204, 0, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 51, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 5 )
+region = Rect2( 51, 51, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 5 )
+region = Rect2( 102, 51, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 5 )
+region = Rect2( 153, 51, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 5 )
+region = Rect2( 204, 51, 51, 51 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 4 )
@@ -73,13 +114,13 @@ region = Rect2( 51, 0, 51, 52 )
 atlas = ExtResource( 3 )
 region = Rect2( 102, 0, 51, 52 )
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 51, 52 )
-
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
 region = Rect2( 51, 0, 51, 52 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 51, 52 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
@@ -103,20 +144,25 @@ region = Rect2( 51, 51, 51, 51 )
 
 [resource]
 animations = [ {
+"frames": [ SubResource( 26 ), SubResource( 28 ), SubResource( 27 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
+"loop": false,
+"name": "Dash",
+"speed": 15.0
+}, {
 "frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
-"loop": true,
+"loop": false,
 "name": "Death",
 "speed": 15.0
 }, {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
-"loop": true,
+"loop": false,
 "name": "Hit",
 "speed": 12.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 6 ), SubResource( 5 ) ],
 "loop": true,
 "name": "Idle",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,

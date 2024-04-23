@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://Actor/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Actor/EnemyT.gd" type="Script" id=1]
 [ext_resource path="res://Actor/Health.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/HP_Bar_Theme.tres" type="Theme" id=3]
 [ext_resource path="res://Asset/Actor/Cupcake/Frame Cupcake Idle (No garis).png" type="Texture" id=4]
@@ -98,7 +98,7 @@ script = ExtResource( 1 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 7 )
 animation = "Walk"
-frame = 7
+frame = 8
 playing = true
 
 [node name="DetectionZone" type="Area2D" parent="."]

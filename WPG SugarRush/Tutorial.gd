@@ -55,8 +55,17 @@ func _on_MC_Skip_Btn_pressed():
 
 
 func _on_musuh_conf_col_body_entered(body):
-	get_tree().paused = !get_tree().paused
+	if body is Player:
+		#get_tree().paused = !get_tree().paused
+		pass
+	pass
 	
 func _on_Exit_B_pressed():
 	hide()
 	print("Value: ",get_tree().paused)
+
+
+func _on_Fin_body_entered(body:KinematicBody2D):
+	if body is Player:
+		if jumlah_musuh <= 0:
+			get_tree().change_scene("res://Main.tscn")

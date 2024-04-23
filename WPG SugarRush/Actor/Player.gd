@@ -12,9 +12,9 @@ signal CDash(dur)
 export (PackedScene) var Bullet
 export (int) var speed = 200
 export (float) var shoot_cooldown = 3 #0.5
-export (int) var dash_speed = 1000 # Kecepatan dash
-export (float) var dash_duration = 0.2 # Durasi dash dalam detik
-export (float) var dash_cooldown = 5.0
+export (int) var dash_speed = 250 # Kecepatan dash
+export (float) var dash_duration = 0.7 # Durasi dash dalam detik
+export (float) var dash_cooldown = 1.0
 
 onready var dash_cooldown_timer = $DashCD
 onready var invincibility_timer = $IframeCD
@@ -62,7 +62,7 @@ func _ready()-> void:
 
 func _process(delta: float):
 	var movement_direction := Vector2.ZERO
-
+	
 	if Input.is_action_pressed("up"):
 		movement_direction.y = -1
 	if Input.is_action_pressed("down"):
@@ -78,7 +78,13 @@ func _process(delta: float):
 	move_and_slide(movement_direction * speed)
 
 	# Menangani animasi berjalan
-	if movement_direction != Vector2.ZERO:
+	if is_dead:
+		animated_sprite.play("Death")
+	elif is_dashing:
+		animated_sprite.play("Dash")
+	elif not is_invincible and hp <= 0 and not is_dead:
+		animated_sprite.play("Hit")
+	elif movement_direction != Vector2.ZERO and not is_dashing:
 		animated_sprite.play("Walk")
 		if$WTimer.time_left <= 0:
 			$Walk_sfx.pitch_scale = rand_range(0.8, 1.2)
@@ -93,12 +99,9 @@ func _process(delta: float):
 	
 	if is_skill_active:
 		shotgun.visible = true
-	else:
-		shotgun.visible = false
-		
-	if is_skill_active:
 		gun_node.visible = false
 	else:
+		shotgun.visible = false
 		gun_node.visible = true
 
 	# Periksa apakah mouse berada di sisi kanan atau kiri sprite player
@@ -125,6 +128,7 @@ func _process(delta: float):
 		dash()
 
 	if is_dashing:
+		move_and_slide(dash_vector * dash_speed)
 		dash_timer += delta
 		is_invincible = true
 		$IframeCD.start(dash_duration)
@@ -134,15 +138,12 @@ func _process(delta: float):
 			Can_Dash = false
 			$DashCD.start(dash_cooldown)
 			emit_signal("CDash",dash_cooldown)
-
-
-	if is_dashing:
-		move_and_slide(dash_vector * dash_speed)
+				
    
 func _on_IframeCD_timeout():
 	is_invincible = false
 	collision_mask = original_collision_mask
-	collision_layer = original_collision_layer  
+	collision_layer = original_collision_layer 
 
 func dash():
 	is_dashing = true
@@ -234,12 +235,11 @@ func handle_hit():
 	if not is_invincible:
 		if not is_dead:
 			hp -= 1
-			animated_sprite.play("Hit")
 			emit_signal("life_changed", hp)
 			if hp <= 0:
-				animated_sprite.play("Death")
 				is_dead = true
 				speed = 0
+				$Sprite/GunNode.queue_free()
 				yield(get_tree().create_timer(1.0), "timeout")
 				emit_signal("dead")
 				self.hide()
@@ -258,7 +258,7 @@ func on_Player_Powered(Shots:int):
 	PShots += Shots
 	Powered = true
 	$PShots.show()
-	$PShots.text = str(Shots)
+	$PShots.text = str(PShots)
 
 func _on_PlayerArea_area_entered(area):
 	if area.is_in_group("Enemy") and not is_invincible:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Asset/1-1 Downnton Sze.png" type="Texture" id=1]
 [ext_resource path="res://Actor/Player.tscn" type="PackedScene" id=2]
@@ -69,6 +69,10 @@
 normal = Vector2( -1, 0 )
 d = 2.23607
 
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 48.0
+height = 374.0
+
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -84,7 +88,7 @@ tile_data = PoolIntArray( 0, 1, 0 )
 position = Vector2( 24, 398 )
 
 [node name="Barrel" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1168, 599 )
+position = Vector2( 490, 419 )
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 6 )
@@ -96,7 +100,7 @@ position = Vector2( 871, 423 )
 position = Vector2( 868, 573 )
 
 [node name="EnemyJelly" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1059, 482 )
+position = Vector2( 976, 496 )
 
 [node name="Power_Up" parent="." instance=ExtResource( 7 )]
 position = Vector2( 423, 628 )
@@ -105,9 +109,11 @@ position = Vector2( 423, 628 )
 visible = false
 
 [node name="musuh_conf_col" type="Area2D" parent="."]
+visible = false
 position = Vector2( 572, 495 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="musuh_conf_col"]
+visible = false
 position = Vector2( -26, -2 )
 scale = Vector2( 1, 1.5 )
 shape = SubResource( 2 )
@@ -126,5 +132,13 @@ margin_right = 12.0
 margin_bottom = 20.0
 text = "nex"
 
+[node name="Fin" type="Area2D" parent="."]
+position = Vector2( 1218, 473 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fin"]
+position = Vector2( 21, 21 )
+shape = SubResource( 3 )
+
 [connection signal="body_entered" from="musuh_conf_col" to="." method="_on_musuh_conf_col_body_entered"]
 [connection signal="pressed" from="musuh_conf_col/musuh_conf/MC_Skip_Btn" to="." method="_on_MC_Skip_Btn_pressed"]
+[connection signal="body_entered" from="Fin" to="." method="_on_Fin_body_entered"]

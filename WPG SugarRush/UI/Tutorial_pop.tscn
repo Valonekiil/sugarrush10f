@@ -55,7 +55,6 @@ tab_align = 0
 tabs_visible = false
 
 [node name="Page 1" type="Tabs" parent="UI_tutor"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -247,6 +246,7 @@ custom_fonts/font = SubResource( 6 )
 text = "<--"
 
 [node name="Page3" type="Tabs" parent="UI_tutor"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -401,6 +401,7 @@ margin_bottom = 300.0
 color = Color( 0, 0, 0, 0.509804 )
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = 177.0
 margin_top = 186.0
 margin_right = 231.0

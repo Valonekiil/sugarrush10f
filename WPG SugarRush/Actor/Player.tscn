@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Actor/Player.gd" type="Script" id=1]
 [ext_resource path="res://Asset/Actor/Josh/DB Shotgun  Arm.png" type="Texture" id=2]
@@ -23,6 +23,21 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 9 )
 
+[sub_resource type="Animation" id=4]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 132, 194 )
 collision_layer = 3
@@ -33,7 +48,8 @@ Bullet = ExtResource( 4 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 3, 3 )
 frames = ExtResource( 5 )
-animation = "Death"
+animation = "Idle"
+frame = 1
 
 [node name="Shotgun" type="Sprite" parent="Sprite"]
 visible = false
@@ -54,14 +70,12 @@ position = Vector2( 16.4103, -1.03226 )
 position = Vector2( 23.7949, -1.03226 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 12 )
 rotation = -3.14159
 scale = Vector2( 18.7784, 1.65688 )
 shape = SubResource( 1 )
 
 [node name="PlayerArea" type="Area2D" parent="."]
-visible = false
 rotation = -3.14159
 scale = Vector2( 18.7784, 1.65688 )
 
@@ -115,6 +129,10 @@ one_shot = true
 one_shot = true
 
 [node name="IframeCD" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite")
+anims/walk = SubResource( 4 )
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]

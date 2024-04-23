@@ -48,9 +48,6 @@ func _ready():
 	Etx.text = str(jumlah_musuh)
 	if Emax != null:
 		Emax.text = str(max_musuh)
-	
-	
-
 		
 func _on_enemy_spawn_power_up(power_up_instance):
 	power_up_instance.connect("Powered", player, "on_Player_Powered")

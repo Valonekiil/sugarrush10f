@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Actor/Health.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Actor/EnemyJelly.gd" type="Script" id=2]
+[ext_resource path="res://Actor/EnemyJellyT.gd" type="Script" id=2]
 [ext_resource path="res://UI/HP_Bar_Theme.tres" type="Theme" id=3]
 [ext_resource path="res://Asset/Actor/Jelly/Frame Jelly Idle.png" type="Texture" id=4]
 [ext_resource path="res://Asset/Actor/Jelly/Frame Jelly Slide.png" type="Texture" id=5]
