@@ -10,7 +10,7 @@ onready var collision_shape = $CollisionShape2D
 onready var bullet_scene = preload("res://BulletJ.tscn")
 onready var HP = $HPBar
 onready var main_node = $"/root/Main"
-onready var tilemap = preload("res://TileMap.tscn")
+onready var tilemap = preload("res://TileMap.tscn") 
 
 var speed = 50
 var motion = Vector2.ZERO
@@ -19,6 +19,8 @@ var patrol_points = []
 var current_point_index = -1
 var fire_rate = 0.5 # Tingkat tembakan dalam detik
 var can_fire = true
+var is_dead = false
+
 
 signal progress
 signal spawn_power_up(power_up_instance)
@@ -46,17 +48,26 @@ func _physics_process(delta):
 		$Sprite.flip_h = true
 	
 	motion = move_and_slide(motion)
+	if is_dead:
+		$Sprite.play("Death")
+	elif motion != Vector2.ZERO:
+		$Sprite.play("Walk")
+	else:
+		$Sprite.play("Idle")
 
 func handle_hit():
 	health_stat.health -= 20
 	if health_stat.health == 0:
-		main_node.jumlah_musuh -= 1
-		emit_signal("progress")
+		is_dead = true
+		print("hasil",is_dead)
+		yield(get_tree().create_timer(1.0), "timeout")
 		queue_free()
+		if main_node.jumlah_musuh != null:
+			main_node.jumlah_musuh -= 1
+			emit_signal("progress")
 		var drop_chance = 0.5
 		var random_number = randf()
 		if random_number < drop_chance:
-			print("ran:", random_number)
 			var dropped_item = load("res://Asset/Item/Power_Up.tscn").instance()
 			dropped_item.global_position = global_position
 			get_parent().add_child(dropped_item)

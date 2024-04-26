@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Actor/EnemyT.gd" type="Script" id=1]
 [ext_resource path="res://Actor/Health.tscn" type="PackedScene" id=2]
@@ -6,6 +6,64 @@
 [ext_resource path="res://Asset/Actor/Cupcake/Frame Cupcake Idle (No garis).png" type="Texture" id=4]
 [ext_resource path="res://Asset/Actor/Cupcake/Frame Cupcake Jump (No garis).png" type="Texture" id=5]
 [ext_resource path="res://Audio/SFX/Cupcake_Stomping_Sound_-_Sound_Effects_(256k).mp3" type="AudioStream" id=6]
+[ext_resource path="res://Asset/Actor/Cupcake/Frame Cupcake Dead (No garis).png" type="Texture" id=7]
+[ext_resource path="res://Asset/Actor/Cupcake/Frame Cupcake Hit (No garis).png" type="Texture" id=8]
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 7 )
+region = Rect2( 51, 0, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 7 )
+region = Rect2( 102, 0, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 7 )
+region = Rect2( 153, 0, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 7 )
+region = Rect2( 204, 0, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 7 )
+region = Rect2( 255, 0, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 51, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 7 )
+region = Rect2( 51, 51, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 7 )
+region = Rect2( 102, 51, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 7 )
+region = Rect2( 153, 51, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 7 )
+region = Rect2( 204, 51, 51, 51 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 51, 52 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 8 )
+region = Rect2( 51, 0, 51, 52 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 8 )
+region = Rect2( 102, 0, 51, 52 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 4 )
@@ -69,6 +127,16 @@ region = Rect2( 255, 51, 51, 51 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "Death",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "Hit",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "Idle",
@@ -98,8 +166,6 @@ script = ExtResource( 1 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 7 )
 animation = "Walk"
-frame = 8
-playing = true
 
 [node name="DetectionZone" type="Area2D" parent="."]
 collision_layer = 2
@@ -147,6 +213,7 @@ bus = "SFX"
 [node name="WTimerC" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_DetectionZone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="." method="_on_DetectionZone_body_exited"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]

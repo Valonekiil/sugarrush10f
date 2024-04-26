@@ -91,7 +91,7 @@ func _process(delta: float):
 			$Walk_sfx.play(4.65)
 			$WTimer.start(0.46)
 	else:
-		animated_sprite.stop()
+		animated_sprite.play("Idle")
 	
 	var mouse_position = get_global_mouse_position()
 	gun_node.look_at(mouse_position)
@@ -239,7 +239,6 @@ func handle_hit():
 			if hp <= 0:
 				is_dead = true
 				speed = 0
-				$Sprite/GunNode.queue_free()
 				yield(get_tree().create_timer(1.0), "timeout")
 				emit_signal("dead")
 				self.hide()

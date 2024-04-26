@@ -9,13 +9,25 @@ onready var main_node = $"/root/Tutorial"
 signal progress
 signal spawn_power_up(power_up_instance)
 
+enum State {IDLE, WALK, HIT, DEAD}
+var current_state = State.WALK
+
 var speed = 100
 var motion = Vector2.ZERO
 var player = null
 var patrol_points = []
 var current_point_index = -1
+var is_hit = false
+var is_dead = false
 
-func _physics_process(delta):
+func _ready():
+	get_patrol_points()
+	choose_random_point()
+	HP.hide()
+	connect("progress", get_parent().get_node("UI/Progres"), "_enemy_killedT")
+
+
+func _process(delta):
 	motion = Vector2.ZERO
 	
 	if player:
@@ -29,33 +41,37 @@ func _physics_process(delta):
 		if collider != self and collider.is_in_group("Enemy"):
 			motion = motion.rotated(rand_range(-PI/4, PI/4))
 			choose_random_point()
-	
-	# Atur flip sprite berdasarkan arah gerak
+
 	if motion.x > 0:
 		$Sprite.flip_h = false
 	elif motion.x < 0:
 		$Sprite.flip_h = true
 	
 	motion = move_and_slide(motion)
-	if motion != Vector2.ZERO:
+	if is_dead:
+		$Sprite.play("Death")
+	elif motion != Vector2.ZERO:
+		$Sprite.play("Walk")
 		if$WTimerC.time_left <= 0:
 			$Walk_sfx.pitch_scale = rand_range(0.8, 1.2)
 			$Walk_sfx.play(4.20)
 			$WTimerC.start(1.85)
 	else:
-		pass
+		$Sprite.play("Idle")
 
 func handle_hit():
 	health_stat.health -= 20
 	if health_stat.health == 0:
+		is_dead = true
+		print("hasil",is_dead)
+		yield(get_tree().create_timer(1.0), "timeout")
+		queue_free()
 		if main_node.jumlah_musuh != null:
 			main_node.jumlah_musuh -= 1
 			emit_signal("progress")
-		queue_free()
 		var drop_chance = 0.5
 		var random_number = randf()
 		if random_number < drop_chance:
-			print("ran:", random_number)
 			var dropped_item = load("res://Asset/Item/Power_Up.tscn").instance()
 			dropped_item.global_position = global_position
 			get_parent().add_child(dropped_item)
@@ -74,16 +90,10 @@ func _on_DetectionZone_body_exited(body):
 	if body == Player:
 		player = null
 
-
-func _ready():
-	get_patrol_points()
-	choose_random_point()
-	HP.hide()
-	connect("progress",get_parent().get_node("UI/Progres"),"_enemy_killedT")
-
 func _on_HitBox_body_entered(body):
 	if body is Player:
 		body.handle_hit()
+
 
 func patrol():
 	if patrol_points:

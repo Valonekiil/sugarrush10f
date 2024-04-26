@@ -14,6 +14,8 @@ var motion = Vector2.ZERO
 var player = null
 var patrol_points = []
 var current_point_index = -1
+var is_hit = false
+var is_dead = false
 
 func _physics_process(delta):
 	motion = Vector2.ZERO
@@ -37,25 +39,30 @@ func _physics_process(delta):
 		$Sprite.flip_h = true
 	
 	motion = move_and_slide(motion)
-	if motion != Vector2.ZERO:
+	if is_dead:
+		$Sprite.play("Death")
+	elif motion != Vector2.ZERO:
+		$Sprite.play("Walk")
 		if$WTimerC.time_left <= 0:
 			$Walk_sfx.pitch_scale = rand_range(0.8, 1.2)
 			$Walk_sfx.play(4.20)
 			$WTimerC.start(1.85)
 	else:
-		pass
+		$Sprite.play("Idle")
 
 func handle_hit():
 	health_stat.health -= 20
 	if health_stat.health == 0:
+		is_dead = true
+		print("hasil",is_dead)
+		yield(get_tree().create_timer(1.0), "timeout")
+		queue_free()
 		if main_node.jumlah_musuh != null:
 			main_node.jumlah_musuh -= 1
 			emit_signal("progress")
-		queue_free()
 		var drop_chance = 0.5
 		var random_number = randf()
 		if random_number < drop_chance:
-			print("ran:", random_number)
 			var dropped_item = load("res://Asset/Item/Power_Up.tscn").instance()
 			dropped_item.global_position = global_position
 			get_parent().add_child(dropped_item)
@@ -101,5 +108,3 @@ func get_patrol_points():
 func choose_random_point():
 	if patrol_points:
 		current_point_index = randi() % patrol_points.size()
-
-
