@@ -5,14 +5,14 @@ var jumlah_musuh = 0
 onready var bullet_manager = $BulletManager
 onready var player = $Player
 onready var enemy = $EnemyJelly
-onready var enemyup = $EnemyJelly2up
-onready var enemyup1 = $EnemyJelly3up
+onready var enemyup = $EnemyJellyup
+onready var enemyup1 = $EnemyJellyup2
 onready var enemydown = $EnemyJellydown
-onready var enemydown1 = $EnemyJellydown2
+#onready var enemydown1 = $EnemyJellydown2
 onready var enemyO = $EnemyJellyO
-onready var enemyO1 = $EnemyJellyO2
-onready var enemyO2 = $EnemyJellyO3
-onready var enemyO3 = $EnemyJellyO4
+#onready var enemyO1 = $EnemyJellyO2
+#onready var enemyO2 = $EnemyJellyO3
+#onready var enemyO3 = $EnemyJellyO4
 onready var Kobis = $Kobis
 onready var PU1 = $Power_Up
 onready var EBar = $UI/Progres/ELbar
@@ -25,11 +25,11 @@ func _ready():
 	enemyup.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemyup1.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemydown.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
-	enemydown1.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
+	#enemydown1.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemyO.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
-	enemyO1.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
-	enemyO2.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
-	enemyO3.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
+	#enemyO1.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
+	#enemyO2.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
+	#enemyO3.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	PU1.connect("Powered",player,"on_Player_Powered")
 	
 	var kobis = load("res://Asset/Item/Kobis.tscn").instance()

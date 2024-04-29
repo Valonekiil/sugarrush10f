@@ -2,9 +2,11 @@ extends Control
 
 onready var Option_Menu = $OptionM
 onready var CreditM = $CreditM
+onready var bgm = $BGMTes
 
 
 func _on_PlayB_pressed():
+	bgm.stop()
 	if GameSetting.tutor == false:
 		get_tree().change_scene("res://Tutorial.tscn")
 		

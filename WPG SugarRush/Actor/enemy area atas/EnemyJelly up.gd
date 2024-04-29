@@ -57,7 +57,6 @@ func handle_hit():
 	health_stat.health -= 20
 	if health_stat.health == 0:
 		is_dead = true
-		print("hasil",is_dead)
 		yield(get_tree().create_timer(1.0), "timeout")
 		queue_free()
 		if main_node.jumlah_musuh != null:

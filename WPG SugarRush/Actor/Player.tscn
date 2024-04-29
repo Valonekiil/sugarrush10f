@@ -134,7 +134,6 @@ one_shot = true
 root_node = NodePath("../Sprite")
 anims/walk = SubResource( 4 )
 
-[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
 [connection signal="area_exited" from="PlayerArea" to="." method="_on_PlayerArea_area_exited"]
 [connection signal="timeout" from="ShootCD" to="." method="_on_ShootCD_timeout"]

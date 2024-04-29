@@ -142,6 +142,7 @@ visible = false
 margin_right = 42.0
 
 [node name="BGMTes" parent="." instance=ExtResource( 9 )]
+autoplay = false
 
 [node name="Tutor_conf" type="Popup" parent="."]
 anchor_left = 0.5

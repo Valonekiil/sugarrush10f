@@ -24,7 +24,6 @@ onready var end_of_gun = $Sprite/GunNode/EndOfGun
 onready var gun_direction = $Sprite/GunNode/GunDirection
 onready var shoot_timer = $ShootCD
 onready var animated_sprite = $Sprite
-onready var main = $"/root/Main"
 
 var can_shoot = true
 var max_ammo:int = 6
