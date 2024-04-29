@@ -6,6 +6,7 @@ signal life_changed(Player_HP)
 signal dead
 signal set_bullet(bullet_now)
 signal set_max(max_bullet)
+signal set_pshot(Pfak)
 signal rilot(yesnt)
 signal CDash(dur)
 
@@ -49,6 +50,7 @@ func _ready()-> void:
 	connect("dead",get_parent().get_node("UI/Life"),"_on_Player_Dead")
 	connect("set_bullet",get_parent().get_node("UI/Stat"),"set_ammo")
 	connect("set_max",get_parent().get_node("UI/Stat"),"set_max_ammo")
+	connect("set_pshot",get_parent().get_node("UI/Stat"),"set_pshot")
 	connect("rilot",get_parent().get_node("UI/Stat"),"is_reload")
 	connect("CDash",get_parent().get_node("UI/Stat"),"CD")
 	$PlayerArea.connect("area_entered", self, "_on_player_area_entered")
@@ -56,7 +58,9 @@ func _ready()-> void:
 	original_collision_layer = collision_layer
 	original_collision_mask = collision_mask
 	emit_signal("rilot","no")
-	$PShots.text = str(PShots)
+	emit_signal("set_pshot",PShots)
+	
+	#$PShots.text = str(PShots)
 	shotgun.visible = false
 
 func _process(delta: float):
@@ -170,16 +174,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("shoot") and can_shoot:
 		shoot()
 		
-	if event.is_action_released("skill")and Powered:
+	if event.is_action_released("skill")and PShots > 0:
 		skill(Vector2(0,0))
 		skill(Vector2(-12,25))
 		skill(Vector2(12,-25))
 		PShots -= 1
-		$PShots.text = str(PShots)
+		emit_signal("set_pshot",PShots)
+		#$PShots.text = str(PShots)
 		
-		if PShots == 0:
-			$PShots.hide()
-			Powered = false
+		#if PShots == 0:
+			#$PShots.hide()
+			#Powered = false
 
 	if event.is_action_released("reload") and ammo == 0 :
 		$Rlot_sfx.play(0.31)
@@ -255,8 +260,9 @@ func _on_DashCD_timeout():
 func on_Player_Powered(Shots:int):
 	PShots += Shots
 	Powered = true
-	$PShots.show()
-	$PShots.text = str(PShots)
+	emit_signal("set_pshot",PShots)
+	#$PShots.show()
+	#$PShots.text = str(PShots)
 
 func _on_PlayerArea_area_entered(area):
 	if area.is_in_group("Enemy") and not is_invincible:

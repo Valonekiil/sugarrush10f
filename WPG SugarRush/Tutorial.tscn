@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Asset/1-1 Downnton Sze.png" type="Texture" id=1]
 [ext_resource path="res://Actor/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,15 @@
 [ext_resource path="res://Actor/EnemyJelly.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=10]
 [ext_resource path="res://UI/Tutorial_pop.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Asset/Panel.png" type="Texture" id=12]
+[ext_resource path="res://Asset/Item/Shotgun Ammo.png" type="Texture" id=13]
+[ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=14]
+
+[sub_resource type="ConcavePolygonShape2D" id=4]
+segments = PoolVector2Array( 1277.52, 646.08, 1278.96, 1028.4, 1278.96, 1028.4, 6.76001, 1022.64, 6.76001, 1022.64, 2.44, 643.92, 2.44, 643.92, 1277.52, 646.08 )
+
+[sub_resource type="ConcavePolygonShape2D" id=5]
+segments = PoolVector2Array( 25.48, 0, 1281.84, 0, 1281.84, 0, 1283, 392.64, 1283, 392.64, 1, 389.04, 1, 389.04, 1, 1.68002, 1, 1.68002, 0, 0, 0, 0, 25.48, 0 )
 
 [sub_resource type="TileSet" id=1]
 0/name = "1-1 Downnton Sze.png 0"
@@ -37,9 +46,22 @@
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 4 )
 1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 1/z_index = 0
 2/name = "Tutorial1. 3 (2).png 2"
 2/texture = ExtResource( 4 )
@@ -69,9 +91,10 @@
 normal = Vector2( -1, 0 )
 d = 2.23607
 
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 48.0
-height = 374.0
+[sub_resource type="DynamicFont" id=3]
+size = 18
+extra_spacing_bottom = 3
+font_data = ExtResource( 14 )
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 5 )
@@ -88,7 +111,7 @@ tile_data = PoolIntArray( 0, 1, 0 )
 position = Vector2( 24, 398 )
 
 [node name="Barrel" parent="." instance=ExtResource( 3 )]
-position = Vector2( 490, 419 )
+position = Vector2( 1168, 599 )
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 6 )
@@ -100,7 +123,7 @@ position = Vector2( 871, 423 )
 position = Vector2( 868, 573 )
 
 [node name="EnemyJelly" parent="." instance=ExtResource( 9 )]
-position = Vector2( 976, 496 )
+position = Vector2( 1059, 482 )
 
 [node name="Power_Up" parent="." instance=ExtResource( 7 )]
 position = Vector2( 423, 628 )
@@ -109,17 +132,16 @@ position = Vector2( 423, 628 )
 visible = false
 
 [node name="musuh_conf_col" type="Area2D" parent="."]
-visible = false
 position = Vector2( 572, 495 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="musuh_conf_col"]
-visible = false
 position = Vector2( -26, -2 )
 scale = Vector2( 1, 1.5 )
 shape = SubResource( 2 )
 
 [node name="musuh_conf" type="Container" parent="musuh_conf_col"]
 pause_mode = 2
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -132,13 +154,44 @@ margin_right = 12.0
 margin_bottom = 20.0
 text = "nex"
 
-[node name="Fin" type="Area2D" parent="."]
-position = Vector2( 1218, 473 )
+[node name="Enemy_pop" type="CanvasLayer" parent="musuh_conf_col"]
+pause_mode = 2
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fin"]
-position = Vector2( 21, 21 )
-shape = SubResource( 3 )
+[node name="Sprite" type="Sprite" parent="musuh_conf_col/Enemy_pop"]
+position = Vector2( 509.4, 180.5 )
+scale = Vector2( 0.312109, 0.248047 )
+texture = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="musuh_conf_col/Enemy_pop"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -270.0
+margin_top = 66.0
+margin_right = 274.0
+margin_bottom = 270.0
+custom_fonts/font = SubResource( 3 )
+text = "Lihat di depan terdapat
+musuh berhati hati lah
+
+
+musuh yang mati memiliki
+kemungkinan untuk menjatuhkan
+special ammunition yang di 
+perlukan untuk melakukan skill"
+
+[node name="Sprite2" type="Sprite" parent="musuh_conf_col/Enemy_pop"]
+position = Vector2( 271, 277 )
+scale = Vector2( 0.465, 0.465 )
+texture = ExtResource( 13 )
+
+[node name="Enemy_close_btn" type="Button" parent="musuh_conf_col/Enemy_pop"]
+margin_left = 740.0
+margin_top = 281.0
+margin_right = 787.0
+margin_bottom = 301.0
+text = "Close"
 
 [connection signal="body_entered" from="musuh_conf_col" to="." method="_on_musuh_conf_col_body_entered"]
 [connection signal="pressed" from="musuh_conf_col/musuh_conf/MC_Skip_Btn" to="." method="_on_MC_Skip_Btn_pressed"]
-[connection signal="body_entered" from="Fin" to="." method="_on_Fin_body_entered"]
+[connection signal="pressed" from="musuh_conf_col/Enemy_pop/Enemy_close_btn" to="." method="_on_Enemy_close_btn_pressed"]

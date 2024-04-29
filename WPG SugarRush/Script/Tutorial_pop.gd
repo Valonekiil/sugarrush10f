@@ -15,6 +15,7 @@ func _on_Back_B_pressed():
 
 
 func _on_Exit_B_pressed():
-	#emit_signal("pau")
-	#print("signal out")
 	hide()
+	GameSetting.can_esc = true
+	get_tree().paused = !get_tree().paused
+

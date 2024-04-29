@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Script/UI.gd" type="Script" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Asset/Font/pixpopenei.otf" type="DynamicFontData" id=9]
 [ext_resource path="res://UI/Stat.gd" type="Script" id=10]
 [ext_resource path="res://UI/ikont-/DashKon.png" type="Texture" id=11]
+[ext_resource path="res://Asset/Font/pixpopenei.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Asset/Item/Shotgun Ammo.png" type="Texture" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 15
@@ -21,6 +23,12 @@ size = 30
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 12 )
 
 [sub_resource type="StyleBoxFlat" id=6]
 border_width_left = 2
@@ -40,6 +48,13 @@ border_color = Color( 0, 0, 0, 1 )
 ProgressBar/styles/bg = SubResource( 6 )
 ProgressBar/styles/fg = SubResource( 7 )
 
+[sub_resource type="DynamicFont" id=10]
+size = 30
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 7
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=5]
 size = 20
 outline_size = 3
@@ -57,6 +72,10 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 40
+font_data = ExtResource( 12 )
 
 [node name="UI" type="CanvasLayer"]
 pause_mode = 2
@@ -143,6 +162,34 @@ tint_progress = Color( 0.211765, 0.188235, 0.188235, 0.737255 )
 [node name="Timer" type="Timer" parent="Stat"]
 one_shot = true
 
+[node name="Pshot_box" type="HBoxContainer" parent="Stat"]
+margin_left = -932.0
+margin_top = -7.0
+margin_right = -781.0
+margin_bottom = 35.0
+
+[node name="Sprite" type="Sprite" parent="Stat/Pshot_box"]
+position = Vector2( -23, 19 )
+scale = Vector2( 0.308, 0.308 )
+texture = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="Stat/Pshot_box"]
+margin_top = 3.0
+margin_right = 52.0
+margin_bottom = 39.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = " X "
+
+[node name="Pshots" type="Label" parent="Stat/Pshot_box"]
+margin_left = 56.0
+margin_top = 3.0
+margin_right = 78.0
+margin_bottom = 39.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "2"
+
 [node name="Progres" type="Control" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -167,15 +214,33 @@ percent_visible = false
 [node name="Done" type="Label" parent="Progres"]
 visible = false
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-margin_left = -177.0
-margin_top = 14.0
-margin_right = 168.0
-margin_bottom = 113.0
+anchor_bottom = 0.5
+margin_left = -210.0
+margin_top = 210.0
+margin_right = 210.0
+margin_bottom = 309.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 10 )
 text = "Semua musuh
 telah terbunuh"
+align = 1
+
+[node name="Done2" type="Label" parent="Progres"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -255.0
+margin_top = 210.0
+margin_right = 255.0
+margin_bottom = 309.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Stage selanjutnya
+Telah terbuka"
 align = 1
 
 [node name="PGbox" type="HBoxContainer" parent="Progres"]
@@ -420,6 +485,23 @@ margin_right = 71.5
 margin_bottom = 81.5
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
+
+[node name="Arrow A" type="Label" parent="."]
+margin_left = 95.0
+margin_top = 9.0
+margin_right = 170.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 12 )
+text = "-->"
+
+[node name="Arrow B" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -48.0
+margin_top = -14.0
+text = "TARGET"
 
 [connection signal="pressed" from="PauseB" to="." method="_on_PauseB_pressed"]
 [connection signal="pressed" from="Life/DiedM/ContinueB" to="." method="_on_ContinueB_pressed"]

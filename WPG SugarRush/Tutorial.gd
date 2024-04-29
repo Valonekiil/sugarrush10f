@@ -1,7 +1,9 @@
 extends Node2D
 
 var jumlah_musuh = 0
+var showed:bool = true
 
+onready var collision_shape: CollisionShape2D = get_node("musuh_conf_col/CollisionShape2D")
 onready var bullet_manager = $BulletManager
 onready var player = $Player
 onready var enemy = $EnemyJelly
@@ -9,13 +11,14 @@ onready var PU1 = $Power_Up
 onready var EBar = $UI/Progres/ELbar
 onready var Etx = $UI/Progres/PGbox/PGLeft
 onready var Emax = $UI/Progres/PGbox/PGMax
+onready var P = $musuh_conf_col/Enemy_pop
 
 
 func _ready():
 	player.connect("player_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemy.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	PU1.connect("Powered",player,"on_Player_Powered")
-	
+	P.hide()
 	var kobis = load("res://Asset/Item/Kobis.tscn").instance()
 	add_child(kobis)
 	kobis.connect("Healed", player, "on_Player_Heal")
@@ -36,7 +39,8 @@ func _ready():
 	if GameSetting.tutor == false:
 		
 		$Tutorial_pop.show()
-		#get_tree().paused = !get_tree().paused
+		GameSetting.can_esc = false
+		get_tree().paused = !get_tree().paused
 		
 		GameSetting.tutor = true
 		
@@ -44,6 +48,7 @@ func _ready():
 		pass
 	
 			
+
 func _on_enemy_spawn_power_up(power_up_instance):
 	power_up_instance.connect("Powered", player, "on_Player_Powered")
 
@@ -54,18 +59,15 @@ func _on_MC_Skip_Btn_pressed():
 
 
 
-func _on_musuh_conf_col_body_entered(body):
-	if body is Player:
-		#get_tree().paused = !get_tree().paused
-		pass
-	pass
-	
-func _on_Exit_B_pressed():
-	hide()
-	print("Value: ",get_tree().paused)
+func _on_musuh_conf_col_body_entered(body:KinematicBody2D)-> void:
+	if body is Player and showed :
+		get_tree().paused = !get_tree().paused
+		P.show()
+		GameSetting.can_esc = false
 
 
-func _on_Fin_body_entered(body:KinematicBody2D):
-	if body is Player:
-		if jumlah_musuh <= 0:
-			get_tree().change_scene("res://Main.tscn")
+func _on_Enemy_close_btn_pressed():
+	showed = false
+	P.hide()
+	GameSetting.can_esc = true
+	get_tree().paused = !get_tree().paused

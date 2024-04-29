@@ -3,6 +3,7 @@ extends Control
 onready var CB = $Bullet_box/Current_Ammo
 onready var Max = $Bullet_box/Max_Ammo
 onready var Icon = $kon
+onready var Pshot = $Pshot_box/Pshots
 
 func CD(time:float)-> void:
 	set_process(true)
@@ -23,6 +24,14 @@ func set_ammo(Cur_Bullet:int):
 		print("Bullet now:"+ str(Cur_Bullet))
 	else:
 		print("CB is Nil")
+
+func set_pshot( Pshots:int):
+	if Pshot != null:
+		Pshot.text = str(Pshots)
+		print("SKill now:" + str(Pshots))
+	else:
+		print("Kontol nulll")
+
 
 
 #func set_max_ammo(Bullet:int):

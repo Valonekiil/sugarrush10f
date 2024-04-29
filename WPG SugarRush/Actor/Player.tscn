@@ -101,6 +101,7 @@ bus = "SFX"
 
 [node name="Shit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
+volume_db = 2.0
 bus = "SFX"
 
 [node name="Rlot_sfx" type="AudioStreamPlayer2D" parent="."]

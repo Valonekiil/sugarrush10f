@@ -1,13 +1,12 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Script/Tutorial_pop.gd" type="Script" id=1]
 [ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Asset/Panel.png" type="Texture" id=3]
+[ext_resource path="res://Asset/Tutor/1714368100214.png" type="Texture" id=3]
 [ext_resource path="res://Asset/Tutor/982dafe9-c46f-4e8d-8946-d777e9c22171.jpg" type="Texture" id=4]
-[ext_resource path="res://Asset/Font/pixpopenei.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Asset/Tutor/Player with label.jpg" type="Texture" id=6]
-[ext_resource path="res://Asset/Tutor/Highlight_Control.png" type="Texture" id=7]
-[ext_resource path="res://Asset/Tutor/Highlight_UI.png" type="Texture" id=8]
+[ext_resource path="res://Asset/Tutor/1714368100165.png" type="Texture" id=5]
+[ext_resource path="res://Asset/Tutor/1714368100190.png" type="Texture" id=6]
+[ext_resource path="res://Asset/Tutor/1714368100139.png" type="Texture" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -19,20 +18,8 @@ size = 20
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 70
+size = 35
 font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 34
-outline_size = 4
-outline_color = Color( 1, 0, 0, 1 )
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 34
-outline_size = 4
-outline_color = Color( 1, 0.921569, 0.00784314, 1 )
-font_data = ExtResource( 5 )
 
 [node name="Tutorial_pop" type="CanvasLayer"]
 pause_mode = 2
@@ -59,6 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Label" type="Label" parent="UI_tutor/Page 1"]
+visible = false
 margin_left = 17.9995
 margin_top = 115.5
 margin_right = 493.0
@@ -74,28 +62,29 @@ D -> bergerak ke kanan"
 align = 1
 
 [node name="Next_B" type="Button" parent="UI_tutor/Page 1"]
-margin_left = 614.0
-margin_top = -35.5002
-margin_right = 658.0
-margin_bottom = -15.5002
+margin_left = 549.0
+margin_top = 297.0
+margin_right = 593.0
+margin_bottom = 317.0
 text = "NEXT"
 
 [node name="Sprite2" type="Sprite" parent="UI_tutor/Page 1"]
 light_mask = 98304
 position = Vector2( 258, 123.5 )
-scale = Vector2( 0.452148, 0.317057 )
+scale = Vector2( 0.7, 0.7 )
 z_index = -1
-texture = ExtResource( 3 )
+texture = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="UI_tutor/Page 1/Sprite2"]
-margin_left = -418.004
-margin_top = -618.185
-margin_right = 221.996
-margin_bottom = -538.185
+margin_left = -207.143
+margin_top = -313.571
+margin_right = 212.857
+margin_bottom = -278.571
 custom_fonts/font = SubResource( 4 )
 text = "TUTORIAL 1/5"
 
 [node name="Label2" type="Label" parent="UI_tutor/Page 1"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -123,6 +112,7 @@ z_index = -2
 texture = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="UI_tutor/Page 1"]
+visible = false
 position = Vector2( 252.5, 123.5 )
 scale = Vector2( 0.750366, 0.782552 )
 z_index = -2
@@ -138,112 +128,33 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Next_B" type="Button" parent="UI_tutor/Page2"]
-margin_left = 641.0
-margin_top = -66.7498
-margin_right = 685.0
-margin_bottom = -46.7498
+margin_left = 549.0
+margin_top = 297.0
+margin_right = 593.0
+margin_bottom = 317.0
 text = "NEXT"
 
 [node name="Back_B" type="Button" parent="UI_tutor/Page2"]
-margin_left = -103.0
-margin_top = -65.7498
-margin_right = -61.0004
-margin_bottom = -45.7498
+margin_left = -71.0
+margin_top = 297.0
+margin_right = -29.0
+margin_bottom = 317.0
 text = "Back"
-
-[node name="Label2" type="Label" parent="UI_tutor/Page2"]
-margin_left = -108.0
-margin_top = -27.7498
-margin_right = 676.0
-margin_bottom = 227.25
-custom_fonts/font = SubResource( 3 )
-text = "Tekan Spacebar untuk dash.
-icon di sebelah kiri menunjukan apakah 
-player bisa melakukan dash atau tidak.
-
-Klik kiri untuk menembak.
-amunisi ketika hendak menembak.
-
-Klik kanan untuk menggunakan 
-skill. angka di atas player --->
-menunjukan sisa skill yang 
-kamu miliki."
-
-[node name="Label2" type="Label" parent="UI_tutor/Page2/Label2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -392.0
-margin_top = -127.5
-margin_right = 392.0
-margin_bottom = 127.5
-custom_colors/font_color = Color( 1, 0.00784314, 0.00784314, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "
-icon"
-
-[node name="Label3" type="Label" parent="UI_tutor/Page2/Label2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -392.0
-margin_top = -127.5
-margin_right = 392.0
-margin_bottom = 127.5
-custom_colors/font_color = Color( 1, 0.921569, 0.00784314, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "
-
-
-
-
-amunisi"
 
 [node name="Sprite2" type="Sprite" parent="UI_tutor/Page2"]
 light_mask = 98304
-position = Vector2( 284, 103.25 )
-scale = Vector2( 0.452148, 0.331055 )
+position = Vector2( 258, 123.5 )
+scale = Vector2( 0.7, 0.7 )
 z_index = -1
 texture = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="UI_tutor/Page2/Sprite2"]
-margin_left = -418.004
-margin_top = -618.185
-margin_right = 221.996
-margin_bottom = -538.185
+margin_left = -207.143
+margin_top = -313.571
+margin_right = 212.857
+margin_bottom = -278.571
 custom_fonts/font = SubResource( 4 )
 text = "TUTORIAL 2/5"
-
-[node name="Sprite" type="Sprite" parent="UI_tutor/Page2"]
-position = Vector2( 252.5, 123.5 )
-scale = Vector2( 0.750366, 0.782552 )
-z_index = -2
-texture = ExtResource( 7 )
-
-[node name="Sprite3" type="Sprite" parent="UI_tutor/Page2"]
-position = Vector2( 548, 213 )
-scale = Vector2( 0.85, 0.85 )
-texture = ExtResource( 6 )
-
-[node name="Label" type="Label" parent="UI_tutor/Page2"]
-margin_left = -174.0
-margin_top = -30.0
-margin_right = -87.0
-margin_bottom = 11.0
-rect_rotation = 14.3934
-custom_fonts/font = SubResource( 5 )
-text = "<--"
-
-[node name="Label3" type="Label" parent="UI_tutor/Page2"]
-margin_left = -190.0
-margin_top = 76.0
-margin_right = -103.0
-margin_bottom = 117.0
-rect_rotation = 14.3934
-custom_fonts/font = SubResource( 6 )
-text = "<--"
 
 [node name="Page3" type="Tabs" parent="UI_tutor"]
 visible = false
@@ -254,79 +165,34 @@ margin_top = 8.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="Label" type="Label" parent="UI_tutor/Page3"]
-visible = false
-margin_left = 131.0
-margin_top = 62.0
-margin_right = 177.0
-margin_bottom = 76.0
-text = "klik kiri nembak
-kanan skill"
-
 [node name="Next_B" type="Button" parent="UI_tutor/Page3"]
-visible = false
-margin_left = 638.0
-margin_top = -17.0
-margin_right = 682.0
-margin_bottom = 3.0
+margin_left = 549.0
+margin_top = 297.0
+margin_right = 593.0
+margin_bottom = 317.0
 text = "NEXT"
 
 [node name="Back_B" type="Button" parent="UI_tutor/Page3"]
-margin_left = -167.0
-margin_top = -19.0
-margin_right = -125.0
-margin_bottom = 1.0
+margin_left = -71.0
+margin_top = 297.0
+margin_right = -29.0
+margin_bottom = 317.0
 text = "Back"
-
-[node name="Label2" type="Label" parent="UI_tutor/Page3"]
-margin_left = -148.0
-margin_top = 48.0
-margin_right = 678.0
-margin_bottom = 303.0
-custom_fonts/font = SubResource( 3 )
-text = "Di bagian atas adalah progress bar
-pemain harus membunuh setiap musuh di 
-dalam stage agar bisa ke stage 
-selanjutnya
-
-Di bagian kirinya adalah jumlah HP Player
-
-Di bagian kanan adalah Tombol Pause"
-
-[node name="Gbr" type="Sprite" parent="UI_tutor/Page3"]
-visible = false
-position = Vector2( 251.5, 123.5 )
-scale = Vector2( 0.750366, 0.779948 )
-z_index = -2
-texture = ExtResource( 8 )
 
 [node name="Sprite2" type="Sprite" parent="UI_tutor/Page3"]
 light_mask = 98304
-position = Vector2( 253.5, 153.25 )
-scale = Vector2( 0.479004, 0.331055 )
+position = Vector2( 258, 123.5 )
+scale = Vector2( 0.7, 0.7 )
 z_index = -1
-texture = ExtResource( 3 )
+texture = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="UI_tutor/Page3/Sprite2"]
-margin_left = -418.004
-margin_top = -618.185
-margin_right = 221.996
-margin_bottom = -538.185
+margin_left = -207.143
+margin_top = -313.571
+margin_right = 212.857
+margin_bottom = -278.571
 custom_fonts/font = SubResource( 4 )
 text = "TUTORIAL 3/5"
-
-[node name="Sprite" type="Sprite" parent="UI_tutor/Page3"]
-position = Vector2( 252.5, 123.5 )
-scale = Vector2( 0.750366, 0.782552 )
-z_index = -2
-texture = ExtResource( 8 )
-
-[node name="Exit_B" type="Button" parent="UI_tutor/Page3"]
-margin_left = 656.0
-margin_top = -16.0
-margin_right = 676.0
-margin_bottom = 4.0
-text = "X"
 
 [node name="Page4" type="Tabs" parent="UI_tutor"]
 visible = false
@@ -337,55 +203,34 @@ margin_top = 8.0
 margin_right = -4.0
 margin_bottom = -4.0
 
+[node name="Exit_B" type="Button" parent="UI_tutor/Page4"]
+margin_left = 567.0
+margin_top = 297.0
+margin_right = 587.0
+margin_bottom = 317.0
+text = "X"
+
 [node name="Back_B" type="Button" parent="UI_tutor/Page4"]
-margin_left = -133.0
-margin_top = -15.7498
-margin_right = -91.0005
-margin_bottom = 4.25023
+margin_left = -71.0
+margin_top = 297.0
+margin_right = -29.0
+margin_bottom = 317.0
 text = "Back"
-
-[node name="Label2" type="Label" parent="UI_tutor/Page4"]
-margin_left = -144.0
-margin_top = 22.2502
-margin_right = 682.0
-margin_bottom = 277.25
-custom_fonts/font = SubResource( 3 )
-text = "Di bagian atas adalah progress bar
-pemain harus membunuh setiap musuh di 
-dalam stage agar bisa ke stage 
-selanjutnya
-
-Di bagian kirinya adalah jumlah HP Player
-
-Di bagian kanan adalah Tombol Pause"
-
-[node name="Gbr" type="Sprite" parent="UI_tutor/Page4"]
-position = Vector2( 252, 123 )
-scale = Vector2( 0.749634, 0.78125 )
-z_index = -2
-texture = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="UI_tutor/Page4"]
 light_mask = 98304
-position = Vector2( 254, 153.25 )
-scale = Vector2( 0.452148, 0.331055 )
+position = Vector2( 258, 123.5 )
+scale = Vector2( 0.7, 0.7 )
 z_index = -1
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="UI_tutor/Page4/Sprite2"]
-margin_left = -418.004
-margin_top = -618.185
-margin_right = 221.996
-margin_bottom = -538.185
+margin_left = -207.143
+margin_top = -313.571
+margin_right = 212.857
+margin_bottom = -278.571
 custom_fonts/font = SubResource( 4 )
-text = "TUTORIAL 4/5"
-
-[node name="Exit_B" type="Button" parent="UI_tutor/Page4"]
-margin_left = 635.0
-margin_top = -17.0
-margin_right = 655.0
-margin_bottom = 3.0
-text = "X"
+text = "TUTORIAL 3/5"
 
 [node name="ColorRect" type="ColorRect" parent="UI_tutor"]
 visible = false
@@ -413,6 +258,5 @@ text = "KONTOL"
 [connection signal="pressed" from="UI_tutor/Page2/Back_B" to="." method="_on_Back_B_pressed"]
 [connection signal="pressed" from="UI_tutor/Page3/Next_B" to="." method="_on_Next_B_pressed"]
 [connection signal="pressed" from="UI_tutor/Page3/Back_B" to="." method="_on_Back_B_pressed"]
-[connection signal="pressed" from="UI_tutor/Page3/Exit_B" to="." method="_on_Exit_B_pressed"]
-[connection signal="pressed" from="UI_tutor/Page4/Back_B" to="." method="_on_Back_B_pressed"]
 [connection signal="pressed" from="UI_tutor/Page4/Exit_B" to="." method="_on_Exit_B_pressed"]
+[connection signal="pressed" from="UI_tutor/Page4/Back_B" to="." method="_on_Back_B_pressed"]
