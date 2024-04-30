@@ -3,13 +3,14 @@ extends Node2D
 var jumlah_musuh = 0
 
 onready var bullet_manager = $BulletManager
+onready var boss = $Boss
 onready var player = $Player
 onready var enemy = $EnemyJelly
 onready var enemyup = $EnemyJellyup
 onready var enemyup1 = $EnemyJellyup2
 onready var enemydown = $EnemyJellydown
 #onready var enemydown1 = $EnemyJellydown2
-onready var enemyO = $EnemyJellyO
+#onready var enemyO = $EnemyJellyO
 #onready var enemyO1 = $EnemyJellyO2
 #onready var enemyO2 = $EnemyJellyO3
 #onready var enemyO3 = $EnemyJellyO4
@@ -21,12 +22,13 @@ onready var Emax = $UI/Progres/PGbox/PGMax
 
 func _ready():
 	player.connect("player_fired_bullet", bullet_manager, "handle_bullet_spawned")
+	boss.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemy.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemyup.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemyup1.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemydown.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	#enemydown1.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
-	enemyO.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
+	#enemyO.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	#enemyO1.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	#enemyO2.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	#enemyO3.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")

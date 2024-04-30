@@ -55,8 +55,11 @@ func _physics_process(delta):
 
 func handle_hit():
 	health_stat.health -= 20
-	if health_stat.health == 0:
+	HP.show()
+	set_HP(health_stat.health)
+	if health_stat.health == 0:	
 		is_dead = true
+		speed = 0
 		yield(get_tree().create_timer(1.0), "timeout")
 		queue_free()
 		if main_node.jumlah_musuh != null:
@@ -69,8 +72,6 @@ func handle_hit():
 			dropped_item.global_position = global_position
 			get_parent().add_child(dropped_item)
 			emit_signal("spawn_power_up", dropped_item)
-	HP.show()
-	set_HP(health_stat.health)
 
 func handle_shooting(delta):
 	if player.is_in_group("Player") and can_fire:

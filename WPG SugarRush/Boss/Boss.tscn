@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/HP_Bar_Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Boss/Boss.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/Boss2.png-161d6e5527938ac2ef97a5bd89416825.stex"
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 50.0
+height = 202.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 764.589
+
+[node name="Boss" type="KinematicBody2D"]
+position = Vector2( 843, 331 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 8, 10 )
+scale = Vector2( 4.53906, 5.97265 )
+texture = SubResource( 3 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+position = Vector2( 3.99994, -1 )
+shape = SubResource( 1 )
+
+[node name="SpikeTimer" type="Timer" parent="."]
+
+[node name="DetectionZone" type="Area2D" parent="."]
+position = Vector2( 1, -7 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
+position = Vector2( 2, 3 )
+shape = SubResource( 2 )
+
+[node name="EndOfGun" type="Position2D" parent="."]
+position = Vector2( -90.0001, 7 )
+
+[node name="GunDirection" type="Position2D" parent="."]
+position = Vector2( -127, 8 )
+
+[node name="HPBar" type="ProgressBar" parent="."]
+margin_left = -181.0
+margin_top = -249.0
+margin_right = -51.0
+margin_bottom = -228.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 1 )
+value = 10.0
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_DetectionZone_body_entered"]
+[connection signal="body_exited" from="DetectionZone" to="." method="_on_DetectionZone_body_exited"]

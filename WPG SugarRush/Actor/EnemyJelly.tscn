@@ -120,7 +120,6 @@ frames = SubResource( 7 )
 animation = "Walk"
 
 [node name="DetectionZone" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -128,7 +127,6 @@ collision_mask = 2
 shape = SubResource( 2 )
 
 [node name="HitBox" type="Area2D" parent="."]
-visible = false
 rotation = -3.14159
 scale = Vector2( 18.7784, 1.65688 )
 collision_layer = 2
@@ -139,7 +137,6 @@ position = Vector2( -0.585783, -17.5028 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 9, 31 )
 rotation = -3.14159
 scale = Vector2( 18.7784, 1.65688 )

@@ -38,7 +38,7 @@ var is_dead = false
 var is_invincible = false
 var original_collision_layer
 var original_collision_mask
-var PShots = 2
+var PShots = 5
 var Powered = true
 var Can_Dash = true
 var is_skill_active = false
@@ -151,7 +151,7 @@ func _on_IframeCD_timeout():
 func dash():
 	is_dashing = true
 	dash_vector = get_dash_direction()
-	
+	$Dash_sfx.play()
 	is_invincible = true
 	invincibility_timer.start(dash_duration)
 	collision_mask = 1
@@ -178,6 +178,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		skill(Vector2(0,0))
 		skill(Vector2(-12,25))
 		skill(Vector2(12,-25))
+		$Shit.play()
 		PShots -= 1
 		emit_signal("set_pshot",PShots)
 		#$PShots.text = str(PShots)
@@ -207,7 +208,7 @@ func skill(off: Vector2):
 		emit_signal("player_fired_bullet", bullet_instance, gun_direction.global_position,direction)
 		yield(get_tree().create_timer(0.3),"timeout")
 		is_skill_active = false
-		$Shit.play(0.30)
+		
 		
 
 func shoot():
