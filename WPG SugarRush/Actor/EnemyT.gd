@@ -9,9 +9,6 @@ onready var main_node = $"/root/Tutorial"
 signal progress
 signal spawn_power_up(power_up_instance)
 
-enum State {IDLE, WALK, HIT, DEAD}
-var current_state = State.WALK
-
 var speed = 100
 var motion = Vector2.ZERO
 var player = null

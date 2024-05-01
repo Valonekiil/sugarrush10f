@@ -56,5 +56,11 @@ rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 1 )
 value = 10.0
 
+[node name="MinionSpawnPosition1" type="Position2D" parent="."]
+position = Vector2( -109, 187 )
+
+[node name="MinionSpawnPosition2" type="Position2D" parent="."]
+position = Vector2( -117, -86 )
+
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_DetectionZone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="." method="_on_DetectionZone_body_exited"]

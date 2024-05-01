@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Boss/Boss2.png" type="Texture" id=1]
+[ext_resource path="res://Boss/Minion.gd" type="Script" id=2]
+[ext_resource path="res://UI/HP_Bar_Theme.tres" type="Theme" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 29.0
+height = 40.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 516.001
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1.78396, 33.7985 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+position = Vector2( 3, 7 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2, 0 )
+scale = Vector2( 1.48438, 1.39063 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 1 )
+shape = SubResource( 1 )
+
+[node name="DetectionZone" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
+shape = SubResource( 2 )
+
+[node name="HitBox" type="Area2D" parent="."]
+rotation = -3.14159
+scale = Vector2( 18.7784, 1.65688 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( -0.07988, -1.81062 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 3 )
+
+[node name="HPBar" type="ProgressBar" parent="."]
+margin_left = -42.0
+margin_top = -63.0
+margin_right = 48.0
+margin_bottom = -49.0
+theme = ExtResource( 3 )
+value = 50.0
+percent_visible = false
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_DetectionZone_body_entered"]
+[connection signal="body_exited" from="DetectionZone" to="." method="_on_DetectionZone_body_exited"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]

@@ -190,10 +190,6 @@ rotation = -3.14159
 scale = Vector2( 18.7784, 1.65688 )
 shape = SubResource( 1 )
 
-[node name="EndOfGun" type="Position2D" parent="."]
-
-[node name="GunDirection" type="Position2D" parent="."]
-
 [node name="Health" parent="." instance=ExtResource( 2 )]
 
 [node name="HPBar" type="ProgressBar" parent="."]
