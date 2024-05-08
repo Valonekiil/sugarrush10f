@@ -59,3 +59,12 @@ func _on_Fin_body_entered(body:KinematicBody2D):
 		if jumlah_musuh <= 0:
 			get_tree().change_scene("res://Ending.tscn")
 
+
+
+func _on_Monolog_body_entered(body):
+	if body is Player:
+		print("cek tes")
+		var dialog = AcceptDialog.new()
+		dialog.dialog_text = "Selamat datang di area ini!"
+		dialog.window_title = "Dialog Penyambutan"
+		dialog.popup_centered()

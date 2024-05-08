@@ -487,6 +487,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
 [node name="Arrow A" type="Label" parent="."]
+visible = false
 margin_left = 95.0
 margin_top = 9.0
 margin_right = 170.0
@@ -495,6 +496,7 @@ custom_fonts/font = SubResource( 12 )
 text = "-->"
 
 [node name="Arrow B" type="Label" parent="."]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0

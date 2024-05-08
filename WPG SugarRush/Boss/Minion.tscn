@@ -9,7 +9,7 @@ radius = 29.0
 height = 40.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 516.001
+radius = 932.002
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 1.78396, 33.7985 )
@@ -45,7 +45,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2( -0.07988, -1.81062 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [node name="HPBar" type="ProgressBar" parent="."]

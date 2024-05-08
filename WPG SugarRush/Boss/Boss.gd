@@ -95,7 +95,7 @@ func summon_minions():
 			minion_instance.connect("tree_exited", self, "_on_minion_died")
 			get_parent().add_child(minion_instance)
 			minion_instance.global_position = spawn_position.global_position
-			yield(get_tree().create_timer(1.0), "timeout")  # Jeda 0,5 detik sebelum spawn minion berikutnya
+			yield(get_tree().create_timer(1.0), "timeout")
 		minions_alive += 5
 
 func _on_minion_died():

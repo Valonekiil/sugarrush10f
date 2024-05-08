@@ -9,13 +9,43 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "Character",
+"language": "GDScript",
+"path": "res://addons/dialogue_nodes/objects/Character.gd"
+}, {
+"base": "Resource",
+"class": "CharacterList",
+"language": "GDScript",
+"path": "res://addons/dialogue_nodes/objects/CharacterList.gd"
+}, {
+"base": "PopupDialog",
+"class": "DialogueBox",
+"language": "GDScript",
+"path": "res://addons/dialogue_nodes/objects/dialogueBox.gd"
+}, {
+"base": "Resource",
+"class": "DialogueData",
+"language": "GDScript",
+"path": "res://addons/dialogue_nodes/objects/DialogueData.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Actor/Player.gd"
+}, {
+"base": "RichTextEffect",
+"class": "RichTextWait",
+"language": "GDScript",
+"path": "res://addons/dialogue_nodes/objects/bbcodeWait.gd"
 } ]
 _global_script_class_icons={
-"Player": ""
+"Character": "",
+"CharacterList": "",
+"DialogueBox": "",
+"DialogueData": "",
+"Player": "",
+"RichTextWait": ""
 }
 
 [application]
@@ -32,6 +62,10 @@ GameSetting="*res://UI/Game_Setting.gd"
 [display]
 
 window/stretch/mode="2d"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/dialogue_nodes/plugin.cfg" )
 
 [gui]
 

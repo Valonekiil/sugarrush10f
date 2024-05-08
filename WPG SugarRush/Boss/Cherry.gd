@@ -23,6 +23,6 @@ func _on_KillTimer_timeout():
 	queue_free()
 
 func _on_Ceri_body_entered(body):
-	#if body.has_method("handle_hit"):
+	if body is Player:
 		#body.handle_hit()
 		queue_free()

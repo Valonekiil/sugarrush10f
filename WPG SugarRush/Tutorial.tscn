@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Asset/1-1 Downnton Sze.png" type="Texture" id=1]
 [ext_resource path="res://Actor/Player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://Asset/Envi/Pabrik4x.png" type="Texture" id=15]
 [ext_resource path="res://Asset/Envi/Tutornew.png" type="Texture" id=16]
+[ext_resource path="res://Asset/Tutor Penutup Jalan Belakang.png" type="Texture" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 1280, 0, 1280, 294.819, 0, 288.598, 0, 0 )
@@ -135,6 +136,20 @@ points = PoolVector2Array( 2.44165, 634.89, 1275.63, 634.89, 1275.63, 736, 2.441
 4/shape_one_way_margin = 0.0
 4/shapes = [  ]
 4/z_index = 0
+5/name = "Tutor Penutup Jalan Belakang.png 5"
+5/texture = ExtResource( 17 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 832, 1024 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
 
 [sub_resource type="LineShape2D" id=2]
 normal = Vector2( -1, 0 )
@@ -151,14 +166,15 @@ script = ExtResource( 5 )
 [node name="UI" parent="." instance=ExtResource( 10 )]
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -1, 0 )
 z_index = -3
 tile_set = SubResource( 1 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 0, 2, 0, 720896, 3, 0 )
+tile_data = PoolIntArray( 65523, 5, 0, 0, 2, 0, 720896, 3, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 34, 345 )
+position = Vector2( 61, 406 )
 
 [node name="Barrel" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1168, 599 )
@@ -206,20 +222,19 @@ text = "nex"
 
 [node name="Enemy_pop" type="CanvasLayer" parent="musuh_conf_col"]
 pause_mode = 2
-visible = false
 
 [node name="Sprite" type="Sprite" parent="musuh_conf_col/Enemy_pop"]
-position = Vector2( 509.4, 180.5 )
-scale = Vector2( 0.312109, 0.248047 )
+position = Vector2( 510, 307.5 )
+scale = Vector2( 0.318359, 0.280599 )
 texture = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="musuh_conf_col/Enemy_pop"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -270.0
-margin_top = 66.0
+margin_top = 190.0
 margin_right = 274.0
-margin_bottom = 270.0
+margin_bottom = 394.0
 custom_fonts/font = SubResource( 3 )
 text = "Lihat di depan terdapat
 musuh berhati hati lah
@@ -231,15 +246,15 @@ special ammunition yang di
 perlukan untuk melakukan skill"
 
 [node name="Sprite2" type="Sprite" parent="musuh_conf_col/Enemy_pop"]
-position = Vector2( 271, 277 )
+position = Vector2( 271, 401 )
 scale = Vector2( 0.465, 0.465 )
 texture = ExtResource( 13 )
 
 [node name="Enemy_close_btn" type="Button" parent="musuh_conf_col/Enemy_pop"]
 margin_left = 740.0
-margin_top = 281.0
+margin_top = 405.0
 margin_right = 787.0
-margin_bottom = 301.0
+margin_bottom = 425.0
 text = "Close"
 
 [connection signal="body_entered" from="musuh_conf_col" to="." method="_on_musuh_conf_col_body_entered"]

@@ -36,7 +36,7 @@ func _on_MainMB_pressed():
 	get_tree().paused = false
 
 func _on_ContinueB_pressed():
-	get_tree().change_scene("res://Main.tscn")
+	get_tree().change_scene("res://Tutorial.tscn")
 
 
 

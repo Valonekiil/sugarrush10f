@@ -8,7 +8,7 @@ load_path = "res://.import/Boss2.png-161d6e5527938ac2ef97a5bd89416825.stex"
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 50.0
-height = 202.0
+height = 326.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 764.589
@@ -20,14 +20,14 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 8, 10 )
-scale = Vector2( 4.53906, 5.97265 )
+position = Vector2( 21.0001, 14 )
+scale = Vector2( 5.34766, 6.6582 )
 texture = SubResource( 3 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
-position = Vector2( 3.99994, -1 )
+position = Vector2( 15, 28 )
 shape = SubResource( 1 )
 
 [node name="SpikeTimer" type="Timer" parent="."]

@@ -9,7 +9,7 @@ onready var main_node = $"/root/Tutorial"
 signal progress
 signal spawn_power_up(power_up_instance)
 
-var speed = 100
+var speed = 75
 var motion = Vector2.ZERO
 var player = null
 var patrol_points = []
