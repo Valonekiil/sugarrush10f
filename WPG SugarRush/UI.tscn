@@ -227,6 +227,18 @@ text = "Semua musuh
 telah terbunuh"
 align = 1
 
+[node name="ColorRect" type="ColorRect" parent="Progres/Done"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -228.0
+margin_top = -53.0
+margin_right = 228.0
+margin_bottom = 43.0
+color = Color( 0, 0, 0, 0.227451 )
+
 [node name="Done2" type="Label" parent="Progres"]
 visible = false
 anchor_left = 0.5
@@ -242,6 +254,18 @@ custom_fonts/font = SubResource( 10 )
 text = "Stage selanjutnya
 Telah terbuka"
 align = 1
+
+[node name="ColorRect" type="ColorRect" parent="Progres/Done2"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -264.5
+margin_top = -55.0
+margin_right = 264.5
+margin_bottom = 41.0
+color = Color( 0, 0, 0, 0.227451 )
 
 [node name="PGbox" type="HBoxContainer" parent="Progres"]
 anchor_left = 0.5
@@ -280,6 +304,10 @@ align = 1
 [node name="Life" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 2.0
+margin_bottom = 2.0
 mouse_filter = 2
 script = ExtResource( 4 )
 

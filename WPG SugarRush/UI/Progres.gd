@@ -12,6 +12,12 @@ func _enemy_killed():
 		$PGbox.hide()
 		EBar.hide()
 		$Done.show()
+		yield(get_tree().create_timer(5.0), "timeout")
+		$Done.hide()
+		yield(get_tree().create_timer(1.0), "timeout")
+		$Done2.show()
+		yield(get_tree().create_timer(5.0), "timeout")
+		$Done2.hide()
 	ETx.text = str(main.jumlah_musuh)
 	
 func _enemy_killedT():

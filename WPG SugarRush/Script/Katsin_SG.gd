@@ -10,7 +10,7 @@ func _ready():
 	show_all()
 	yield(get_tree().create_timer(10.8), "timeout")
 	hide_all()
-	$Full.show()
+	
 	$Play_Button.show()
 
 func _on_Play_Button_pressed():
