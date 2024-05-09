@@ -9,7 +9,7 @@ func _ready():
 	CSSG.play("Katsin_tutor")
 	show_all()
 	yield(get_tree().create_timer(10.8), "timeout")
-	hide_all()
+	#hide_all()
 	
 	$Play_Button.show()
 

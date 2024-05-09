@@ -1,7 +1,6 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Actor/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Script/BulletManager.gd" type="Script" id=3]
 [ext_resource path="res://Script/Main.gd" type="Script" id=4]
 [ext_resource path="res://Actor/EnemyJelly.tscn" type="PackedScene" id=5]
@@ -11,6 +10,7 @@
 [ext_resource path="res://UI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Actor/EnemyJelly.gd" type="Script" id=10]
 [ext_resource path="res://Actor/Enemy.gd" type="Script" id=11]
+[ext_resource path="res://Asset/tileset_0.tres" type="TileSet" id=12]
 [ext_resource path="res://Actor/enemy area bawah tengah/EnemyJelly down.gd" type="Script" id=17]
 [ext_resource path="res://Actor/enemy area atas/Enemy up.gd" type="Script" id=18]
 [ext_resource path="res://Actor/enemy area bawah tengah/Enemy down.gd" type="Script" id=19]
@@ -31,17 +31,12 @@ position = Vector2( -1, 0 )
 script = ExtResource( 4 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( 440, 307 )
+position = Vector2( 587, 150 )
 
 [node name="UI" parent="." instance=ExtResource( 9 )]
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
-
-[node name="TileMap" parent="." groups=["TileMap"] instance=ExtResource( 2 )]
-collision_layer = 3
-collision_mask = 3
-tile_data = PoolIntArray( -1179629, 7, 0, -1179609, 4, 0, -1179589, 8, 0, -65537, 5, 0, -131053, 6, 0, -131033, 4, 0, -131013, 10, 0, -130999, 9, 0, 2162714, 6, 0 )
 
 [node name="Fin" type="Area2D" parent="."]
 
@@ -109,7 +104,7 @@ position = Vector2( 2705, -546 )
 script = ExtResource( 20 )
 
 [node name="Enemyup" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2417, -643 )
+position = Vector2( 239, 411 )
 script = ExtResource( 18 )
 
 [node name="PatrolPoint Down" type="Node2D" parent="."]
@@ -165,12 +160,12 @@ collision_layer = 15
 collision_mask = 15
 
 [node name="Barrel2" parent="." instance=ExtResource( 6 )]
-position = Vector2( -1857, 416 )
+position = Vector2( 3394, 67 )
 collision_layer = 15
 collision_mask = 15
 
 [node name="Power_Up" parent="." instance=ExtResource( 24 )]
-position = Vector2( 1065, 213 )
+position = Vector2( 1140, 160 )
 
 [node name="Monolog" type="Area2D" parent="."]
 position = Vector2( 598, 323 )
@@ -183,6 +178,13 @@ shape = SubResource( 27 )
 
 [node name="BGMTes" parent="." instance=ExtResource( 22 )]
 stream = ExtResource( 21 )
+
+[node name="Kontilemap" type="TileMap" parent="."]
+show_behind_parent = true
+position = Vector2( -31, -2557 )
+tile_set = ExtResource( 12 )
+format = 1
+tile_data = PoolIntArray( -131073, 0, 0, 1441812, 7, 0, 1441832, 18, 0, 1441852, 8, 0, 2293795, 13, 0, 2359331, 14, 0, 2359371, 536870925, 0, 2424907, 536870925, 0, 2490368, 5, 0, 2490388, 6, 0, 2490403, 536870927, 0, 2490408, 4, 0, 2490428, 10, 0, 2490442, 9, 0 )
 
 [connection signal="player_fired_bullet" from="Player" to="BulletManager" method="_on_Player_player_fired_bullet"]
 [connection signal="body_entered" from="Fin" to="." method="_on_Fin_body_entered"]

@@ -71,3 +71,8 @@ func _on_Enemy_close_btn_pressed():
 	P.hide()
 	GameSetting.can_esc = true
 	get_tree().paused = !get_tree().paused
+
+
+func _on_Tele_to_Main_body_entered(body):
+	if body is Player and jumlah_musuh == 0:
+		get_tree().change_scene("res://Main.tscn")
