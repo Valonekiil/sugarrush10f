@@ -51,12 +51,14 @@ func _ready():
 	if Emax != null:
 		Emax.text = str(max_musuh)
 		
+	GameSetting.tutor = true
+
 func _on_enemy_spawn_power_up(power_up_instance):
 	power_up_instance.connect("Powered", player, "on_Player_Powered")
 
 func _on_Fin_body_entered(body:KinematicBody2D):
 	if body is Player:
-		if jumlah_musuh <= 0:
+		if jumlah_musuh <= 0 and GameSetting.bos_killed:
 			get_tree().change_scene("res://Ending.tscn")
 
 

@@ -52,6 +52,7 @@ func handle_hit():
 		HPBar.value = health
 		if health <= 0:
 			queue_free()
+			GameSetting.bos_killed = true
 		elif health <= max_health / 2 and not has_summoned_minions:
 			is_invincible = true
 			has_summoned_minions = true

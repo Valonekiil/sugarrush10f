@@ -8,7 +8,7 @@ onready var bgm = $BGMTes
 func _on_PlayB_pressed():
 	bgm.stop()
 	if GameSetting.tutor == false:
-		get_tree().change_scene("res://Katsin.tscn")
+		get_tree().change_scene("res://New_Katsin.tscn")
 		
 	else :
 		$Tutor_conf.show()
@@ -30,10 +30,10 @@ func _on_TextureButton_pressed():
 	Option_Menu.popup()
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://Katsin.tscn")
+	get_tree().change_scene("res://New_Katsin.tscn")
 
 
 
 func _on_Button2_pressed():
-	get_tree().change_scene("res://Katsin.tscn")
+	get_tree().change_scene("res://New_Katsin.tscn")
 	GameSetting.tutor = false

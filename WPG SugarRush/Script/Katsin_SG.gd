@@ -6,9 +6,9 @@ func _ready():
 	$Play_Button.hide()
 	$Full.hide()
 	hide_all()
-	CSSG.play("Katsin_tutor")
+	CSSG.play("L_Anim")
 	show_all()
-	yield(get_tree().create_timer(10.8), "timeout")
+	yield(get_tree().create_timer(12.5), "timeout")
 	#hide_all()
 	
 	$Play_Button.show()

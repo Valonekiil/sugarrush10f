@@ -3,7 +3,7 @@ extends Node
 signal fps_displayed(value)
 onready var tutor:bool = false
 onready var can_esc:bool = true
-
+onready var bos_killed = false
 func toogle_fullscreen(value):
 	OS.window_fullscreen = value
 	Save.game_data.fullscreen = value

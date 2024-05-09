@@ -31,7 +31,7 @@ position = Vector2( -1, 0 )
 script = ExtResource( 4 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( 587, 150 )
+position = Vector2( 4590, -25 )
 
 [node name="UI" parent="." instance=ExtResource( 9 )]
 
@@ -39,16 +39,17 @@ position = Vector2( 587, 150 )
 script = ExtResource( 3 )
 
 [node name="Fin" type="Area2D" parent="."]
+position = Vector2( 2521, -533 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fin"]
-position = Vector2( 5835, 375 )
+position = Vector2( 7403, 735 )
 shape = SubResource( 26 )
 
 [node name="Boss" parent="." instance=ExtResource( 7 )]
-position = Vector2( 5657, 377 )
+position = Vector2( 12059, -45 )
 
 [node name="PatrolPoint 1" type="Node2D" parent="."]
-position = Vector2( 0, 2 )
+position = Vector2( 4015, -179 )
 
 [node name="patrol_points" type="Position2D" parent="PatrolPoint 1" groups=["patrol_points"]]
 position = Vector2( 1604, 563 )
@@ -63,19 +64,19 @@ position = Vector2( 2030, 136 )
 position = Vector2( 2145, 557 )
 
 [node name="EnemyJelly" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1865, 276 )
+position = Vector2( 5880, 95 )
 script = ExtResource( 10 )
 
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1873, 583 )
+position = Vector2( 5888, 402 )
 script = ExtResource( 11 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1860, 71 )
+position = Vector2( 5875, -110 )
 script = ExtResource( 11 )
 
 [node name="PatrolPoint Up" type="Node2D" parent="."]
-position = Vector2( 104, -61 )
+position = Vector2( 4119, -242 )
 
 [node name="PatrolUp" type="Position2D" parent="PatrolPoint Up" groups=["PatrolUp"]]
 position = Vector2( 2050, -367 )
@@ -96,19 +97,19 @@ position = Vector2( 3038, -342 )
 position = Vector2( 2053, -807 )
 
 [node name="EnemyJellyup" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2688, -780 )
+position = Vector2( 6703, -961 )
 script = ExtResource( 20 )
 
 [node name="EnemyJellyup2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2705, -546 )
+position = Vector2( 6720, -727 )
 script = ExtResource( 20 )
 
 [node name="Enemyup" parent="." instance=ExtResource( 8 )]
-position = Vector2( 239, 411 )
+position = Vector2( 6937, -846 )
 script = ExtResource( 18 )
 
 [node name="PatrolPoint Down" type="Node2D" parent="."]
-position = Vector2( -30, -10 )
+position = Vector2( 3985, -191 )
 
 [node name="Patroldown" type="Position2D" parent="PatrolPoint Down" groups=["PatrolDown"]]
 position = Vector2( 4230, 176 )
@@ -126,15 +127,15 @@ position = Vector2( 3594, 463 )
 position = Vector2( 4689, 101 )
 
 [node name="Enemydown" parent="." instance=ExtResource( 8 )]
-position = Vector2( 3820, 349 )
+position = Vector2( 7835, 168 )
 script = ExtResource( 19 )
 
 [node name="EnemyJellydown" parent="." instance=ExtResource( 5 )]
-position = Vector2( 4359, 345 )
+position = Vector2( 8374, 164 )
 script = ExtResource( 17 )
 
 [node name="PatrolPoint Bunder" type="Node2D" parent="."]
-position = Vector2( -29, 12 )
+position = Vector2( 3986, -169 )
 
 [node name="patrol0" type="Position2D" parent="PatrolPoint Bunder" groups=["patrolO"]]
 position = Vector2( 5774, 120 )
@@ -155,19 +156,20 @@ position = Vector2( 5068, 166 )
 position = Vector2( 5386, -25 )
 
 [node name="Barrel" parent="." instance=ExtResource( 6 )]
-position = Vector2( 816, 179 )
+position = Vector2( 8647, -134 )
 collision_layer = 15
 collision_mask = 15
 
 [node name="Barrel2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 3394, 67 )
+position = Vector2( 7409, -114 )
 collision_layer = 15
 collision_mask = 15
 
 [node name="Power_Up" parent="." instance=ExtResource( 24 )]
-position = Vector2( 1140, 160 )
+position = Vector2( 5155, -21 )
 
 [node name="Monolog" type="Area2D" parent="."]
+visible = false
 position = Vector2( 598, 323 )
 collision_layer = 15
 collision_mask = 15
@@ -181,7 +183,7 @@ stream = ExtResource( 21 )
 
 [node name="Kontilemap" type="TileMap" parent="."]
 show_behind_parent = true
-position = Vector2( -31, -2557 )
+position = Vector2( 3984, -2738 )
 tile_set = ExtResource( 12 )
 format = 1
 tile_data = PoolIntArray( -131073, 0, 0, 1441812, 7, 0, 1441832, 18, 0, 1441852, 8, 0, 2293795, 13, 0, 2359331, 14, 0, 2359371, 536870925, 0, 2424907, 536870925, 0, 2490368, 5, 0, 2490388, 6, 0, 2490403, 536870927, 0, 2490408, 4, 0, 2490428, 10, 0, 2490442, 9, 0 )

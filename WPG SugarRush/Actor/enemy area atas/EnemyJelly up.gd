@@ -59,12 +59,13 @@ func handle_hit():
 	set_HP(health_stat.health)
 	if health_stat.health == 0:	
 		is_dead = true
+		emit_signal("progress")
 		speed = 0
 		yield(get_tree().create_timer(1.0), "timeout")
 		queue_free()
-		if main_node.jumlah_musuh != null:
-			main_node.jumlah_musuh -= 1
-			emit_signal("progress")
+		#if main_node.jumlah_musuh != null:
+			#main_node.jumlah_musuh -= 1
+			
 		var drop_chance = 0.5
 		var random_number = randf()
 		if random_number < drop_chance:
@@ -95,6 +96,7 @@ func _ready():
 	get_patrol_points()
 	choose_random_point()
 	HP.hide()
+	connect("progress",get_parent().get_node("UI/Progres"),"_enemy_killed_M_J")
  
 func set_HP(health):
 	HP.value = health_stat.health 

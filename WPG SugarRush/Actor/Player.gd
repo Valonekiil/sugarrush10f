@@ -11,7 +11,7 @@ signal rilot(yesnt)
 signal CDash(dur)
 
 export (PackedScene) var Bullet
-export (int) var speed = 800
+export (int) var speed = 200
 export (float) var shoot_cooldown = 3 #0.5
 export (int) var dash_speed = 250 # Kecepatan dash
 export (float) var dash_duration = 0.7 # Durasi dash dalam detik
@@ -174,7 +174,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("shoot") and can_shoot:
 		shoot()
 		
-	if event.is_action_released("skill")and PShots > 0:
+	if event.is_action_released("skill")and PShots > 0 and can_shoot:
 		skill(Vector2(0,0))
 		skill(Vector2(-12,25))
 		skill(Vector2(12,-25))

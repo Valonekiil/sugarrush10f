@@ -44,9 +44,9 @@ align = 1
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -174.0
-margin_top = -9.0
+margin_top = -21.0
 margin_right = 194.0
-margin_bottom = 14.0
+margin_bottom = 2.0
 custom_fonts/font = SubResource( 3 )
 text = "Made by TEAM 10F"
 align = 1
@@ -55,26 +55,20 @@ align = 1
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -448.0
-margin_top = 40.0
+margin_top = 26.0
 margin_right = 432.0
-margin_bottom = 63.0
+margin_bottom = 49.0
 custom_fonts/font = SubResource( 3 )
 text = "Fony Revindasari Sebagai Dosen Pembimbing"
 align = 1
-
-[node name="kosong" type="Label" parent="."]
-visible = false
-margin_right = 40.0
-margin_bottom = 14.0
-text = "Ter"
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 11.0
-margin_top = 83.0
+margin_top = 69.0
 margin_right = -19.0
-margin_bottom = -86.0
+margin_bottom = -63.0
 columns = 3
 
 [node name="Label" type="Label" parent="GridContainer"]
@@ -198,3 +192,28 @@ margin_bottom = 181.0
 size_flags_horizontal = 6
 custom_fonts/font = ExtResource( 2 )
 text = "Enviroment Artist"
+
+[node name="Label16" type="Label" parent="GridContainer"]
+margin_top = 185.0
+margin_right = 342.0
+margin_bottom = 218.0
+custom_fonts/font = ExtResource( 2 )
+text = "Rida Handayani"
+
+[node name="Label17" type="Label" parent="GridContainer"]
+margin_left = 354.0
+margin_top = 185.0
+margin_right = 552.0
+margin_bottom = 218.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 2 )
+text = "52223600028"
+
+[node name="Label18" type="Label" parent="GridContainer"]
+margin_left = 573.0
+margin_top = 185.0
+margin_right = 861.0
+margin_bottom = 218.0
+size_flags_horizontal = 6
+custom_fonts/font = ExtResource( 2 )
+text = "Character Artist"
