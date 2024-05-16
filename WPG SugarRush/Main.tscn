@@ -39,14 +39,14 @@ position = Vector2( 4590, -25 )
 script = ExtResource( 3 )
 
 [node name="Fin" type="Area2D" parent="."]
-position = Vector2( 2521, -533 )
+position = Vector2( 2485, -569 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fin"]
 position = Vector2( 7403, 735 )
 shape = SubResource( 26 )
 
 [node name="Boss" parent="." instance=ExtResource( 7 )]
-position = Vector2( 12059, -45 )
+position = Vector2( 9414, 221 )
 
 [node name="PatrolPoint 1" type="Node2D" parent="."]
 position = Vector2( 4015, -179 )
@@ -186,7 +186,7 @@ show_behind_parent = true
 position = Vector2( 3984, -2738 )
 tile_set = ExtResource( 12 )
 format = 1
-tile_data = PoolIntArray( -131073, 0, 0, 1441812, 7, 0, 1441832, 18, 0, 1441852, 8, 0, 2293795, 13, 0, 2359331, 14, 0, 2359371, 536870925, 0, 2424907, 536870925, 0, 2490368, 5, 0, 2490388, 6, 0, 2490403, 536870927, 0, 2490408, 4, 0, 2490428, 10, 0, 2490442, 9, 0 )
+tile_data = PoolIntArray( -131073, 0, 0, 1441812, 7, 0, 1441832, 18, 0, 1441852, 8, 0, 2293795, 13, 0, 2359331, 14, 0, 2359371, 536870925, 0, 2424907, 536870925, 0, 2490368, 5, 0, 2490388, 6, 0, 2490403, 536870927, 0, 2490408, 4, 0, 2490428, 10, 0, 2490442, 9, 0, 2490443, 536870934, 0, 3342376, 536870928, 0 )
 
 [connection signal="player_fired_bullet" from="Player" to="BulletManager" method="_on_Player_player_fired_bullet"]
 [connection signal="body_entered" from="Fin" to="." method="_on_Fin_body_entered"]
