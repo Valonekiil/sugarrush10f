@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hiyoshi - Sad Hop Bot - Moody - 23 Apr 2024 15.54 2024-05-05 13_50.mp3-4042f38230da3655d8ca7b02d9543431.mp3str"
+
+[deps]
+
+source_file="res://Audio/BGM/hiyoshi - Sad Hop Bot - Moody - 23 Apr 2024 15.54 2024-05-05 13_50.mp3"
+dest_files=[ "res://.import/hiyoshi - Sad Hop Bot - Moody - 23 Apr 2024 15.54 2024-05-05 13_50.mp3-4042f38230da3655d8ca7b02d9543431.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

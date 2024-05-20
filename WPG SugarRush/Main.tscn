@@ -31,7 +31,7 @@ position = Vector2( -1, 0 )
 script = ExtResource( 4 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( 4590, -25 )
+position = Vector2( 9340, 198 )
 
 [node name="UI" parent="." instance=ExtResource( 9 )]
 
@@ -39,14 +39,14 @@ position = Vector2( 4590, -25 )
 script = ExtResource( 3 )
 
 [node name="Fin" type="Area2D" parent="."]
-position = Vector2( 2485, -569 )
+position = Vector2( 3623, -541 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fin"]
 position = Vector2( 7403, 735 )
 shape = SubResource( 26 )
 
 [node name="Boss" parent="." instance=ExtResource( 7 )]
-position = Vector2( 9414, 221 )
+position = Vector2( 11880, -528 )
 
 [node name="PatrolPoint 1" type="Node2D" parent="."]
 position = Vector2( 4015, -179 )
