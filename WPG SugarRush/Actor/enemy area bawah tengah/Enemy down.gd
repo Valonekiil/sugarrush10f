@@ -55,13 +55,12 @@ func handle_hit():
 	set_HP(health_stat.health)
 	if health_stat.health == 0:	
 		is_dead = true
-		emit_signal("progress")
 		speed = 0
 		yield(get_tree().create_timer(1.0), "timeout")
 		queue_free()
 		if main_node.jumlah_musuh != null:
 			main_node.jumlah_musuh -= 1
-			#emit_signal("progress")
+			emit_signal("progress")
 		var drop_chance = 0.5
 		var random_number = randf()
 		if random_number < drop_chance:

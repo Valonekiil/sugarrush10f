@@ -6,7 +6,7 @@ signal summon_minions
 onready var end_of_gun = $EndOfGun
 onready var gun_direction = $GunDirection
 onready var ceri_scene = preload("res://Boss/Cherry.tscn")
-onready var HPBar = $HPBar
+onready var HPBar = $layer/HPBar
 onready var minion_spawn_positions = [
 	$MinionSpawnPosition1,
 	$MinionSpawnPosition2,

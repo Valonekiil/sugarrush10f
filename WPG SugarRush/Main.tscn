@@ -1,11 +1,10 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Actor/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Script/BulletManager.gd" type="Script" id=3]
 [ext_resource path="res://Script/Main.gd" type="Script" id=4]
 [ext_resource path="res://Actor/EnemyJelly.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Barrel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Boss/Boss.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Actor/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Actor/EnemyJelly.gd" type="Script" id=10]
@@ -31,22 +30,30 @@ position = Vector2( -1, 0 )
 script = ExtResource( 4 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( 9340, 198 )
-
-[node name="UI" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4581, -16 )
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
 
+[node name="UI" parent="." instance=ExtResource( 9 )]
+
 [node name="Fin" type="Area2D" parent="."]
-position = Vector2( 3623, -541 )
+position = Vector2( 2482, -555 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fin"]
 position = Vector2( 7403, 735 )
 shape = SubResource( 26 )
 
-[node name="Boss" parent="." instance=ExtResource( 7 )]
-position = Vector2( 11880, -528 )
+[node name="Fin2" type="Area2D" parent="."]
+position = Vector2( 2482, -555 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fin2"]
+position = Vector2( 7403, 735 )
+shape = SubResource( 26 )
 
 [node name="PatrolPoint 1" type="Node2D" parent="."]
 position = Vector2( 4015, -179 )
@@ -127,11 +134,11 @@ position = Vector2( 3594, 463 )
 position = Vector2( 4689, 101 )
 
 [node name="Enemydown" parent="." instance=ExtResource( 8 )]
-position = Vector2( 7835, 168 )
+position = Vector2( 8419, 381 )
 script = ExtResource( 19 )
 
 [node name="EnemyJellydown" parent="." instance=ExtResource( 5 )]
-position = Vector2( 8374, 164 )
+position = Vector2( 8379, 163 )
 script = ExtResource( 17 )
 
 [node name="PatrolPoint Bunder" type="Node2D" parent="."]
@@ -190,4 +197,5 @@ tile_data = PoolIntArray( -131073, 0, 0, 1441812, 7, 0, 1441832, 18, 0, 1441852,
 
 [connection signal="player_fired_bullet" from="Player" to="BulletManager" method="_on_Player_player_fired_bullet"]
 [connection signal="body_entered" from="Fin" to="." method="_on_Fin_body_entered"]
+[connection signal="body_entered" from="Fin2" to="." method="_on_Fin_body_entered"]
 [connection signal="body_entered" from="Monolog" to="." method="_on_Monolog_body_entered"]

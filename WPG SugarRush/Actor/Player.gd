@@ -11,7 +11,7 @@ signal rilot(yesnt)
 signal CDash(dur)
 
 export (PackedScene) var Bullet
-export (int) var speed = 200
+export (int) var speed = 400 #200 org
 export (float) var shoot_cooldown = 3 #0.5
 export (int) var dash_speed = 250 # Kecepatan dash
 export (float) var dash_duration = 0.7 # Durasi dash dalam detik
