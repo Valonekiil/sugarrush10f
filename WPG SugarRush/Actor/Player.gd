@@ -100,12 +100,17 @@ func _process(delta: float):
 	gun_node.look_at(mouse_position)
 	shotgun.look_at(mouse_position)
 	
-	if is_skill_active:
-		shotgun.visible = true
+	if is_dead:
 		gun_node.visible = false
-	else:
 		shotgun.visible = false
-		gun_node.visible = true
+	else:
+		# Menampilkan/menyembunyikan sprite GunNode dan Shotgun berdasarkan is_skill_active
+		if is_skill_active:
+			shotgun.visible = true
+			gun_node.visible = false
+		else:
+			shotgun.visible = false
+			gun_node.visible = true
 
 	# Periksa apakah mouse berada di sisi kanan atau kiri sprite player
 	var player_to_mouse_vector = mouse_position - global_position

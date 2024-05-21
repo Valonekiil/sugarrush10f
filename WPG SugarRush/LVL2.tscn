@@ -296,12 +296,12 @@ script = ExtResource( 15 )
 position = Vector2( 3201, 275 )
 script = ExtResource( 13 )
 
-[node name="EnemyOut3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 3476, 469 )
+[node name="EnemyOut2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 3183, 601 )
 script = ExtResource( 13 )
 
-[node name="EnemyOut2" parent="EnemyOut3" instance=ExtResource( 11 )]
-position = Vector2( -293, 132 )
+[node name="EnemyOut3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 3476, 469 )
 script = ExtResource( 13 )
 
 [node name="EnemyJellyOut" parent="." instance=ExtResource( 10 )]
