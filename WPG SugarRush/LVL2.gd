@@ -46,10 +46,6 @@ func _on_HP_Boss_body_entered(body):
 		$Boss/layer/HPBar.show()
 		$Block/Block_boss.disabled = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _on_Fin_body_entered(body):
 	if body is Player:

@@ -18,7 +18,13 @@ func _process(delta):
 		motion = position.direction_to(player.position) * speed
 	else:
 		pass
+
 	motion = move_and_slide(motion)
+	
+	if motion != Vector2.ZERO:
+		$Sprite.play("walk")
+	else:
+		$Sprite.play("idle")
 
 func handle_hit():
 	health -= 1

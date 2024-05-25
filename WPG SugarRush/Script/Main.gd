@@ -19,6 +19,7 @@ onready var EBar = $UI/Progres/ELbar
 onready var Etx = $UI/Progres/PGbox/PGLeft
 onready var Emax = $UI/Progres/PGbox/PGMax
 onready var PGR = $UI/Progres
+onready var dial = $UI/DialogueBox
 
 func _ready():
 	player.connect("player_fired_bullet", bullet_manager, "handle_bullet_spawned")
@@ -51,6 +52,8 @@ func _ready():
 		Emax.text = str(max_musuh)
 		
 	GameSetting.tutor = true
+	dial.connect("dialogue_started", self, "_DialogueBox_dialogue_started")
+	dial.connect("dialogue_ended", self, "_DialogueBox_dialogue_ended")
 	
 
 func _on_enemy_spawn_power_up(power_up_instance):
@@ -61,19 +64,7 @@ func _on_Fin_body_entered(body:KinematicBody2D):
 		if jumlah_musuh <= 0:
 			get_tree().change_scene("res://LVL2.tscn")
 
-
-
 func _on_Monolog_body_entered(body):
 	if body is Player:
-		print("cek tes")
-		var dialog = AcceptDialog.new()
-		dialog.dialog_text = "Selamat datang di area ini!"
-		dialog.window_title = "Dialog Penyambutan"
-		dialog.popup_centered()
+		dial.start('start')
 
-
-
-func _on_HP_Boss_body_entered(body):
-	if body is Player:
-		$Boss/layer/HPBar.show()
-		$Block/Block_boss.disabled = false

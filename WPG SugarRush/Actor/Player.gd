@@ -213,8 +213,6 @@ func skill(off: Vector2):
 		emit_signal("player_fired_bullet", bullet_instance, gun_direction.global_position,direction)
 		yield(get_tree().create_timer(0.3),"timeout")
 		is_skill_active = false
-		
-		
 
 func shoot():
 	if can_shoot:
@@ -236,7 +234,6 @@ func shoot():
 		$Shot_sfx.play(0.30)
 
 func on_Player_Heal(heal: int):
-	print("Signal Received")
 	if hp < max_hp:
 		hp += heal
 		emit_signal("life_changed",hp)
@@ -244,7 +241,8 @@ func on_Player_Heal(heal: int):
 func handle_hit():
 	if not is_invincible:
 		if not is_dead:
-			hp -= 1
+			yield(get_tree().create_timer(1.0), "timeout")
+			hp -= 0
 			emit_signal("life_changed", hp)
 			if hp <= 0:
 				is_dead = true

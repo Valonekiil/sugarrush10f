@@ -78,7 +78,7 @@ func handle_hit():
 	
 
 func handle_shooting(delta):
-	if player.is_in_group("Player") and can_fire:
+	if player and can_fire:
 		var bullet_instance = bullet_scene.instance()
 		var direction = (player.get_global_transform().origin - end_of_gun.get_global_transform().origin).normalized()
 		emit_signal("enemy_fired_bullet", bullet_instance, end_of_gun.global_position, direction)

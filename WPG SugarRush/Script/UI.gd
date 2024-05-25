@@ -40,7 +40,12 @@ func _on_ContinueB_pressed():
 		get_tree().change_scene("res://Tutorial.tscn")
 	else:
 		get_tree().change_scene("res://Main.tscn")
+		
+func _on_DialogueBox_dialogue_started(Id):
+	Id == 'start'
+	print("Dialog started")
+	get_tree().paused = true
 
-
-
-
+func _on_DialogueBox_dialogue_ended():
+	print("Dialog ended")
+	get_tree().paused = false

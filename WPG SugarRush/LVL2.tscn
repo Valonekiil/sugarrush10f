@@ -277,7 +277,7 @@ height = 134.0
 script = ExtResource( 14 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( 1042, 477 )
+position = Vector2( 6198, 435 )
 
 [node name="UI" parent="." instance=ExtResource( 2 )]
 
@@ -313,14 +313,13 @@ position = Vector2( 3937, 616 )
 script = ExtResource( 12 )
 
 [node name="Boss" parent="." instance=ExtResource( 16 )]
-visible = false
-position = Vector2( 6673, 326 )
+position = Vector2( 6648, 435 )
 
 [node name="MinionSpawnPosition1" type="Position2D" parent="Boss"]
-position = Vector2( -101, 329 )
+position = Vector2( -138, 154 )
 
 [node name="MinionSpawnPosition2" type="Position2D" parent="Boss"]
-position = Vector2( -150, -55 )
+position = Vector2( -139, -76 )
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true

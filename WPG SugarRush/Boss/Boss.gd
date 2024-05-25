@@ -16,7 +16,8 @@ var max_health = 10
 var health = max_health
 var player = null
 var fire_rate = 0.5
-var is_invincible = false  # Variabel baru untuk mengontrol fase invincibility
+var is_invincible = false
+var is_dead = false  # Variabel baru untuk mengontrol fase invincibility
 var minions_alive = 0 
 var has_summoned_minions = false
 
@@ -25,8 +26,11 @@ var current_state
 var single_shot_timer = 0.0
 var single_shot_interval = 1.0 / fire_rate
 var spread_shot_timer = 0.0
-var spread_shot_interval = 15.0
+var spread_shot_interval = 10.0
 var spread_angle_range = PI / 3  # Rentang sudut untuk serangan spread (60 derajat)
+var has_fired_spread_shot = false
+var spread_shot_bullet_count = 0
+var max_spread_shot_bullets = 8 # Jumlah maksimum peluru yang akan ditembakkan dalam satu spread shot
 
 
 enum States {SINGLE_SHOT, SPREAD_SHOT}
@@ -42,15 +46,28 @@ func _ready():
 	connect("summon_minions", self, "summon_minions")
 	has_summoned_minions = false 
 
-func _physics_process(delta):
+func _process(delta):
 	if player:
 		state_machine[current_state].call_func(delta)
+
+	if is_dead:
+		$Sprite.play("dead")
+	elif not is_invincible and health <= 0 and not is_dead:
+		$Sprite.play("Hit")
+	elif current_state == States.SPREAD_SHOT:
+		$Sprite.play("spread")
+	elif current_state == States.SINGLE_SHOT and not current_state == States.SPREAD_SHOT:
+		$Sprite.play("shot")
+	else:
+		$Sprite.play("idle")
 
 func handle_hit():
 	if not is_invincible:
 		health -= 1
 		HPBar.value = health
 		if health <= 0:
+			is_dead = true
+			yield(get_tree().create_timer(4.0), "timeout")
 			queue_free()
 			GameSetting.bos_killed = true
 		elif health <= max_health / 2 and not has_summoned_minions:
@@ -66,17 +83,27 @@ func single_shot_state(delta):
 		shoot_single_bullet()
 
 	spread_shot_timer += delta
-	if spread_shot_timer >= spread_shot_interval and not is_invincible:  # Tambahkan kondisi untuk memeriksa fase invincibility
+	if spread_shot_timer >= spread_shot_interval and not is_invincible:
 		spread_shot_timer = 0.0
 		current_state = States.SPREAD_SHOT
+		has_fired_spread_shot = false
 
 func spread_shot_state(delta):
-	shoot_spread_bullets(8)
-	current_state = States.SINGLE_SHOT
-	spread_shot_timer = 0.0
+	if not has_fired_spread_shot:
+		if spread_shot_bullet_count < max_spread_shot_bullets:
+			shoot_spread_bullets(1)
+			spread_shot_bullet_count += 1
+			yield(get_tree().create_timer(0.7), "timeout") 
+			has_fired_spread_shot = true
+			# Jeda 0.5 detik untuk memainkan animasi spread
+	else:
+		current_state = States.SINGLE_SHOT
+		spread_shot_timer = 0.0
+		has_fired_spread_shot = false
+		spread_shot_bullet_count = 0
 
 func shoot_single_bullet():
-	if player.is_in_group("Player"):
+	if player:
 		var ceri_instance = ceri_scene.instance()
 		var direction = (player.get_global_transform().origin - end_of_gun.get_global_transform().origin).normalized()
 		emit_signal("enemy_fired_bullet", ceri_instance, end_of_gun.global_position, direction)
@@ -111,3 +138,4 @@ func _on_DetectionZone_body_entered(body):
 func _on_DetectionZone_body_exited(body):
 	if body == player:
 		player = null
+
