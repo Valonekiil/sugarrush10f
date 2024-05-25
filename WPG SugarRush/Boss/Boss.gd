@@ -31,6 +31,8 @@ var spread_angle_range = PI / 3  # Rentang sudut untuk serangan spread (60 deraj
 var has_fired_spread_shot = false
 var spread_shot_bullet_count = 0
 var max_spread_shot_bullets = 8 # Jumlah maksimum peluru yang akan ditembakkan dalam satu spread shot
+var spread_shot_bullet_timer = 0.0
+var spread_shot_bullet_interval = 0.2  # Interval 0.2 detik antara setiap peluru tebaran
 
 
 enum States {SINGLE_SHOT, SPREAD_SHOT}
@@ -44,7 +46,8 @@ func _ready():
 	HPBar.max_value = max_health
 	HPBar.value = health
 	connect("summon_minions", self, "summon_minions")
-	has_summoned_minions = false 
+	has_summoned_minions = false
+	$Sprite.connect("animation_finished", self, "_on_animation_finished")
 
 func _process(delta):
 	if player:
@@ -89,18 +92,18 @@ func single_shot_state(delta):
 		has_fired_spread_shot = false
 
 func spread_shot_state(delta):
-	if not has_fired_spread_shot:
-		if spread_shot_bullet_count < max_spread_shot_bullets:
+	spread_shot_bullet_timer += delta
+	if spread_shot_bullet_count < max_spread_shot_bullets:
+		if spread_shot_bullet_timer >= spread_shot_bullet_interval:
+			spread_shot_bullet_timer = 0.0
 			shoot_spread_bullets(1)
 			spread_shot_bullet_count += 1
-			yield(get_tree().create_timer(0.7), "timeout") 
-			has_fired_spread_shot = true
-			# Jeda 0.5 detik untuk memainkan animasi spread
 	else:
 		current_state = States.SINGLE_SHOT
 		spread_shot_timer = 0.0
 		has_fired_spread_shot = false
 		spread_shot_bullet_count = 0
+		spread_shot_bullet_timer = 0.0
 
 func shoot_single_bullet():
 	if player:
@@ -139,3 +142,7 @@ func _on_DetectionZone_body_exited(body):
 	if body == player:
 		player = null
 
+func _on_Sprite_animation_finished(anim_name):
+	if anim_name == "shot":
+		shoot_single_bullet()
+		single_shot_timer = single_shot_interval - 0.5
