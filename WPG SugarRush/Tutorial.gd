@@ -42,12 +42,8 @@ func _ready():
 		GameSetting.can_esc = false
 		get_tree().paused = !get_tree().paused
 		
-		
-		
 	else:
 		pass
-	$UI/Map/Cur_Map.text = "Tutorial"
-	$UI/Map.play("Show")
 
 func _on_enemy_spawn_power_up(power_up_instance):
 	power_up_instance.connect("Powered", player, "on_Player_Powered")
@@ -57,21 +53,17 @@ func _on_MC_Skip_Btn_pressed():
 	get_tree().paused = !get_tree().paused
 	$Area2D/musuh_conf.hide()
 
-
-
 func _on_musuh_conf_col_body_entered(body:KinematicBody2D)-> void:
 	if body is Player and showed and GameSetting.tutor == false :
 		get_tree().paused = !get_tree().paused
 		P.show()
 		GameSetting.can_esc = false
 
-
 func _on_Enemy_close_btn_pressed():
 	showed = false
 	P.hide()
 	GameSetting.can_esc = true
 	get_tree().paused = !get_tree().paused
-
 
 func _on_Tele_to_Main_body_entered(body):
 	if body is Player and jumlah_musuh == 0:

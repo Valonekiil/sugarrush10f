@@ -186,7 +186,6 @@ margin_top = -57.5
 margin_right = 692.0
 margin_bottom = -12.4998
 custom_fonts/font = SubResource( 16 )
-text = "Test"
 align = 1
 
 [node name="PauseB" type="Button" parent="."]
@@ -642,8 +641,11 @@ margin_top = -14.0
 text = "TARGET"
 
 [node name="DialogueBox" type="PopupDialog" parent="."]
-margin_right = 300.0
-margin_bottom = 72.0
+visible = true
+margin_left = 200.0
+margin_top = 481.0
+margin_right = 784.0
+margin_bottom = 593.0
 rect_min_size = Vector2( 300, 72 )
 popup_exclusive = true
 script = ExtResource( 15 )
@@ -658,3 +660,5 @@ custom_effects = [ SubResource( 13 ) ]
 [connection signal="pressed" from="PausedM/MainMB" to="." method="_on_MainMB_pressed"]
 [connection signal="pressed" from="Life4/DiedM/ContinueB" to="." method="_on_ContinueB_pressed"]
 [connection signal="pressed" from="Life4/DiedM/MainMB" to="." method="_on_MainMB_pressed"]
+[connection signal="dialogue_ended" from="DialogueBox" to="." method="_on_DialogueBox_dialogue_ended"]
+[connection signal="dialogue_started" from="DialogueBox" to="." method="_on_DialogueBox_dialogue_started"]

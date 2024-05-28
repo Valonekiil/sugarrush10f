@@ -5,7 +5,7 @@ onready var CSSG = $Katsin_SG_Anim
 func _ready():
 	$Play_Button.hide()
 	$Full.hide()
-	hide_all()
+	#hide_all()
 	CSSG.play("Full_CC")
 	#hide_all()
 

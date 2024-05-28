@@ -1,7 +1,9 @@
 extends KinematicBody2D
 
+
 signal enemy_fired_bullet(bullet, position, direction)
 signal summon_minions
+signal current_animation_finished(anim_name)
 
 onready var end_of_gun = $EndOfGun
 onready var gun_direction = $GunDirection
@@ -31,23 +33,22 @@ var spread_angle_range = PI / 3  # Rentang sudut untuk serangan spread (60 deraj
 var has_fired_spread_shot = false
 var spread_shot_bullet_count = 0
 var max_spread_shot_bullets = 8 # Jumlah maksimum peluru yang akan ditembakkan dalam satu spread shot
-var spread_shot_bullet_timer = 0.0
-var spread_shot_bullet_interval = 0.2  # Interval 0.2 detik antara setiap peluru tebaran
 
-
-enum States {SINGLE_SHOT, SPREAD_SHOT}
+enum States {IDLE, SINGLE_SHOT, SPREAD_SHOT}
 
 func _ready():
 	state_machine = {
+		States.IDLE: funcref(self, "idle_state"),
 		States.SINGLE_SHOT: funcref(self, "single_shot_state"),
 		States.SPREAD_SHOT: funcref(self, "spread_shot_state")
 	}
-	current_state = States.SINGLE_SHOT
+	current_state = States.IDLE
 	HPBar.max_value = max_health
 	HPBar.value = health
 	connect("summon_minions", self, "summon_minions")
 	has_summoned_minions = false
-	$Sprite.connect("animation_finished", self, "_on_animation_finished")
+	$Sprite.connect("animation_finished", self, "_on_Sprite_animation_finished")
+	connect("current_animation_finished", self,  "_on_shot_animation_finished")
 
 func _process(delta):
 	if player:
@@ -79,6 +80,13 @@ func handle_hit():
 			current_state = States.SINGLE_SHOT  # Mengubah state menjadi SINGLE_SHOT
 			emit_signal("summon_minions")
 
+func idle_state(delta):
+	# Menghentikan semua aktivitas saat idle
+	single_shot_timer = 0.0
+	spread_shot_timer = 0.0
+	spread_shot_bullet_count = 0
+	has_fired_spread_shot = false
+
 func single_shot_state(delta):
 	single_shot_timer += delta
 	if single_shot_timer >= single_shot_interval:
@@ -92,18 +100,17 @@ func single_shot_state(delta):
 		has_fired_spread_shot = false
 
 func spread_shot_state(delta):
-	spread_shot_bullet_timer += delta
 	if spread_shot_bullet_count < max_spread_shot_bullets:
-		if spread_shot_bullet_timer >= spread_shot_bullet_interval:
-			spread_shot_bullet_timer = 0.0
+		if not has_fired_spread_shot:
+			yield(get_tree().create_timer(0.7), "timeout")
 			shoot_spread_bullets(1)
 			spread_shot_bullet_count += 1
+			has_fired_spread_shot = true
 	else:
 		current_state = States.SINGLE_SHOT
 		spread_shot_timer = 0.0
 		has_fired_spread_shot = false
 		spread_shot_bullet_count = 0
-		spread_shot_bullet_timer = 0.0
 
 func shoot_single_bullet():
 	if player:
@@ -137,12 +144,17 @@ func _on_minion_died():
 func _on_DetectionZone_body_entered(body):
 	if body is Player:
 		player = body
+		current_state = States.SINGLE_SHOT  # Mengubah state menjadi SINGLE_SHOT
 
 func _on_DetectionZone_body_exited(body):
 	if body == player:
 		player = null
 
-func _on_Sprite_animation_finished(anim_name):
+func _on_Sprite_animation_finished() -> void:
+	var anim_name = $Sprite.animation
 	if anim_name == "shot":
-		shoot_single_bullet()
-		single_shot_timer = single_shot_interval - 0.5
+		emit_signal("current_animation_finished", anim_name)
+		
+func _on_shot_animation_finished(anim_name: String) -> void:
+	if anim_name == "shot":
+		single_shot_state(0.0)
