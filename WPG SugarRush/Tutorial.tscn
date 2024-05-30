@@ -199,19 +199,15 @@ position = Vector2( 223, 584 )
 script = ExtResource( 6 )
 
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
-visible = false
 position = Vector2( 871, 423 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 8 )]
-visible = false
 position = Vector2( 868, 573 )
 
 [node name="EnemyJelly" parent="." instance=ExtResource( 9 )]
-visible = false
 position = Vector2( 1059, 482 )
 
 [node name="Power_Up" parent="." instance=ExtResource( 7 )]
-visible = false
 position = Vector2( 423, 628 )
 
 [node name="Tutorial_pop" parent="." instance=ExtResource( 11 )]

@@ -12,9 +12,11 @@ onready var EBar = $UI/Progres/ELbar
 onready var Etx = $UI/Progres/PGbox/PGLeft
 onready var Emax = $UI/Progres/PGbox/PGMax
 onready var P = $musuh_conf_col/Enemy_pop
-
+onready var c_an =$UI/Map
+onready var c_tx =$UI/Map/Cur_Map
 
 func _ready():
+	BgmTes.play_bgm(1)
 	player.connect("player_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemy.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	PU1.connect("Powered",player,"on_Player_Powered")
@@ -44,6 +46,8 @@ func _ready():
 		
 	else:
 		pass
+	c_tx.text = "Alley"
+	c_an.play("Show")
 
 func _on_enemy_spawn_power_up(power_up_instance):
 	power_up_instance.connect("Powered", player, "on_Player_Powered")

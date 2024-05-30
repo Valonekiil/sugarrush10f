@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Actor/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Audio/SFX/Destroy Keranjang1.wav" type="AudioStream" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://Actor/enemy area atas/Enemy up.gd" type="Script" id=18]
 [ext_resource path="res://Actor/enemy area bawah tengah/Enemy down.gd" type="Script" id=19]
 [ext_resource path="res://Actor/enemy area atas/EnemyJelly up.gd" type="Script" id=20]
-[ext_resource path="res://TesLagu/Rough Trail (Rimworld OST) - Copy.mp3" type="AudioStream" id=21]
 [ext_resource path="res://TesLagu/BGMTes.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Asset/Item/Power_Up.tscn" type="PackedScene" id=24]
 
@@ -155,7 +154,7 @@ position = Vector2( 5068, 166 )
 position = Vector2( 5386, -25 )
 
 [node name="Barrel" parent="." instance=ExtResource( 6 )]
-position = Vector2( 4373, 166 )
+position = Vector2( 8666, -379 )
 collision_layer = 15
 collision_mask = 15
 
@@ -168,6 +167,7 @@ collision_mask = 15
 position = Vector2( 5155, -21 )
 
 [node name="Monolog" type="Area2D" parent="."]
+visible = false
 position = Vector2( 4747, 105 )
 collision_layer = 15
 collision_mask = 15
@@ -176,12 +176,10 @@ collision_mask = 15
 position = Vector2( 23.5, 1 )
 shape = SubResource( 27 )
 
-[node name="BGMTes" parent="." instance=ExtResource( 22 )]
-stream = ExtResource( 21 )
-
 [node name="Barrel_sfx" parent="." instance=ExtResource( 22 )]
 stream = ExtResource( 2 )
 volume_db = 10.0
+autoplay = false
 
 [node name="Kontilemap" type="TileMap" parent="."]
 show_behind_parent = true
@@ -192,4 +190,3 @@ tile_data = PoolIntArray( -131073, 0, 0, 1441812, 7, 0, 1441832, 18, 0, 1441852,
 
 [connection signal="player_fired_bullet" from="Player" to="BulletManager" method="_on_Player_player_fired_bullet"]
 [connection signal="body_entered" from="Fin" to="." method="_on_Fin_body_entered"]
-[connection signal="body_entered" from="Monolog" to="." method="_on_Monolog_body_entered"]

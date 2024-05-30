@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sid - pabrik 30 Mei 2024 18.54.wav-6fc4f8335378e914b1e8250d4d574efe.sample"
+
+[deps]
+
+source_file="res://Audio/BGM/Sid - pabrik 30 Mei 2024 18.54.wav"
+dest_files=[ "res://.import/Sid - pabrik 30 Mei 2024 18.54.wav-6fc4f8335378e914b1e8250d4d574efe.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

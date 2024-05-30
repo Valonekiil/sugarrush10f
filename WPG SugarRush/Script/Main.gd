@@ -20,8 +20,11 @@ onready var Etx = $UI/Progres/PGbox/PGLeft
 onready var Emax = $UI/Progres/PGbox/PGMax
 onready var PGR = $UI/Progres
 onready var dial = $UI/DialogueBox
+onready var c_an =$UI/Map
+onready var c_tx =$UI/Map/Cur_Map
 
 func _ready():
+	BgmTes.play_bgm(1)
 	player.connect("player_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemy.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
 	enemyup.connect("enemy_fired_bullet", bullet_manager, "handle_bullet_spawned")
@@ -55,7 +58,8 @@ func _ready():
 	GameSetting.tutor = true
 	dial.connect("dialogue_started", self, "_DialogueBox_dialogue_started")
 	dial.connect("dialogue_ended", self, "_DialogueBox_dialogue_ended")
-	
+	c_tx.text = "Downtown"
+	c_an.play("Show")
 
 func _on_enemy_spawn_power_up(power_up_instance):
 	power_up_instance.connect("Powered", player, "on_Player_Powered")

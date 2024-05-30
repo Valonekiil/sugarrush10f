@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://UI/BG wpg.png" type="Texture" id=1]
 [ext_resource path="res://UI/button scale.png" type="Texture" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://UI/FPSLabel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://CreditM.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/logo improve.png" type="Texture" id=8]
-[ext_resource path="res://TesLagu/BGMTes.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Asset/IU/iya_mid_b.png" type="Texture" id=11]
 [ext_resource path="res://Asset/IU/Invis.png" type="Texture" id=12]
 [ext_resource path="res://Asset/IU/no_dark_b.png" type="Texture" id=13]
@@ -149,8 +148,6 @@ margin_bottom = 222.0
 [node name="FPSLabel" parent="." instance=ExtResource( 6 )]
 visible = false
 margin_right = 42.0
-
-[node name="BGMTes" parent="." instance=ExtResource( 9 )]
 
 [node name="Tutor_conf" type="Popup" parent="."]
 visible = true

@@ -2,11 +2,13 @@ extends Control
 
 onready var Option_Menu = $OptionM
 onready var CreditM = $CreditM
-onready var bgm = $BGMTes
 
+
+
+func _ready():
+	BgmTes.play_bgm(3)
 
 func _on_PlayB_pressed():
-	bgm.stop()
 	if GameSetting.tutor == false:
 		get_tree().change_scene("res://New_Katsin.tscn")
 		

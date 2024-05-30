@@ -1,6 +1,7 @@
 extends Node
 
 signal fps_displayed(value)
+onready var cur_p:int = 1 
 onready var tutor:bool = false
 onready var can_esc:bool = true
 onready var bos_killed = false
