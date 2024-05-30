@@ -100,6 +100,7 @@ func single_shot_state(delta):
 		has_fired_spread_shot = false
 
 func spread_shot_state(delta):
+	$spred.play()
 	if spread_shot_bullet_count < max_spread_shot_bullets:
 		if not has_fired_spread_shot:
 			yield(get_tree().create_timer(0.7), "timeout")
@@ -114,6 +115,7 @@ func spread_shot_state(delta):
 
 func shoot_single_bullet():
 	if player:
+		$single.play()
 		var ceri_instance = ceri_scene.instance()
 		var direction = (player.get_global_transform().origin - end_of_gun.get_global_transform().origin).normalized()
 		emit_signal("enemy_fired_bullet", ceri_instance, end_of_gun.global_position, direction)

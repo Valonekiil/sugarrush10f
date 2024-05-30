@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=2]
+[gd_scene load_steps=83 format=2]
 
 [ext_resource path="res://UI/HP_Bar_Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Boss/Boss.gd" type="Script" id=2]
@@ -77,6 +77,8 @@
 [ext_resource path="res://Boss/anim/spread/Boss Big throw4.png" type="Texture" id=75]
 [ext_resource path="res://Boss/anim/spread/Boss Big throw6.png" type="Texture" id=76]
 [ext_resource path="res://Boss/anim/spread/Boss Big throw8.png" type="Texture" id=77]
+[ext_resource path="res://Audio/SFX/Serangan satu.wav" type="AudioStream" id=78]
+[ext_resource path="res://Audio/SFX/Sid - Serangan Akeh 2024-05-28 20_17.wav" type="AudioStream" id=79]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -156,6 +158,14 @@ margin_bottom = 33.0
 rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 1 )
 value = 10.0
+
+[node name="spred" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 79 )
+bus = "SFX"
+
+[node name="single" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 78 )
+bus = "SFX"
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_DetectionZone_body_entered"]

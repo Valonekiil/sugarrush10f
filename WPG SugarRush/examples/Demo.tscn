@@ -75,6 +75,7 @@ initial_velocity_random = 0.5
 scale_amount_curve = SubResource( 1 )
 
 [node name="DialogueBox" type="PopupDialog" parent="."]
+visible = true
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5

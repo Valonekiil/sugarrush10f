@@ -237,17 +237,16 @@ func on_Player_Heal(heal: int):
 	if hp < max_hp:
 		hp += heal
 		emit_signal("life_changed",hp)
+		$heal_sfx.play()
 
 func handle_hit():
 	if not is_invincible:
 		if not is_dead:
-			yield(get_tree().create_timer(1.0), "timeout")
-			hp -= 0
+			hp -= 1
 			emit_signal("life_changed", hp)
 			if hp <= 0:
 				is_dead = true
 				speed = 0
-				yield(get_tree().create_timer(1.0), "timeout")
 				emit_signal("dead")
 				self.hide()
 	

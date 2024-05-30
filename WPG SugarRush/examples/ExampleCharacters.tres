@@ -18,14 +18,13 @@ nodes = {
 "offset": Vector2( 220, 0 ),
 "options": {
 0: {
+"condition": {
+},
 "link": "1_2",
 "text": ""
 }
 },
-"size": {
-"x": 200.0,
-"y": 255.0
-},
+"size": Vector2( 200, 255 ),
 "speaker": "Gerfg"
 },
 "1_2": {
@@ -33,29 +32,27 @@ nodes = {
 "offset": Vector2( 460, 0 ),
 "options": {
 0: {
+"condition": {
+},
 "link": "1_3",
 "text": ""
 }
 },
-"size": {
-"x": 200.0,
-"y": 255.0
-},
+"size": Vector2( 200, 255 ),
 "speaker": 0
 },
 "1_3": {
 "dialogue": "What's more you can even put character profiles to spice up the dialogue.",
 "offset": Vector2( 700, 0 ),
 "options": {
-"0": {
+0: {
+"condition": {
+},
 "link": "END",
 "text": ""
 }
 },
-"size": {
-"x": 200.0,
-"y": 255.0
-},
+"size": Vector2( 200, 255 ),
 "speaker": 1
 }
 }

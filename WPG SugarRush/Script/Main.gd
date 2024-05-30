@@ -37,7 +37,8 @@ func _ready():
 	var kobis = load("res://Asset/Item/Kobis.tscn").instance()
 	add_child(kobis)
 	kobis.connect("Healed", player, "on_Player_Heal")
-	
+	$Barrel.connect("sef",self,"son")
+	$Barrel2.connect("sef",self,"son")
 	var enemy_nodes = get_tree().get_nodes_in_group("Enemy")
 	
 	for enemy in enemy_nodes:
@@ -68,3 +69,6 @@ func _on_Monolog_body_entered(body):
 	if body is Player:
 		dial.start('start')
 
+func son():
+	print("Joss")
+	$Barrel_sfx.play()

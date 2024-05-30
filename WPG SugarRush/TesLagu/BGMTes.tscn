@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://TesLagu/Harvest Dawn_256k.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Audio/BGM/Complete1.wav" type="AudioStream" id=1]
 
 [node name="BGMTes" type="AudioStreamPlayer"]
 pause_mode = 2

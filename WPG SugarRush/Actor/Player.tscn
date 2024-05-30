@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Actor/Player.gd" type="Script" id=1]
 [ext_resource path="res://Asset/Actor/Josh/DB Shotgun  Arm.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Asset/Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Audio/SFX/Shitgun.mp3" type="AudioStream" id=10]
 [ext_resource path="res://Audio/SFX/Dash1.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/SFX/eating.wav" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1.27806, 23.84 )
@@ -110,6 +111,11 @@ bus = "SFX"
 
 [node name="Dash_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
+bus = "SFX"
+
+[node name="heal_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = 24.0
 bus = "SFX"
 
 [node name="PShots" type="Label" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://UI/BG wpg.png" type="Texture" id=1]
 [ext_resource path="res://UI/button scale.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://CreditM.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/logo improve.png" type="Texture" id=8]
 [ext_resource path="res://TesLagu/BGMTes.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Audio/BGM/Complete1.wav" type="AudioStream" id=10]
 [ext_resource path="res://Asset/IU/iya_mid_b.png" type="Texture" id=11]
 [ext_resource path="res://Asset/IU/Invis.png" type="Texture" id=12]
 [ext_resource path="res://Asset/IU/no_dark_b.png" type="Texture" id=13]
@@ -152,9 +151,9 @@ visible = false
 margin_right = 42.0
 
 [node name="BGMTes" parent="." instance=ExtResource( 9 )]
-stream = ExtResource( 10 )
 
 [node name="Tutor_conf" type="Popup" parent="."]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -165,6 +164,7 @@ margin_right = 164.5
 margin_bottom = 90.5
 
 [node name="TextureRect" type="TextureRect" parent="Tutor_conf"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
