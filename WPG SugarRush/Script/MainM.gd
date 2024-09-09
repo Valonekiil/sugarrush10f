@@ -33,9 +33,9 @@ func _on_TextureButton_pressed():
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://New_Katsin.tscn")
-
+	GameSetting.tutor = false
 
 
 func _on_Button2_pressed():
 	get_tree().change_scene("res://New_Katsin.tscn")
-	GameSetting.tutor = false
+	

@@ -12,7 +12,7 @@ onready var HP = $HPBar
 onready var main_node = $"/root/LVL2"
 onready var tilemap = preload("res://TileMap.tscn") 
 
-var speed = 50
+var speed = 100
 var motion = Vector2.ZERO
 var player = null
 var patrol_points = []
@@ -116,7 +116,7 @@ func patrol():
 			choose_random_point()
 
 func get_patrol_points():
-	var patrol_points_nodes = get_tree().get_nodes_in_group("patrol_points")
+	var patrol_points_nodes = get_tree().get_nodes_in_group("pabrik_points")
 	for point in patrol_points_nodes:
 		patrol_points.append(point.global_position)
 

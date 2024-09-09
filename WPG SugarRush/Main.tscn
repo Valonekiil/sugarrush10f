@@ -185,6 +185,9 @@ autoplay = false
 show_behind_parent = true
 position = Vector2( 3984, -2738 )
 tile_set = ExtResource( 12 )
+show_collision = true
+collision_layer = 15
+collision_mask = 15
 format = 1
 tile_data = PoolIntArray( -131073, 0, 0, 1441812, 7, 0, 1441832, 18, 0, 1441852, 8, 0, 2293795, 13, 0, 2359331, 14, 0, 2359371, 536870925, 0, 2424907, 536870925, 0, 2490368, 5, 0, 2490388, 6, 0, 2490403, 536870927, 0, 2490408, 4, 0, 2490428, 10, 0, 2490442, 9, 0, 2490443, 536870934, 0, 3342376, 536870928, 0 )
 

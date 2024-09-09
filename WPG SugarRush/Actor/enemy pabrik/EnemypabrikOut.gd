@@ -9,7 +9,7 @@ onready var main_node = $"/root/LVL2"
 signal progress
 signal spawn_power_up(power_up_instance)
 
-var speed = 100
+var speed = 150
 var motion = Vector2.ZERO
 var player = null
 var patrol_points = []
@@ -101,7 +101,7 @@ func patrol():
 			choose_random_point()
 
 func get_patrol_points():
-	var patrol_points_nodes = get_tree().get_nodes_in_group("patrol_points")
+	var patrol_points_nodes = get_tree().get_nodes_in_group("pabrik_points")
 	for point in patrol_points_nodes:
 		patrol_points.append(point.global_position)
 

@@ -54,4 +54,4 @@ func _on_HP_Boss_body_entered(body):
 func _on_Fin_body_entered(body):
 	if body is Player:
 		if jumlah_musuh <= 0:
-			get_tree().change_scene("res://CreditM.tscn")
+			get_tree().change_scene("res://Ending.tscn")
